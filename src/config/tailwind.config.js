@@ -1,4 +1,4 @@
-// Tailwind 配置文件
+// Tailwindcss 配置文件
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // darkMode: 'class',  // 暗黑模式配置，默认跟随系统
@@ -10,18 +10,16 @@ module.exports = {
     extend: {
       colors: {
         // 主题颜色
-        'primary': 'var(--q-primary)',
-        'primary-default': 'var(--q-primary-default)',
+        'primary': 'var(--primary-color)',
 
         // 文字颜色
+        'default': 'var(--color-default)',
         'title': 'var(--title-color)',
-        'default': 'var(--default-color)',
-        'default-black': 'var(--default-black-color)',
         'second': 'var(--second-color)',
         'third': 'var(--third-color)',
 
         // 背景颜色
-        'body-bg': 'var(--body-bg-color)',
+        'body-bg': 'var(--color-body-bg)',
         'panel-bg': 'var(--panel-bg-color)',
 
         // 标题栏颜色

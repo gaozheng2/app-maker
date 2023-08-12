@@ -1,0 +1,99 @@
+/*  【平台样式文件】/【主题样式】  */
+
+/*  亮色主题样式  */
+:root {
+  /*  主色  */
+  --primary-color: #009EFF; /* 主色：color="primary" | text-primary | bg-primary */
+  --el-color-primary: #009EFF !important; /* 更改 Element 主色 */
+  // Element 主题色 #409EFF，Quasar 主题色 #1976D2，轩宇 UI 主题色 #009EFF
+
+  /*  文字颜色  */
+  --color-text: theme('colors.neutral.700'); /* 默认文字颜色：text-default */
+  --title-color: theme('colors.neutral.800'); /* 标题文字颜色：text-title */
+  --second-color: theme('colors.neutral.500'); /* 次要文字颜色：text-secondary */
+  --third-color: theme('colors.neutral.400'); /* 禁用文字颜色：text-third */
+
+  /*  背景颜色  */
+  --color-body-bg: #FFFFFF; /* 页面背景色：bg-body-bg */
+  --panel-bg-color: #F2F3F5; /* 栏目背景色：bg-panel-bg */
+
+  /*  标题栏颜色：默认标题栏无色  */
+  --header-color: var(--default-color); /* 标题栏文字颜色：text-header */
+  --header-bg-color: var(--body-bg-color); /* 标题栏背景色：bg-header-bg */
+  --header-active-color: var(--q-primary); /* 标题栏激活项文字颜色：text-header-active */
+
+  /*  菜单栏颜色  */
+  --menu-active-color: #009EFF; /* 菜单栏选中文字颜色：text-menu-active */
+  --menu-active-bg-color: #e6f6ff; /* 菜单栏选中背景色：bg-menu-active-bg */
+  --menu-active-border-color: #409EFF; /* 菜单栏选中边框色：border-menu-active-border */
+
+  /*  表格颜色  */
+  --table-title-color: #4E5969; /* 表格标题行文字颜色：text-title */
+  --table-title-bg-color: #F5F7FA; /* 表格标题栏背景色：bg-table-title-bg */
+  --table-even-bg-color: #FBFCFD; /* 表格偶数行背景色：even:bg-table-even-bg */
+  --table-hover-bg-color: #F2FAFF; /* 表格行悬浮颜色：hover:bg-table-hover-bg */
+
+  /*  线条颜色  */
+  --line-color: theme('colors.neutral.200'); /* 线条颜色：border-line */
+
+  /*  辅助颜色  */
+  --q-accent: theme('colors.yellow.400'); /* 强调色：color="accent" | text-accent | bg-accent */
+  --accent-color: theme('colors.yellow.400'); /* 强调色：color="accent" | text-accent | bg-accent */
+  --q-secondary: theme('colors.neutral.500'); /* 次要色：color="secondary" | text-secondary | bg-secondary */
+  --q-positive: theme('colors.emerald.500'); /* 成功色：color="success" | text-success | bg-success */
+  --q-negative: theme('colors.red.500'); /* 错误色：color="error" | text-error | bg-error */
+  --q-info: theme('colors.cyan.500'); /* 信息色：color="info" | text-info | bg-info */
+  --q-warning: theme('colors.amber.500'); /* 警告色：color="warning" | text-warning | bg-warning */
+
+  /*  滚动条颜色  */
+  --scroll-bar-color: transparent;
+  --scroll-thumb-color: theme('colors.neutral.300');
+  --scroll-thumb-hover-color: theme('colors.neutral.400');
+  --scroll-thumb-active-color: theme('colors.neutral.400');
+}
+
+
+/*  暗色主题样式  */
+.dark { // 手动模式
+  //@media (prefers-color-scheme: dark) { // 自动模式
+  //  :root {
+
+  /*  文字颜色  */
+  --color-text: theme('colors.neutral.100'); /* 默认文字颜色：text-default */
+  --title-color: #FFFFFF; /* 标题文字颜色：text-title */
+  --second-color: theme('colors.neutral.400'); /* 次要文字颜色：text-secondary */
+  --third-color: theme('colors.neutral.500'); /* 禁用文字颜色：text-third */
+
+  /*  背景颜色  */
+  --color-body-bg: theme('colors.neutral.900'); /* 页面背景色：bg-body-bg */
+  --panel-bg-color: theme('colors.neutral.800'); /* 菜单栏背景色：bg-panel-bg */
+
+  /*  标题栏颜色  */
+  --header-bg-color: var(--body-bg-color) #{!important}; /* 标题栏背景色：bg-header-bg */
+
+  /*  菜单栏颜色  */
+  --menu-active-color: #FFFFFF; /* 菜单栏选中文字颜色：text-menu-active */
+  --menu-active-bg-color: #3485D6; /* 菜单栏选中背景色：bg-menu-active-bg */
+  /*--menu-active-border-color: #007CC9; !* 菜单栏选中边框色：border-menu-active-border *!*/
+
+  /*  表格颜色  */
+  --table-title-color: theme('colors.neutral.200'); /* 表格标题行文字颜色：text-title */
+  --table-title-bg-color: theme('colors.neutral.700'); /* 表格标题栏背景色：bg-table-title-bg */
+  --table-even-bg-color: theme('colors.neutral.800'); /* 表格偶数行背景色：even:bg-table-even-bg */
+  --table-hover-bg-color: theme('colors.neutral.600'); /* 表格行悬浮颜色：hover:bg-table-hover-bg */
+
+  /*  线条颜色  */
+  --line-color: theme('colors.neutral.700'); /* 线条颜色：border-line */
+
+  /*  辅助颜色  */
+  --q-accent: theme('colors.yellow.500'); /* 强调色：color="accent" | text-accent | bg-accent */
+  --accent-color: theme('colors.yellow.500'); /* 强调色：color="accent" | text-accent | bg-accent */
+
+  /*  滚动条颜色  */
+  --scroll-bar-color: transparent;
+  --scroll-thumb-color: theme('colors.neutral.700');
+  --scroll-thumb-hover-color: theme('colors.neutral.600');
+  --scroll-thumb-active-color: theme('colors.neutral.600');
+}
+
+//}

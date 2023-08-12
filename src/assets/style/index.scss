@@ -1,26 +1,72 @@
 /*  【平台样式文件】/【通用样式】  */
-//@import "theme.scss";
-//@import "theme.scss";
-//@import "animation.scss";
-//@import "quasar.scss";
-
-// 引入字体和图标文件
-// roboto 字体
-@import '../fonts/roboto-font-latin-ext.css';
-// 图标字体
-@import '../fonts/material-icons.css';
-// 图标（边框）字体
-@import '../fonts/material-icons-outlined.css';
-// 图标（圆角）字体
-@import '../fonts/material-icons-round.css';
+@import "theme.scss";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*  引入字体和图标文件  */
+@import '../fonts/roboto-font-latin-ext.css'; // roboto 字体
+@import '../fonts/material-icons.css'; // 图标字体
+@import '../fonts/material-icons-outlined.css'; // 图标（边框）字体
+@import '../fonts/material-icons-round.css'; // 图标（圆角）字体
+
+
 @layer base {
+  /*  全局样式  */
   html {
+    color: var(--color-text);
+    background: var(--color-body-bg);
+    transition: color 0.5s, background-color 0.5s;
+
     font-family: Roboto, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu,
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /*  标题样式  */
+  h1 {
+    @apply text-title text-3xl font-bold;
+  }
+
+  h2 {
+    @apply text-title text-2xl font-bold;
+  }
+
+  h3 {
+    @apply text-title text-xl font-bold;
+  }
+
+  h4 {
+    @apply text-title text-lg font-bold;
+  }
+
+  h5 {
+    @apply text-title text-base font-bold;
+  }
+
+  h6 {
+    @apply text-title text-sm font-bold;
+  }
+
+  /*  滚动条样式  */
+  ::-webkit-scrollbar {
+    @apply h-2 w-2;
+    background-color: var(--scroll-bar-color);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+    background-color: var(--scroll-thumb-color);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scroll-thumb-hover-color);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background-color: var(--scroll-thumb-active-color);
   }
 }
