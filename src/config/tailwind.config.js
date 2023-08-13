@@ -1,7 +1,7 @@
 // Tailwindcss 配置文件
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // darkMode: 'class',  // 暗黑模式配置，默认跟随系统
+  // darkMode: 'class',  // 暗黑模式配置，默认跟随操作系统
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',
@@ -10,10 +10,10 @@ module.exports = {
     extend: {
       colors: {
         // 主题颜色
-        'primary': 'var(--primary-color)',
+        'primary': 'var(--color-primary)',
 
         // 文字颜色
-        'default': 'var(--color-default)',
+        'default': 'var(--color-text)',
         'title': 'var(--title-color)',
         'second': 'var(--second-color)',
         'third': 'var(--third-color)',
