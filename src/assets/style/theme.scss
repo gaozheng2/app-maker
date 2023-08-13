@@ -5,7 +5,7 @@
   /*  主色  */
   --color-primary: #009EFF; /* 主色：color="primary" | text-primary | bg-primary */
   --el-color-primary: #009EFF !important; /* 更改 Element 主色 */
-  // Element 主题色 #409EFF，Quasar 主题色 #1976D2，轩宇 UI 主题色 #009EFF
+  // Element 主题色 #409EFF，Quasar 主题色 #1976D2，轩宇主题色 #009EFF
 
   /*  文字颜色  */
   --color-text: theme('colors.neutral.700'); /* 默认文字颜色：text-default */
@@ -15,15 +15,16 @@
 
   /*  背景颜色  */
   --color-body-bg: #FFFFFF; /* 页面背景色：bg-body-bg */
-  --panel-bg-color: #F2F3F5; /* 栏目背景色：bg-panel-bg */
+  --color-panel-bg: #F2F3F5; /* 栏目背景色：bg-panel-bg */
 
   /*  标题栏颜色：默认标题栏无色  */
-  --header-color: var(--default-color); /* 标题栏文字颜色：text-header */
-  --header-bg-color: var(--body-bg-color); /* 标题栏背景色：bg-header-bg */
-  --header-active-color: var(--q-primary); /* 标题栏激活项文字颜色：text-header-active */
+  --color-header-text: #FFFFFF; /* 标题栏文字颜色：text-header */
+  --color-header-bg: #1976D2; /* 标题栏背景色：bg-header-bg */
+  //--header-active-color: var(--q-primary); /* 标题栏激活项文字颜色：text-header-active */
 
   /*  菜单栏颜色  */
-  --menu-active-color: #009EFF; /* 菜单栏选中文字颜色：text-menu-active */
+  --color-menu-bg: var(--color-panel-bg); /* 菜单栏背景色：bg-menu-bg */
+  --menu-active: #009EFF; /* 菜单栏选中文字颜色：text-menu-active */
   --menu-active-bg-color: #e6f6ff; /* 菜单栏选中背景色：bg-menu-active-bg */
   --menu-active-border-color: #409EFF; /* 菜单栏选中边框色：border-menu-active-border */
 
@@ -34,7 +35,7 @@
   --table-hover-bg-color: #F2FAFF; /* 表格行悬浮颜色：hover:bg-table-hover-bg */
 
   /*  线条颜色  */
-  --line-color: theme('colors.neutral.200'); /* 线条颜色：border-line */
+  --color-line: #DCDFE6; /* 线条颜色：border-line */
 
   /*  辅助颜色  */
   --q-accent: theme('colors.yellow.400'); /* 强调色：color="accent" | text-accent | bg-accent */
@@ -83,7 +84,7 @@
   --table-hover-bg-color: theme('colors.neutral.600'); /* 表格行悬浮颜色：hover:bg-table-hover-bg */
 
   /*  线条颜色  */
-  --line-color: theme('colors.neutral.700'); /* 线条颜色：border-line */
+  --color-line: #4C4D4F; /* 线条颜色：border-line */
 
   /*  辅助颜色  */
   --q-accent: theme('colors.yellow.500'); /* 强调色：color="accent" | text-accent | bg-accent */

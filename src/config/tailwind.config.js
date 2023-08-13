@@ -23,8 +23,8 @@ module.exports = {
         'panel-bg': 'var(--panel-bg-color)',
 
         // 标题栏颜色
-        'header': 'var(--header-color)',
-        'header-bg': 'var(--header-bg-color)',
+        'header': 'var(--color-header-text)',
+        'header-bg': 'var(--color-header-bg)',
         'header-active': 'var(--header-active-color)',
 
         // 菜单栏颜色
@@ -39,7 +39,7 @@ module.exports = {
         'table-hover-bg': 'var(--table-hover-bg-color)',
 
         // 线条颜色
-        'line': 'var(--line-color)',
+        'line': 'var(--color-line)',
 
         // 辅助颜色
         'accent': 'var(--accent-color)',
