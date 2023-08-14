@@ -14,17 +14,18 @@ module.exports = {
 
         // 文字颜色
         'default': 'var(--color-text)',
-        'title': 'var(--title-color)',
-        'second': 'var(--second-color)',
-        'third': 'var(--third-color)',
+        'title': 'var(--color-text-title)',
+        'second': 'var(--color-text-second)',
+        'third': 'var(--color-text-third)',
 
         // 背景颜色
         'body-bg': 'var(--color-body-bg)',
-        'panel-bg': 'var(--panel-bg-color)',
+        'panel-bg': 'var(--color-panel-bg)',
 
         // 标题栏颜色
         'header': 'var(--color-header-text)',
         'header-bg': 'var(--color-header-bg)',
+        'header-bg2': 'var(--color-header-bg2)',
         'header-active': 'var(--header-active-color)',
 
         // 菜单栏颜色

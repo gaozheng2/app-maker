@@ -1,4 +1,4 @@
-# Apps
+# AppMaker
 
 基于 Vue3 + Vite4 + Ts + Tailwindcss + Element-plus 构建的应用开发脚手架
 

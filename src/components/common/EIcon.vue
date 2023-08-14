@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import {ref, watch} from 'vue'
 
-const props = defineProps<{
-  name: string,  // 图标名称
-  size?: string,  // 图标大小，默认为 md - 16px
-}>()
+const props = withDefaults(defineProps<{
+  name: string,   // 图标名称
+  size?: string,  // 图标大小，默认为 16px
+}>(), {
+  size: '16px',
+})
 
 // 根据图标名称，判断图标类型
 // 默认为 filled 类型，o_ 开头的图标为 outlined 类型，r_ 开头的图标为 rounded 类型，s_ 开头的图标为 sharp 类型
@@ -28,7 +30,7 @@ watch(() => props.name, (val) => {
 </script>
 
 <template>
-  <i :class="`material-icons${iconType}`">
+  <i :class="`material-icons${iconType}`" :style="`font-size: ${size}`">
     {{ iconName }}
   </i>
 </template>
