@@ -20,7 +20,7 @@
   /*  标题栏颜色：默认标题栏无色  */
   --color-header-text: #FFFFFF; /* 标题栏文字颜色：text-header */
   --color-header-bg: #1976D2; /* 标题栏背景色：from-header-bg */
-  --color-header-bg2: #009EFF; /* 标题栏背景色2（渐变）：to-header-bg2 */
+  --color-header-bg2: theme('colors.teal.500'); /* 标题栏背景色2（渐变）：to-header-bg2 */
   //--header-active-color: var(--q-primary); /* 标题栏激活项文字颜色：text-header-active */
 
   /*  菜单栏颜色  */
