@@ -1,7 +1,8 @@
 <!--  【主页面布局】/【平台标题栏】  -->
 <script setup lang="ts">
-import {config} from '@/config/main.config'
 import MainHeaderTabs from '@/layouts/MainHeader/MainHeaderTabs.vue'
+import {config} from '@/config/main.config'
+import imgUrl from '/logo.svg'
 </script>
 
 <template>
@@ -11,8 +12,8 @@ import MainHeaderTabs from '@/layouts/MainHeader/MainHeaderTabs.vue'
     
     <!--  Logo和平台名称  -->
     <div class="flex items-center cursor-pointer" @click="$router.push('/')">
-      <el-image src="src/assets/images/logo/logo.png"
-                class="w-7 h-7 mr-4 hover:brightness-110" alt="logo"/>
+      <el-image :src="imgUrl"
+                class="w-7 h-7 mr-4 hover:brightness-110 drop-shadow" alt="logo"/>
       <h3 class="text-header">{{ config.title }}</h3>
     </div>
     

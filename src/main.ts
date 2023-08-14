@@ -4,7 +4,6 @@ import App from './App.vue'
 import router from './router'
 
 import './assets/style/index.scss'  // 自定义样式
-import 'element-plus/dist/index.css'  // element-plus 样式
 
 
 const app = createApp(App)

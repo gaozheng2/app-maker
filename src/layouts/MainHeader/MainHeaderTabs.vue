@@ -3,7 +3,6 @@
 import {onMounted, ref, watch} from 'vue'
 import {useRoute} from 'vue-router'
 import {useRouter} from 'vue-router'
-
 import {useElementSize} from '@vueuse/core'
 
 const $route = useRoute()
@@ -45,10 +44,9 @@ onMounted(() => {
         if (indicator) {
           indicator.style.left = `${left}px`
           
-          // 监听激活项的宽度，变化时动态更新标识条的宽度
+          // 使用 VueUse 的 useElementSize 监听激活项的宽度，变化时动态更新标识条的宽度
           const {width: activeWidth} = useElementSize(el)
-          const unWatch = watch(activeWidth, (width) => {
-            console.log('activeWidth', width + 32)
+          watch(activeWidth, (width) => {
             indicator.style.width = `${width + 32}px`  // 32px 为左右 padding 值
           }, {immediate: true})
         }

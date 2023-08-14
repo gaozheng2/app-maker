@@ -46,20 +46,11 @@
   --q-negative: theme('colors.red.500'); /* 错误色：color="error" | text-error | bg-error */
   --q-info: theme('colors.cyan.500'); /* 信息色：color="info" | text-info | bg-info */
   --q-warning: theme('colors.amber.500'); /* 警告色：color="warning" | text-warning | bg-warning */
-
-  /*  滚动条颜色  */
-  --scroll-bar-color: transparent;
-  --scroll-thumb-color: theme('colors.neutral.300');
-  --scroll-thumb-hover-color: theme('colors.neutral.400');
-  --scroll-thumb-active-color: theme('colors.neutral.400');
 }
 
 
 /*  暗色主题样式  */
-.dark { // 手动模式
-  //@media (prefers-color-scheme: dark) { // 自动模式
-  //  :root {
-
+.dark {
   /*  文字颜色  */
   --color-text: theme('colors.neutral.100'); /* 默认文字颜色：text-default */
   --title-color: #FFFFFF; /* 标题文字颜色：text-title */
@@ -90,12 +81,4 @@
   /*  辅助颜色  */
   --q-accent: theme('colors.yellow.500'); /* 强调色：color="accent" | text-accent | bg-accent */
   --accent-color: theme('colors.yellow.500'); /* 强调色：color="accent" | text-accent | bg-accent */
-
-  /*  滚动条颜色  */
-  --scroll-bar-color: transparent;
-  --scroll-thumb-color: theme('colors.neutral.700');
-  --scroll-thumb-hover-color: theme('colors.neutral.600');
-  --scroll-thumb-active-color: theme('colors.neutral.600');
 }
-
-//}
