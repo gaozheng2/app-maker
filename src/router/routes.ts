@@ -1,13 +1,13 @@
 //【平台路由表】
 import type {RouteRecordRaw} from 'vue-router'
-import {config} from '@/config/main.config'
 // import {appRoutes} from "@/apps/appStore/appRegister";
 
 export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('@/layouts/MainLayout.vue'),
-    meta: {title: config.title, isWhiteList: true},
+    // TODO: 系统标题和路由应从配置文件中读取
+    meta: {title: '应用开发平台', isWhiteList: true},
     children: [
       // ...appRoutes,  // 各 App 注册的路由
     ],

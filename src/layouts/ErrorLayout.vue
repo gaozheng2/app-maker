@@ -13,8 +13,8 @@
       </div>
       
       <div class="my-8 flex flex-col items-center">
-        <EIcon name="rocket" class="mb-3 text-5xl text-primary cursor-pointer hover:brightness-110"
-               @click="$router.push('/')"/>
+        <EIcon name="rocket" class="mb-3 text-primary cursor-pointer hover:brightness-110"
+               size="40px" @click="$router.push('/')"/>
         <el-button type="primary" @click="$router.push('/')" class="!font-bold">返回主页</el-button>
       </div>
     </div>

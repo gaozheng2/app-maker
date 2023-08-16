@@ -13,7 +13,7 @@ const $router = useRouter()
 const tabsData = [
   {index: '0', label: '', icon: 'home', to: '/', size: '22px'},  // 可自定义图标大小，默认 20px
   {index: '1', label: '组件库', icon: 'extension', to: '/'},
-  {index: '2', label: '应用预览', icon: 'widgets', to: '/'},
+  {index: '2', label: '应用库', icon: 'widgets', to: '/'},
   {index: '3', label: '应用开发', icon: 'api', to: '/'},
 ]
 
