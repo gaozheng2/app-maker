@@ -5,6 +5,22 @@ import {mainConfig} from '@/config/main.config'
 
 // 获取当前项目配置
 const {currentProject} = mainConfig
+
+// 设置标题行背景颜色
+console.log('currentProject', currentProject)
+if (currentProject?.headerTextColor) {
+  document.documentElement.style.setProperty('--color-header-text', currentProject!.headerTextColor)
+}
+if (currentProject?.headerBgColor) {
+  document.documentElement.style.setProperty('--color-header-bg', currentProject!.headerBgColor)
+  console.log('currentProject?.headerBgColor', currentProject?.headerBgColor)
+}
+if (currentProject?.headerBgColor2) {
+  console.log('currentProject?.headerBgColor2', currentProject?.headerBgColor2)
+  document.documentElement.style.setProperty('--color-header-bg2', currentProject!.headerBgColor2)
+}else{  // 如果没有设置第二个背景色，则全部使用第一个背景色
+    document.documentElement.style.setProperty('--color-header-bg2', currentProject!.headerBgColor)
+}
 </script>
 
 <template>

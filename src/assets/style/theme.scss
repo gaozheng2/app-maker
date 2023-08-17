@@ -4,7 +4,7 @@
 :root {
   /*  主色  */
   --color-primary: #009EFF; /* 主色：color="primary" | text-primary | bg-primary */
-  --el-color-primary: #009EFF !important; /* 更改 Element 主色 */
+  --el-color-primary: var(--color-primary) !important; /* 更改 Element 主色 */
   // Element 主题色 #409EFF，Quasar 主题色 #1976D2，轩宇主题色 #009EFF
 
   /*  文字颜色  */
@@ -21,7 +21,6 @@
   --color-header-text: #FFFFFF; /* 标题栏文字颜色：text-header */
   --color-header-bg: #1976D2; /* 标题栏背景色：from-header-bg */
   --color-header-bg2: theme('colors.teal.500'); /* 标题栏背景色2（渐变）：to-header-bg2 */
-  //--header-active-color: var(--q-primary); /* 标题栏激活项文字颜色：text-header-active */
 
   /*  菜单栏颜色  */
   --color-menu-bg: var(--color-panel-bg); /* 菜单栏背景色：bg-menu-bg */
