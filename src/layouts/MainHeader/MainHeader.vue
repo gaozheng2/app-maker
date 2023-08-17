@@ -1,10 +1,10 @@
 <!--  【主页面布局】/【平台标题栏】  -->
 <script setup lang="ts">
 import MainHeaderTabs from '@/layouts/MainHeader/MainHeaderTabs.vue'
-import {inject} from 'vue'
+import {mainConfig} from '@/config/main.config'
 
-// 加载当前项目配置
-const currentProject = inject<ProjectConfigType>('currentProject')
+// 获取当前项目配置
+const {currentProject} = mainConfig
 </script>
 
 <template>

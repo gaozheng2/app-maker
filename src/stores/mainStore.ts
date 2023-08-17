@@ -1,7 +1,6 @@
 //【平台数据仓库】
 import {defineStore} from 'pinia'
 import {mainConfig} from '@/config/main.config'
-import {projects} from '@/apps/appRegister'
 
 export const useMainStore = defineStore('main', {
   state: () => ({
@@ -9,12 +8,7 @@ export const useMainStore = defineStore('main', {
 
     // currentModule: <ModuleType | null>null,  // 当前模块信息
   }),
-  getters: {
-    // 当前项目配置
-    currentProject() {
-      return projects.find((item: ProjectConfigType) => item.name === mainConfig.currentProjectName)
-    }
-  },
+  getters: {},
 
   actions: {
     // 设置当前模块

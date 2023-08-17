@@ -1,26 +1,13 @@
 <!--  【布局】/【主页面布局】  -->
 <script setup lang="ts">
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'  // 引入 Element 中文语言包
-import MainHeader from '@/layouts/MainHeader/MainHeader.vue'
 import {ElConfigProvider} from 'element-plus'
-import {computed, provide} from 'vue'
+import MainHeader from '@/layouts/MainHeader/MainHeader.vue'
+import {computed} from 'vue'
 import {mainConfig} from '@/config/main.config'
-import {projects} from '@/apps/appRegister'
 
-const props = defineProps<{
-  project?: string,  // 当前项目名称
-}>()
-
-// 如果有 project 参数，则加载该项目配置
-// 否则根据平台配置的 currentProject 参数，加载对应的项目配置
-const currentProjectName = props.project ?? mainConfig.currentProjectName
-
-const currentProject = projects
-  .find((item: ProjectConfigType) => item.name === currentProjectName)
-
-
-// 将项目配置传递给子组件
-provide('currentProject', currentProject)
+// 获取当前项目配置
+const {currentProject} = mainConfig
 
 
 // 动态计算 App 页面高度
