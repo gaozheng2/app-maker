@@ -13,7 +13,7 @@ const {currentProject} = mainConfig
 // 动态计算 App 页面高度
 const appHeight = computed(() => {
   // TODO: 根据门户是否全屏，设置 App 页面高度
-  return `calc(100vh - ${currentProject?.headerHeight}px)`
+  return `calc(100vh - ${currentProject?.style.headerHeight}px)`
 })
 </script>
 
@@ -34,7 +34,7 @@ const appHeight = computed(() => {
         <!--  页面内容路由  -->
         <el-main class="!p-0">
           <el-scrollbar>
-            <div class="p-4" :style="`min-width: ${currentProject?.appMinWidth}px`">
+            <div class="p-4" :style="`min-width: ${currentProject?.style.appMinWidth}px`">
               <template v-for="item in 100">
                 <div>
                   <el-button type="primary">按钮</el-button>

@@ -1,20 +1,32 @@
 //【项目注册文件】
 import type {RouteRecordRaw} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
-import logoUrl from './assets/logo.png'  // 引入 Logo 图片
+import logoUrl from './assets/logo.png'  // 需要手动引入 Logo 图片
+import {appList} from './appList'
 
 // 基本配置
 const baseConfig: ProjectBaseConfigType = {
   name: 'NDQS',                 // 项目英文名称
-  title: '数字质量系统',          // 项目中文名称
+  title: '数字质量系统',           // 项目中文名称
   description: '新的数字质量系统',  // 项目描述
   version: '0.0.1',             // 项目版本号
   logo: logoUrl,                // 项目 Logo 的路径
+}
 
-  headerHeight: 48,             // 项目标题栏的高度
-  headerBgColor: '#1976D2',     // 项目标题栏的背景色，默认为 #1976D2
-  menuWidth: 300,               // 项目菜单栏的宽度
-  appMinWidth: 1080,            // 项目中 App 的最小宽度
+
+// 样式配置
+const styleConfig: ProjectStyleConfigType = {
+  ui: 'element',              // 项目 UI 库，element | quasar
+  theme: 'light',             // 项目主题，dark | light
+
+  headerHeight: 48,           // 项目标题栏的高度
+  menuWidth: 300,             // 项目菜单栏的宽度，0 为不需要菜单栏
+  appMinWidth: 1080,          // 项目中 App 的最小宽度
+
+  primaryColor: '#1976D2',    // 项目主色，用于主题色、按钮等
+  headerTextColor: '#FFFFFF', // 项目标题栏的文字颜色，默认为 #FFFFFF
+  headerBgColor: '#1976D2',   // 项目标题栏的背景色，默认为 #1976D2
+  // headerBgColor2: '#14B8A6',  // 项目标题栏的背景色2，用于显示渐变省略则不显示渐变
 }
 
 
@@ -47,13 +59,17 @@ const route: RouteRecordRaw = {
 }
 
 
-// 合成项目配置
+// 合成项目配置（不用更改）
 const project: ProjectConfigType = {
   ...baseConfig,                 // 基本配置
+  style: styleConfig,            // 样式配置
+
   env: mainConfig.env,           // 当前环境
   ...envConfig[mainConfig.env],  // 当前环境的配置
   previewEnv: envConfig.preview, // 预览环境的配置（用于在开发平台中预览应用）
+
   route,                         // 路由配置
+  appList,                       // 模块和应用列表
 }
 
 

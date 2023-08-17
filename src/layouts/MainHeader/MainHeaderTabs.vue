@@ -80,7 +80,7 @@ watch(() => $route.path, (path) => {
       >
         <EIcon :name="item.icon" :size="item.size ?? '20px'" class="text-xl"
                :class="{ 'mr-2': item.label.length > 0 }"/>
-        <span class="text-sm">
+        <span class="text-sm whitespace-nowrap">
           {{ item.label }}
         </span>
       </div>

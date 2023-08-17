@@ -46,6 +46,7 @@ const route: RouteRecordRaw = currentProject?.route
 
 // 2.加载当前项目的模块 modules
 // 3.扫描 apps 目录下的所有 module.ts 文件，获取模块配置集合 modules
+
 export {
   projects,
   route,
