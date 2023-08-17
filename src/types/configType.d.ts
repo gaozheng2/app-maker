@@ -53,7 +53,7 @@ declare global {
 
   // 应用列表项类型
   interface AppListItemType {
-    name: string,     // 应用名称
+    name: string,     // 应用名称（英文）
     type?: 'app' | 'group',  // 应用类型：app 应用 | group 应用组
     entry?: boolean,  // 是否为项目/模块的入口应用，每个模块只能有一个入口应用，项目只能有一个入口应用/模块
     ref?: string,     // 应用引用路径，可以引用应用库和其他项目中的成熟应用
@@ -61,9 +61,14 @@ declare global {
 
   // 模块列表项类型
   interface ModuleListItemType {
-    name: string,     // 模块名称
-    entry?: boolean,  // 是否为项目的入口模块，项目只能有一个入口模块/应用
-    ref?: string,     // 模块引用路径，可以引用应用库和其他项目中的成熟应用
+    name: string,       // 模块名称（英文）
+    title: string,      // 模块标题（中文）
+    icon: string,       // 模块图标
+    iconSize?: string,  // 模块图标大小，默认 20px
+    onlyIcon?: true,    // 在标题栏是否只显示图标（只适用于一级菜单）
+
+    entry?: boolean,    // 是否为项目的入口模块，项目只能有一个入口模块/应用
+    ref?: string,       // 模块引用路径，可以引用应用库和其他项目中的成熟应用
     apps?: AppListItemType[],  // 子应用列表
   }
 

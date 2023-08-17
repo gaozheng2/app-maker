@@ -4,21 +4,19 @@ import {onMounted, ref, watch} from 'vue'
 import {useRoute} from 'vue-router'
 import {useRouter} from 'vue-router'
 import {useElementSize} from '@vueuse/core'
+import {mainConfig} from '@/config/main.config'
 
 const $route = useRoute()
 const $router = useRouter()
 
 
+// 获取当前项目配置
+const {currentProject} = mainConfig
 // Tabs 数据
-const tabsData = [
-  {index: '0', label: '', icon: 'home', to: '/', size: '22px'},  // 可自定义图标大小，默认 20px
-  {index: '1', label: '组件库', icon: 'extension', to: '/'},
-  {index: '2', label: '应用库', icon: 'widgets', to: '/'},
-  {index: '3', label: '应用开发', icon: 'api', to: '/'},
-]
+const tabsData = currentProject!.appList!
 
 // 点击 Tab 时，更新激活项
-const activeIndex = ref(tabsData[0].index)
+const activeIndex = ref(tabsData[0].name)
 
 const onTabClick = (index: string) => {
   activeIndex.value = index
@@ -31,7 +29,7 @@ const refTabs = ref([])
 
 onMounted(() => {
   watch(activeIndex, (index) => {
-    const tab = tabsData.find(item => item.index === index)
+    const tab = tabsData.find(item => item.name === index)
     
     if (tab) {
       const el = refTabWrapper.value?.querySelector('.active') as HTMLElement
@@ -52,7 +50,7 @@ onMounted(() => {
         }
       }
       // 跳转到对应的路由
-      $router.push(tab.to)
+      // $router.push(tab.to)
     }
   }, {immediate: true, flush: 'post'})  // flush:post 等待 DOM 更新后，再执行 watch
 })
@@ -62,7 +60,7 @@ onMounted(() => {
 watch(() => $route.path, (path) => {
   const tab = tabsData.find(item => item.to === path)
   if (tab) {
-    activeIndex.value = tab.index
+    activeIndex.value = tab.name
   }
 })
 </script>
@@ -72,16 +70,16 @@ watch(() => $route.path, (path) => {
   <div ref="refTabWrapper" class="relative h-full pb-px flex items-center justify-center text-header">
     
     <!--  Tabs 列表  -->
-    <template v-for="item in tabsData" :key="item.label">
+    <template v-for="item in currentProject?.appList" :key="item.label">
       <div ref="refTabs" class="relative h-full px-4 flex items-center justify-center cursor-pointer
                   hover:bg-white/10"
-           :class="{ 'active': activeIndex === item.index }"
-           @click="onTabClick(item.index)"
+           :class="{ 'active': activeIndex === item.name }"
+           @click="onTabClick(item.name)"
       >
-        <EIcon :name="item.icon" :size="item.size ?? '20px'" class="text-xl"
-               :class="{ 'mr-2': item.label.length > 0 }"/>
+        <EIcon :name="item.icon" :size="item.iconSize ?? '20px'" class="text-xl"
+               :class="{ 'mr-2': item.title.length > 0 }"/>
         <span class="text-sm whitespace-nowrap">
-          {{ item.label }}
+          {{ item.title }}
         </span>
       </div>
     </template>
