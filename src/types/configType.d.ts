@@ -9,6 +9,7 @@ declare global {
     currentProjectName: string,  // 当前项目名称
     currentProject?: ProjectConfigType,  // 当前项目的配置，无需指定，系统运行时自动读取
     buildProjectName: string,  // 构建的项目名称，使用 npm 的 build-app 指令构建应用项目时使用
+    buildMode: 'project' | 'app',  // 构建模式：project 项目模式 / app 应用模式
   }
 
 

@@ -1,6 +1,6 @@
 <!--  【主页面布局】/【平台标题栏】  -->
 <script setup lang="ts">
-import MainHeaderTabs from '@/layouts/MainHeader/MainHeaderTabs.vue'
+import MainHeaderTabs from '@/layouts/ElementLayout/MainHeader/MainHeaderTabs.vue'
 import {mainConfig} from '@/config/main.config'
 
 // 获取当前项目配置
