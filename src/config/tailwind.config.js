@@ -1,7 +1,7 @@
 // Tailwindcss 配置文件
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // darkMode: 'class',  // 暗黑模式配置，默认跟随操作系统
+  darkMode: 'class',  // 暗黑模式配置，根据 body 的 class 属性来切换
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',

@@ -16,8 +16,8 @@ const baseConfig: ProjectBaseConfigType = {
 
 // 样式配置
 const styleConfig: ProjectStyleConfigType = {
-  ui: 'quasar',             // 项目 UI 库，element | quasar
-  theme: 'dark',             // 项目主题，dark | light
+  ui: 'element',             // 项目 UI 库，element | quasar
+  theme: 'Dark',             // 项目默认明/暗主题，Dark | Light | System
 
   headerHeight: 48,           // 项目标题栏的高度
   menuWidth: 300,             // 项目菜单栏的宽度，0 为不需要菜单栏

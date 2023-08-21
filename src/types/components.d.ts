@@ -7,15 +7,22 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    EBtnTheme: typeof import('./../components/button/EBtnTheme.vue')['default']
     EIcon: typeof import('./../components/common/EIcon.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
+    ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElDivider: typeof import('element-plus/es')['ElDivider']
+    ElDropdown: typeof import('element-plus/es')['ElDropdown']
+    ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
+    ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
     ElementLayout: typeof import('./../layouts/ElementLayout/ElementLayout.vue')['default']
     ElHeader: typeof import('element-plus/es')['ElHeader']
     ElImage: typeof import('element-plus/es')['ElImage']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
+    ElSwitch: typeof import('element-plus/es')['ElSwitch']
     ErrorLayout: typeof import('./../layouts/ErrorLayout.vue')['default']
     MainHeader: typeof import('./../layouts/ElementLayout/MainHeader/MainHeader.vue')['default']
     MainHeaderTabs: typeof import('./../layouts/ElementLayout/MainHeader/MainHeaderTabs.vue')['default']

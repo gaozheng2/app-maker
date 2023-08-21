@@ -17,7 +17,7 @@
   --color-body-bg: #FFFFFF; /* 页面背景色：bg-body-bg */
   --color-panel-bg: #F2F3F5; /* 栏目背景色：bg-panel-bg */
 
-  /*  标题栏颜色：默认标题栏无色  */
+  /*  标题栏颜色  */
   --color-header-text: #FFFFFF; /* 标题栏文字颜色：text-header */
   --color-header-bg: #1976D2; /* 标题栏背景色：from-header-bg */
   --color-header-bg2: theme('colors.teal.500'); /* 标题栏背景色2（渐变）：to-header-bg2 */
@@ -58,10 +58,11 @@
 
   /*  背景颜色  */
   --color-body-bg: theme('colors.neutral.900'); /* 页面背景色：bg-body-bg */
-  --panel-bg-color: theme('colors.neutral.800'); /* 菜单栏背景色：bg-panel-bg */
+  --color-panel-bg: theme('colors.neutral.800'); /* 菜单栏背景色：bg-panel-bg */
 
-  /*  标题栏颜色  */
-  --header-bg-color: var(--body-bg-color) #{!important}; /* 标题栏背景色：bg-header-bg */
+  /*  标题栏颜色：与页面背景色相同，不可自定义  */
+  --color-header-bg: var(--body-bg-color) !important; /* 标题栏背景色：from-header-bg */
+  --color-header-bg2: var(--body-bg-color) !important; /* 标题栏背景色2（渐变）：to-header-bg2 */
 
   /*  菜单栏颜色  */
   --menu-active-color: #FFFFFF; /* 菜单栏选中文字颜色：text-menu-active */
