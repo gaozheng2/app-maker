@@ -44,7 +44,7 @@ const {isDark} = useTheme()
           <div class="w-full h-full border-r border-line"/>
         </div>
         
-        管理员
+        <span class="whitespace-nowrap">管理员</span>
       </slot>
     </div>
   </el-header>

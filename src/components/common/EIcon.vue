@@ -16,13 +16,13 @@ let iconType = ref('')
 watch(() => props.name, (val) => {
   iconName.value = val
   
-  if (val.startsWith('o_')) {
+  if (val?.startsWith('o_')) {
     iconName.value = val.slice(2)
     iconType.value = '-outlined'
-  } else if (val.startsWith('r_')) {
+  } else if (val?.startsWith('r_')) {
     iconName.value = val.slice(2)
     iconType.value = '-round'
-  } else if (val.startsWith('s_')) {
+  } else if (val?.startsWith('s_')) {
     iconName.value = val.slice(2)
     iconType.value = '-sharp'
   }
