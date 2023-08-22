@@ -2,10 +2,10 @@
 import {computed, ref, watch} from 'vue'
 import {Dark} from 'quasar'  // 切换 Quasar 框架的暗色主题
 
-type ThemeType = 'Dark' | 'Light' | 'System'
+type ThemeType = 'dark' | 'light' | 'system'
 
 // 主题和颜色变量
-let theme = ref<ThemeType>(localStorage.theme || 'System')  // 明/暗主题，默认跟随系统
+let theme = ref<ThemeType>(localStorage.theme || 'system')  // 明/暗主题，默认跟随系统
 let isDark = ref<boolean>(false)  // 是否暗色主题
 
 

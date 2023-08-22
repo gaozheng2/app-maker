@@ -19,6 +19,7 @@ declare global {
    */
     // 项目基础配置类型
   interface ProjectBaseConfigType {
+    configVersion: string,    // 项目配置版本号，用于判断配置是否需要更新
     name: string,             // 项目中文名称
     title: string,            // 项目英文名称
     description: string,      // 项目描述
@@ -29,7 +30,7 @@ declare global {
   // 项目样式配置类型
   interface ProjectStyleConfigType {
     ui: 'element' | 'quasar', // 项目 UI 库，element | quasar
-    theme: ThemeType,         // 项目默认明/暗主题，Dark | Light | System
+    theme: ThemeType,         // 项目默认明/暗主题，dark | light | system
 
     headerHeight: number,     // 项目标题栏的高度
     menuWidth: number,        // 项目菜单栏的宽度
@@ -70,6 +71,12 @@ declare global {
     apps?: AppListItemType[],  // 子应用列表，只适用于模块
   }
 
+  // 构建应用列表类型
+  interface BuildListType {
+    include?: string[],  // 需要构建的应用列表，为空则构建全部应用
+    exclude?: string[],  // 不需要构建的应用列表，为空则构建全部应用
+  }
+
   // 项目配置类型，继承项目基础配置、环境配置类型
   interface ProjectConfigType extends ProjectBaseConfigType, EnvConfigItemType {
     env: string,            // 当前环境：development 开发环境 | production 生产环境 | preview 应用预览环境
@@ -77,5 +84,6 @@ declare global {
     previewEnv: EnvConfigItemType,  // 预览环境的配置
     route: RouteRecordRaw,  // 路由配置
     appList?: (ModuleListItemType | AppListItemType)[],  // 模块和应用列表
+    buildList?: BuildListType,  // 构建应用列表
   }
 }

@@ -34,6 +34,8 @@ const appHeight = computed(() => {
         <!--  页面内容路由  -->
         <el-main class="!p-0">
           <el-scrollbar>
+            <RouterPage/>
+            
             <div class="p-4" :style="`min-width: ${currentProject?.style.appMinWidth}px`">
               <template v-for="item in 100">
                 <div>

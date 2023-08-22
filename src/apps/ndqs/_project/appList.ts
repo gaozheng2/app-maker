@@ -1,5 +1,8 @@
 //【模块和应用列表】
 // 只有记录在列表中的模块和应用才会加载在项目中
+// 第一层为模块和一级应用，显示在标题行
+// 第二层为应用组和二级应用，显示在左侧菜单栏
+// 第三层为应用入口，显示在左侧菜单栏二级应用折叠菜单下
 
 const appList: AppListItemType[] = [
   {name: 'desktop', type: 'module', title: '工作台', icon: 'home', iconSize: '22px', onlyIcon: true,},  // 可自定义图标大小，默认 20px
@@ -10,4 +13,10 @@ const appList: AppListItemType[] = [
 ]
 
 
-export {appList}
+// 构建应用列表，默认构建全部应用，可通过 include 和 exclude 进行过滤
+const buildList: BuildListType = {
+  include: ['desktop', 'widgets', 'app-repo', 'app-dev', 'setting'],
+}
+
+
+export {appList, buildList}

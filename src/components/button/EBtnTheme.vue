@@ -12,7 +12,7 @@ theme.value = currentProject?.style.theme!
 // 点击明/暗主题切换按钮
 const onToggleTheme = () => {
   isDark.value = !isDark.value
-  theme.value = isDark.value ? 'Dark' : 'Light'
+  theme.value = isDark.value ? 'dark' : 'light'
 }
 </script>
 

@@ -19,6 +19,7 @@ declare module 'vue' {
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
+    EmptyPage: typeof import('./../components/page/EmptyPage.vue')['default']
     ErrorLayout: typeof import('./../layouts/ErrorLayout.vue')['default']
     MainHeader: typeof import('./../layouts/ElementLayout/MainHeader/MainHeader.vue')['default']
     MainHeaderTabItem: typeof import('./../layouts/ElementLayout/MainHeader/MainHeaderTabItem.vue')['default']

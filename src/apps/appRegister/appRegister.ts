@@ -43,6 +43,13 @@ mainConfig.currentProject = currentProject
 //（3）生成当前项目的路由，提供给 router
 const route: RouteRecordRaw = currentProject!.route
 
+// 自动生成空白页的路由
+route.children?.push({
+  path: 'empty',
+  name: 'empty',
+  component: () => import('@/components/page/EmptyPage.vue'),
+})
+console.log(route)
 
 //（4）设置当前项目的样式
 const {primaryColor, headerTextColor, headerBgColor, headerBgColor2} = currentProject!.style!

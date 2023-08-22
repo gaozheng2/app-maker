@@ -2,10 +2,11 @@
 import type {RouteRecordRaw} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
 import logoUrl from './assets/logo.svg'  // 需要手动引入 Logo 图片
-import {appList} from './appList'
+import {appList, buildList} from './appList'
 
 // 基本配置
 const baseConfig: ProjectBaseConfigType = {
+  configVersion: '1.0',       // 项目配置版本号，用于判断配置是否需要更新
   name: 'AppMaker',           // 项目英文名称
   title: '应用开发平台',        // 项目中文名称
   description: '用于快速开发微应用的脚手架，基于 Vue3 + Vite4 + Ts + Tailwindcss + Element-plus 构建',
@@ -17,7 +18,7 @@ const baseConfig: ProjectBaseConfigType = {
 // 样式配置
 const styleConfig: ProjectStyleConfigType = {
   ui: 'element',             // 项目 UI 库，element | quasar
-  theme: 'System',             // 项目默认明/暗主题，Dark | Light | System
+  theme: 'system',             // 项目默认明/暗主题，dark | light | system
 
   headerHeight: 48,           // 项目标题栏的高度
   menuWidth: 300,             // 项目菜单栏的宽度，0 为不需要菜单栏
@@ -70,6 +71,7 @@ const project: ProjectConfigType = {
 
   route,                         // 路由配置
   appList,                       // 模块和应用列表
+  buildList,                     // 构建应用列表
 }
 
 
