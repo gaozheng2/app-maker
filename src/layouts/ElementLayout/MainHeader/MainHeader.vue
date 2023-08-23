@@ -20,8 +20,8 @@ const {isDark} = useTheme()
     <!--  【插槽】左侧：Logo和平台名称  -->
     <slot name="logo">
       <div class="flex items-center cursor-pointer" @click="$router.push('/')">
-        <el-image :src="currentProject?.logo"
-                  class="w-7 h-7 mr-4 hover:brightness-110 drop-shadow" alt="logo"/>
+        <el-image :src="currentProject?.logo" alt="logo"
+                  class="w-7 h-7 mr-4 hover:brightness-110 drop-shadow"/>
         <h3 class="text-header whitespace-nowrap">{{ currentProject?.title }}</h3>
       </div>
     </slot>
@@ -40,11 +40,12 @@ const {isDark} = useTheme()
         <EBtnTheme/>
         
         <!--  分割线  -->
-        <div class="w-px h-full ml-2 mr-4 py-2">
+        <div class="w-px h-full mx-2 py-2">
           <div class="w-full h-full border-r border-line"/>
         </div>
         
-        <span class="whitespace-nowrap">管理员</span>
+        <!--  用户头像和下拉菜单  -->
+        <MainHeaderUser/>
       </slot>
     </div>
   </el-header>

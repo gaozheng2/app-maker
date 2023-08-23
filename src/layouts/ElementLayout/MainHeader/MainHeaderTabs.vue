@@ -1,5 +1,9 @@
 <!--  【平台标题栏】/【一级菜单 Tabs】  -->
 <script setup lang="ts">
+/**
+ * 根据当前项目配置 currentProject 中的应用列表 appList 属性，
+ * 自动根据其中的一级菜单生成 Tabs 数据
+ */
 import {onMounted, ref, watch} from 'vue'
 import {useRoute} from 'vue-router'
 import {useElementBounding} from '@vueuse/core'
@@ -42,7 +46,7 @@ onMounted(() => {
             const wrapperLeft = refTabWrapper.value?.getBoundingClientRect().left
             const left = activeLeft.value - (wrapperLeft ?? 0)
             indicator.style.left = `${left}px`
-            indicator.style.width = `${activeWidth.value}px`  // 32px 为左右 padding 值
+            indicator.style.width = `${activeWidth.value}px`
           }, {immediate: true})
         }
       }
@@ -53,11 +57,12 @@ onMounted(() => {
 
 // 监听路由变化，激活对应的 Tab
 watch(() => $route.name, (name) => {
-  const tab = tabsData.find(item => item.to === name)
+  const tab = tabsData.find(item => item.name === name)
+  
   if (tab) {
     activeIndex.value = tab.name
   }
-})
+}, {immediate: true})
 </script>
 
 <template>

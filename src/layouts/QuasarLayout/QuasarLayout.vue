@@ -1,6 +1,6 @@
 <!--  【布局】/【Quasar 布局】/【主页面布局】  -->
 <script setup lang="ts">
-import 'quasar/src/css/index.sass'  // 引入 Quasar 样式文件
+import 'quasar/src/css/index.sass'  // 引入 Quasar 样式
 </script>
 
 <template>

@@ -18,11 +18,12 @@ const $router = useRouter()
 const onTabClick = (item: AppListItemType) => {
   emit('clickTab', item.name)
   
-  // 跳转到对应的路由，如果没有配置路由，则跳转到 emptyPage 建设中应用
+  // 跳转到对应的路由，如果没有配置路由，则跳转到 empty 页面（应用建设中）
   try {
     $router.push({name: item.to ?? item.name})
   } catch (e) {
-    $router.push({name: 'empty', params: {appData: item}})
+    console.error('路由跳转失败', e)
+    $router.push({name: 'empty'})
   }
 }
 </script>

@@ -56,9 +56,9 @@ declare global {
 
   // 模块/应用列表项类型
   interface AppListItemType {
-    name: string,       // 模块/应用名称（英文）
+    name?: string,      // 模块/应用名称（英文），group 没有名称
     title: string,      // 模块/应用标题（中文）
-    icon: string,       // 模块/应用图标
+    icon?: string,      // 模块/应用图标，group 没有图标
     to?: string,        // 模块/应用路由路径
     type: 'module' | 'app' | 'group',  // 类型：module 模块 | app 应用 | group 应用组
 

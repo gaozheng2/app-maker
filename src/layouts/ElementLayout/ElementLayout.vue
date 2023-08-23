@@ -5,6 +5,7 @@ import {ElConfigProvider} from 'element-plus'
 import MainHeader from '@/layouts/ElementLayout/MainHeader/MainHeader.vue'
 import {computed} from 'vue'
 import {mainConfig} from '@/config/main.config'
+import 'element-plus/theme-chalk/dark/css-vars.css'  // 引入 Element 暗黑主题样式
 
 // 获取当前项目配置
 const {currentProject} = mainConfig
