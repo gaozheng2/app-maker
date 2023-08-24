@@ -8,7 +8,3 @@ import 'quasar/src/css/index.sass'  // 引入 Quasar 样式
     <q-btn color="primary">阿牛</q-btn>
   </div>
 </template>
-
-<style scoped lang="scss">
-
-</style>

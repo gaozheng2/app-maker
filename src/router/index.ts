@@ -1,6 +1,6 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
-import {route} from '@/apps/appRegister/appRegister'
+import {route} from '@/apps/_appRegister/appRegister'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),

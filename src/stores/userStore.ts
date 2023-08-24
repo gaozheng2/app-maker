@@ -4,17 +4,15 @@ import {defineStore} from 'pinia'
 
 export const useUserStore = defineStore('user', {
   state: () => ({
-    userId: 9527,
-
+    userId: 9527,       // 用户ID
+    userName: '管理员',  // 用户名称
+    userAvatar: '',     // 用户头像初始值
   }),
   getters: {
-    // 用户名称
-    userName: () => {
-      return '管理员'
-    },
+    // 用户头像，初始值为空时随机生成用户头像
+    avatar: (state) => {
+      if (state.userAvatar) return state.userAvatar
 
-    // 随机生成用户头像
-    avatar: () => {
       // 性别，随机0或1
       const random = Math.floor(Math.random() * 2)
       // 头像图片，随机1-14

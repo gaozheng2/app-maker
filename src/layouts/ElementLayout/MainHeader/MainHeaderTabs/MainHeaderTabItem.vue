@@ -16,7 +16,7 @@ const $router = useRouter()
 
 // 点击 Tab 时，向上派发事件，并跳转到对应路由
 const onTabClick = (item: AppListItemType) => {
-  emit('clickTab', item.name)
+  emit('clickTab', item.name!)
   
   // 跳转到对应的路由，如果没有配置路由，则跳转到 empty 页面（应用建设中）
   try {
@@ -37,7 +37,7 @@ const onTabClick = (item: AppListItemType) => {
          :class="{ 'active': active }"
          @click="onTabClick(itemData)"
     >
-      <EIcon :name="itemData.icon" :size="itemData.iconSize ?? '20px'" class="text-xl"/>
+      <EIcon :name="itemData.icon!" :size="itemData.iconSize ?? '20px'" class="text-xl"/>
       <span v-if="!itemData.onlyIcon" class="ml-2 text-sm whitespace-nowrap">
           {{ itemData.title }}
       </span>

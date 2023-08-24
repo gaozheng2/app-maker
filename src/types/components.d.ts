@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     EBtnTheme: typeof import('./../components/button/EBtnTheme.vue')['default']
+    EDropdownItem: typeof import('./../components/menu/EDropdownItem.vue')['default']
     EIcon: typeof import('./../components/common/EIcon.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']

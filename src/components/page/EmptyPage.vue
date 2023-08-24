@@ -6,7 +6,3 @@
 <template>
   <h1>{{ $route.meta.title ?? '应用' }}建设中...</h1>
 </template>
-
-<style scoped lang="scss">
-
-</style>

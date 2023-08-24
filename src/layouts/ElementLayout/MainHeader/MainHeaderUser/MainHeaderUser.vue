@@ -1,19 +1,20 @@
 <!--  【平台标题栏】/【用户头像和下拉菜单】  -->
 <script setup lang="ts">
 import type {DropdownInstance} from 'element-plus'
-import {computed, ref} from 'vue'
+import {ref} from 'vue'
 import {storeToRefs} from 'pinia'
 import {useUserStore} from '@/stores/userStore'
+import EDropdownItem from '@/components/menu/EDropdownItem.vue'
 
-// 获取用户信息和头像
-let {userName, avatar} = storeToRefs(useUserStore())
+// 获取用户名称
+let {userName} = storeToRefs(useUserStore())
 
 
 // 展开用户下拉菜单
 let isOpenUserMenu = ref(false)
 const refDropdown = ref<DropdownInstance>()
 
-const onClickUserMenu = (visible: boolean) => {
+const onToggleUserMenu = (visible: boolean) => {
   isOpenUserMenu.value = visible
 }
 </script>
@@ -22,7 +23,7 @@ const onClickUserMenu = (visible: boolean) => {
   <div class="flex items-center cursor-pointer">
     
     <el-dropdown ref="refDropdown" trigger="click" placement="bottom-end" size="large"
-                 @visible-change="onClickUserMenu">
+                 @visible-change="onToggleUserMenu">
       <div class="ml-1 flex items-center no-wrap text-header">
         <!--  用户头像  -->
         <MainHeaderUserAvatar/>
@@ -37,22 +38,15 @@ const onClickUserMenu = (visible: boolean) => {
       
       <!--  下拉菜单  -->
       <template #dropdown>
+        <!--  【插槽】下拉菜单列表  -->
         <el-dropdown-menu>
-          <el-dropdown-item class="flex">
-            <EIcon name="person" size="22px" class="!mr-4"/>
-            用户信息
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <EIcon name="help_outline" size="20px" class="!mr-4"/>
-            系统帮助
-          </el-dropdown-item>
-          <el-dropdown-item divided>
-            <EIcon name="exit_to_app" size="20px" class="!mr-4"/>
-            退出系统
-          </el-dropdown-item>
+          <slot name="dropdown">
+            <EDropdownItem icon="person" label="用户信息"/>
+            <EDropdownItem icon="help_outline" label="系统帮助"/>
+            <EDropdownItem icon="exit_to_app" label="退出系统" divided/>
+          </slot>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
-  
   </div>
 </template>

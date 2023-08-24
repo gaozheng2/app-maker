@@ -44,7 +44,6 @@ declare global {
 
   // 环境配置项类型
   interface EnvConfigItemType {
-    isShowLayout: boolean,  // 是否显示项目标题栏、菜单栏等布局组件
     apiBaseUrl: string,     // 当前环境的Api地址
     apiMockUrl: string,     // 当前环境的模拟数据地址
   }

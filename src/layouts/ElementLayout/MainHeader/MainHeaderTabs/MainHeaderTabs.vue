@@ -40,12 +40,18 @@ onMounted(() => {
         
         // 使用 VueUse 的 useElementBounding  监听激活项的 left 和 width，变化时动态更新标识条的宽度
         if (indicator) {
-          const {left: activeLeft, width: activeWidth} = useElementBounding(el)
+          const {left: activeLeft, width: activeWidth, right: activeRight} = useElementBounding(el)
+          const {left: wrapperLeft, width: wrapperWidth, right: wrapperRight} = useElementBounding(refTabWrapper)
+          // const wrapperLeft = refTabWrapper.value?.getBoundingClientRect().left
           
-          watch([activeLeft, activeWidth], () => {
-            const wrapperLeft = refTabWrapper.value?.getBoundingClientRect().left
-            const left = activeLeft.value - (wrapperLeft ?? 0)
+          watch([activeLeft, wrapperLeft, wrapperRight], () => {
+            console.log('activeLeft', activeLeft.value)
+            console.log('activeRight', activeRight.value)
+            const left = activeLeft.value - (wrapperLeft.value ?? 0)
             indicator.style.left = `${left}px`
+          }, {immediate: true})
+          
+          watch([activeWidth], () => {
             indicator.style.width = `${activeWidth.value}px`
           }, {immediate: true})
         }
@@ -71,25 +77,25 @@ watch(() => $route.name, (name) => {
     
     <!--  Tabs 列表，分为左中右三个区域  -->
     <div class="h-full flex items-center">
-      <template v-for="item in currentProject?.appList?.filter(item => item.align === 'left')" :key="item.label">
+      <template v-for="item in currentProject?.appList?.filter(app => app.align === 'left')" :key="item.label">
         <MainHeaderTabItem :item-data="item" :active="activeIndex === item.name" @click-tab="onClickTab"/>
       </template>
     </div>
     
     <div class="h-full flex items-center">
-      <template v-for="item in currentProject?.appList?.filter(item => !item.align || item.align === 'center')"
+      <template v-for="item in currentProject?.appList?.filter(app => !app.align || app.align === 'center')"
                 :key="item.label">
         <MainHeaderTabItem :item-data="item" :active="activeIndex === item.name" @click-tab="onClickTab"/>
       </template>
     </div>
     
     <div class="h-full flex items-center">
-      <template v-for="item in currentProject?.appList?.filter(item => item.align === 'right')" :key="item.label">
+      <template v-for="item in currentProject?.appList?.filter(app => app.align === 'right')" :key="item.label">
         <MainHeaderTabItem :item-data="item" :active="activeIndex === item.name" @click-tab="onClickTab"/>
       </template>
     </div>
     
     <!--  激活项下方标识条  -->
-    <div class="indicator absolute bottom-px left-0 w-[54px] h-0.5 bg-header duration-300 ease-in-out"/>
+    <div class="indicator absolute bottom-px left-0 h-0.5 bg-header duration-300 ease-in-out"/>
   </div>
 </template>

@@ -10,6 +10,9 @@ import 'element-plus/theme-chalk/dark/css-vars.css'  // 引入 Element 暗黑主
 // 获取当前项目配置
 const {currentProject} = mainConfig
 
+// 根据构建模式判断是否显示标题栏和菜单栏，project 模式显示，app 模式不显示
+const isShowLayout = computed(() =>
+  mainConfig.env !== 'production' && mainConfig.buildMode === 'project')
 
 // 动态计算 App 页面高度
 const appHeight = computed(() => {
@@ -25,7 +28,7 @@ const appHeight = computed(() => {
     <el-container direction="vertical">
       
       <!--  平台标题栏，向上暴露插槽，主要自定义 user 插槽内容  -->
-      <MainHeader v-if="currentProject?.isShowLayout">
+      <MainHeader v-if="isShowLayout">
         <template #logo>
           <slot name="logo"/>
         </template>
@@ -41,7 +44,8 @@ const appHeight = computed(() => {
       <el-container :style="`height: ${appHeight}`">
         
         <!--  平台菜单栏  -->
-        <el-aside :width="`${currentProject?.style.menuWidth}px` ?? '300px'"
+        <el-aside v-if="isShowLayout"
+                  :width="`${currentProject?.style.menuWidth}px` ?? '300px'"
                   class="bg-menu-bg border-r border-line">
           Aside
         </el-aside>
