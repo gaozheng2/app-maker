@@ -24,29 +24,32 @@ const appHeight = computed(() => {
     <!--  页面布局  -->
     <el-container direction="vertical">
       
-      <!--  平台标题栏  -->
-      <MainHeader v-if="currentProject?.isShowLayout"/>
+      <!--  平台标题栏，向上暴露插槽，主要自定义 user 插槽内容  -->
+      <MainHeader v-if="currentProject?.isShowLayout">
+        <template #logo>
+          <slot name="logo"/>
+        </template>
+        <template #tabs>
+          <slot name="tabs"/>
+        </template>
+        <template #user>
+          <slot name="user"/>
+        </template>
+      </MainHeader>
       
+      <!--  页面主体，根据标题栏高度自适应页面主体高度  -->
       <el-container :style="`height: ${appHeight}`">
         
         <!--  平台菜单栏  -->
-        <el-aside width="300px" class="bg-menu-bg border-r border-line">Aside</el-aside>
+        <el-aside :width="`${currentProject?.style.menuWidth}px` ?? '300px'"
+                  class="bg-menu-bg border-r border-line">
+          Aside
+        </el-aside>
         
         <!--  页面内容路由  -->
         <el-main class="!p-0">
           <el-scrollbar>
             <RouterPage/>
-            
-            <div class="p-4" :style="`min-width: ${currentProject?.style.appMinWidth}px`">
-              <template v-for="item in 100">
-                <div>
-                  <el-button type="primary">按钮</el-button>
-                  <EIcon name="o_check_circle"/>
-                  <EIcon name="check_circle" class="text-fuchsia-500 text-5xl"/>
-                  sadfkja;kljiou423askldjfkljasdfklj23iou4io2u34ij;lrf
-                </div>
-              </template>
-            </div>
           </el-scrollbar>
         </el-main>
       

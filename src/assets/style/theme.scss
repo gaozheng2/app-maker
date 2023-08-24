@@ -52,9 +52,9 @@
 .dark {
   /*  文字颜色  */
   --color-text: theme('colors.neutral.100'); /* 默认文字颜色：text-default */
-  --title-color: #FFFFFF; /* 标题文字颜色：text-title */
-  --second-color: theme('colors.neutral.400'); /* 次要文字颜色：text-secondary */
-  --third-color: theme('colors.neutral.500'); /* 禁用文字颜色：text-third */
+  --color-text-title: #FFFFFF; /* 标题文字颜色：text-title */
+  --color-text-second: theme('colors.neutral.400'); /* 次要文字颜色：text-secondary */
+  --color-text-third: theme('colors.neutral.500'); /* 禁用文字颜色：text-third */
 
   /*  背景颜色  */
   --color-body-bg: theme('colors.neutral.900'); /* 页面背景色：bg-body-bg */

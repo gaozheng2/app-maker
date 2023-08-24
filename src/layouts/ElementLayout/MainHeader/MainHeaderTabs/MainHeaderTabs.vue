@@ -67,7 +67,7 @@ watch(() => $route.name, (name) => {
 
 <template>
   <!--  Tabs 容器 -->
-  <div ref="refTabWrapper" class="relative w-full h-full mx-5 pb-px flex justify-between items-center text-header">
+  <div ref="refTabWrapper" class="relative w-full h-full pb-px flex justify-between items-center text-header">
     
     <!--  Tabs 列表，分为左中右三个区域  -->
     <div class="h-full flex items-center">

@@ -21,7 +21,7 @@ const styleConfig: ProjectStyleConfigType = {
   theme: 'system',             // 项目默认明/暗主题，dark | light | system
 
   headerHeight: 48,           // 项目标题栏的高度
-  menuWidth: 300,             // 项目菜单栏的宽度，0 为不需要菜单栏
+  menuWidth: 220,             // 项目菜单栏的宽度，0 为不需要菜单栏
   appMinWidth: 1080,          // 项目中 App 的最小宽度
 
   primaryColor: '#1976D2',    // 项目主色，用于主题色、按钮等
@@ -54,7 +54,7 @@ const envConfig: EnvConfigType = {
 // 路由配置，只需配置一级项目路由，二级模块路由、三级应用路由均由 appRegister.ts 自动生成
 const route: RouteRecordRaw = {
   path: '/',
-  component: () => import('@/layouts/MainLayout.vue'),  // 项目布局组件，可自由定义项目入口组件
+  component: () => import('./layout/AppMakerLayout.vue'),  // 项目布局组件，可自由定义项目入口组件
   meta: {title: baseConfig.title},
   children: [],  // 各 modules 和 app 的路由，由 appRegister.ts 自动生成
 }

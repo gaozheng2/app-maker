@@ -16,12 +16,6 @@ const refDropdown = ref<DropdownInstance>()
 const onClickUserMenu = (visible: boolean) => {
   isOpenUserMenu.value = visible
 }
-
-
-// 组装头像对应的图片文件路径
-const avatarImg = computed(() => {
-  return new URL(`../../../assets/images/avatar/${avatar?.value}.svg`, import.meta.url)?.href
-})
 </script>
 
 <template>
@@ -29,12 +23,12 @@ const avatarImg = computed(() => {
     
     <el-dropdown ref="refDropdown" trigger="click" placement="bottom-end" size="large"
                  @visible-change="onClickUserMenu">
-      <div class="flex items-center no-wrap text-header">
+      <div class="ml-1 flex items-center no-wrap text-header">
         <!--  用户头像  -->
-        <el-image :src="avatarImg" alt="avatar" class="w-11 h-11 ml-1 mr-2"/>
+        <MainHeaderUserAvatar/>
         
         <!--  用户名  -->
-        <span class="mr-1 text-sm whitespace-nowrap">{{ userName }}</span>
+        <span class="ml-2 mr-1 text-sm whitespace-nowrap">{{ userName }}</span>
         
         <!--  下拉菜单图标  -->
         <EIcon name="arrow_drop_down" size="24px" class=" duration-300"

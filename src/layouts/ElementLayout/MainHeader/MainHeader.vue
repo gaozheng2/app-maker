@@ -1,8 +1,9 @@
-<!--  【主页面布局】/【平台标题栏】  -->
+<!--  【Element 主页面布局】/【平台标题栏】  -->
 <script setup lang="ts">
-import MainHeaderTabs from '@/layouts/ElementLayout/MainHeader/MainHeaderTabs.vue'
+import MainHeaderTabs from '@/layouts/ElementLayout/MainHeader/MainHeaderTabs/MainHeaderTabs.vue'
 import {mainConfig} from '@/config/main.config'
-import useTheme from '@/utils/style/useTheme'
+import {useTheme} from '@/utils/style/useTheme'
+import MainHeaderDivider from '@/layouts/ElementLayout/MainHeader/MainHeaderUser/MainHeaderDivider.vue'
 
 // 获取当前项目配置
 const {currentProject} = mainConfig
@@ -19,7 +20,7 @@ const {isDark} = useTheme()
     
     <!--  【插槽】左侧：Logo和平台名称  -->
     <slot name="logo">
-      <div class="flex items-center cursor-pointer" @click="$router.push('/')">
+      <div class="mr-6 flex items-center cursor-pointer" @click="$router.push('/')">
         <el-image :src="currentProject?.logo" alt="logo"
                   class="w-7 h-7 mr-4 hover:brightness-110 drop-shadow"/>
         <h3 class="text-header whitespace-nowrap">{{ currentProject?.title }}</h3>
@@ -36,13 +37,8 @@ const {isDark} = useTheme()
     <!--  【插槽】右侧：用户信息  -->
     <div class="h-full flex items-center">
       <slot name="user">
-        <!--  明/暗主题切换按钮  -->
-        <EBtnTheme/>
-        
         <!--  分割线  -->
-        <div class="w-px h-full mx-2 py-2">
-          <div class="w-full h-full border-r border-line"/>
-        </div>
+        <MainHeaderDivider/>
         
         <!--  用户头像和下拉菜单  -->
         <MainHeaderUser/>
