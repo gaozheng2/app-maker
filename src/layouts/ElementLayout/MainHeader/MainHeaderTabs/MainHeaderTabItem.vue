@@ -41,6 +41,11 @@ const onTabClick = (item: AppListItemType) => {
       <span v-if="!itemData.onlyIcon" class="ml-2 text-sm whitespace-nowrap">
           {{ itemData.title }}
       </span>
+      
+      <!--  激活项下方标识条  -->
+      <div class="indicator absolute bottom-0 right-0 w-full h-0.5 bg-header
+                  opacity-0 duration-300 ease-in-out"
+           :class="{ 'opacity-100': active }"/>
     </div>
   </el-tooltip>
 </template>

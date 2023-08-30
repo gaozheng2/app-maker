@@ -6,6 +6,7 @@ const setElementTheme = () => {
   const typeArray = ['primary', 'success', 'warning', 'danger', 'info']
 
   for (let type of typeArray) {
+    // 从 css 变量中获取基础颜色
     const baseColor = getComputedStyle(document.documentElement).getPropertyValue(`--color-${type}`)
     setColor(baseColor, type)
   }

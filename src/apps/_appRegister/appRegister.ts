@@ -65,11 +65,13 @@ if (headerBgColor2) {
 
 
 // region 2.加载当前项目的模块 modules
-currentProject.appList.forEach((app: AppListItemType) => {
+route.redirect = {name: currentProject?.appList?.[0].name}  // 设置第一个模块为默认模块
+
+currentProject?.appList?.forEach((app: AppListItemType) => {
   // 2.1.加载当前项目的模块
   if (app.type === 'module') {
-    route.children.push({
-      path: app.name,
+    route?.children?.push({
+      path: app.name!,
       name: app.name,
       meta: {title: app.title},
       component: () => import('@/components/page/EmptyPage.vue'),

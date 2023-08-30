@@ -1,12 +1,11 @@
 <!--  【平台标题栏】/【一级菜单 Tabs】  -->
 <script setup lang="ts">
 /**
- * 根据当前项目配置 currentProject 中的应用列表 appList 属性，
+ * 获取当前项目配置 currentProject 中的应用列表 appList 属性，
  * 自动根据其中的一级菜单生成 Tabs 数据
  */
-import {onMounted, ref, watch} from 'vue'
+import {ref, watch} from 'vue'
 import {useRoute} from 'vue-router'
-import {useElementBounding} from '@vueuse/core'
 import {mainConfig} from '@/config/main.config'
 
 const $route = useRoute()
@@ -14,6 +13,7 @@ const $route = useRoute()
 
 // 获取当前项目配置
 const {currentProject} = mainConfig
+
 // Tabs 数据
 const tabsData = currentProject!.appList!
 
@@ -25,45 +25,9 @@ const onClickTab = (index: string) => {
 }
 
 
-// 激活项变化时，更改下方标识条的宽度和位置，并跳转到对应的路由
-const refTabWrapper = ref<HTMLElement | null>(null)
-
-onMounted(() => {
-  watch(activeIndex, (index) => {
-    const tab = tabsData.find(item => item.name === index)
-    
-    if (tab) {
-      const el = refTabWrapper.value?.querySelector('.active') as HTMLElement
-      
-      if (el) {
-        const indicator = refTabWrapper.value?.querySelector('.indicator') as HTMLElement
-        
-        // 使用 VueUse 的 useElementBounding  监听激活项的 left 和 width，变化时动态更新标识条的宽度
-        if (indicator) {
-          const {left: activeLeft, width: activeWidth, right: activeRight} = useElementBounding(el)
-          const {left: wrapperLeft, width: wrapperWidth, right: wrapperRight} = useElementBounding(refTabWrapper)
-          // const wrapperLeft = refTabWrapper.value?.getBoundingClientRect().left
-          // TODO：解决用户名切换引起的 bug
-          watch([activeLeft, wrapperLeft, wrapperRight], () => {
-            console.log('activeLeft', activeLeft.value)
-            console.log('activeRight', activeRight.value)
-            const left = activeLeft.value - (wrapperLeft.value ?? 0)
-            indicator.style.left = `${left}px`
-          }, {immediate: true})
-          
-          watch([activeWidth], () => {
-            indicator.style.width = `${activeWidth.value}px`
-          }, {immediate: true})
-        }
-      }
-    }
-  }, {immediate: true, flush: 'post'})  // flush:post 等待 DOM 更新后，再执行 watch
-})
-
-
 // 监听路由变化，激活对应的 Tab
-watch(() => $route.name, (name) => {
-  const tab = tabsData.find(item => item.name === name)
+watch(() => $route.fullPath, () => {
+  const tab = $route.matched[1]  // 获取一级菜单路由
   
   if (tab) {
     activeIndex.value = tab.name
@@ -73,7 +37,7 @@ watch(() => $route.name, (name) => {
 
 <template>
   <!--  Tabs 容器 -->
-  <div ref="refTabWrapper" class="relative w-full h-full pb-px flex justify-between items-center text-header">
+  <div class="relative w-full h-full pb-px flex justify-between items-center text-header">
     
     <!--  Tabs 列表，分为左中右三个区域  -->
     <div class="h-full flex items-center">
@@ -94,8 +58,5 @@ watch(() => $route.name, (name) => {
         <MainHeaderTabItem :item-data="item" :active="activeIndex === item.name" @click-tab="onClickTab"/>
       </template>
     </div>
-    
-    <!--  激活项下方标识条  -->
-    <div class="indicator absolute bottom-px left-0 h-0.5 bg-header duration-300 ease-in-out"/>
   </div>
 </template>
