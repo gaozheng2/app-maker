@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    EBtn: typeof import('./../components/button/EBtn.vue')['default']
     EBtnTheme: typeof import('./../components/button/EBtnTheme.vue')['default']
     EDropdownItem: typeof import('./../components/menu/EDropdownItem.vue')['default']
     EIcon: typeof import('./../components/common/EIcon.vue')['default']
@@ -36,5 +37,6 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterPage: typeof import('./../components/page/RouterPage.vue')['default']
     RouterView: typeof import('vue-router')['RouterView']
+    S: typeof import('./../components/button/s.vue')['default']
   }
 }

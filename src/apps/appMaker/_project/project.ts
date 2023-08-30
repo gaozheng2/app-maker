@@ -3,7 +3,7 @@ import type {RouteRecordRaw} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
 import logoUrl from './assets/logo.svg'  // 需要手动引入 Logo 图片
 import {appList, buildList} from './appList'
-import {setElementTheme} from '@/utils/style/setElementTheme'
+
 
 // 基本配置
 const baseConfig: ProjectBaseConfigType = {
@@ -18,8 +18,8 @@ const baseConfig: ProjectBaseConfigType = {
 
 // 样式配置
 const styleConfig: ProjectStyleConfigType = {
-  ui: 'element',             // 项目 UI 库，element | quasar
-  theme: 'system',             // 项目默认明/暗主题，dark | light | system
+  ui: 'element',              // 项目 UI 库，element | quasar
+  theme: 'system',            // 项目默认明/暗主题，dark | light | system
 
   headerHeight: 48,           // 项目标题栏的高度
   menuWidth: 220,             // 项目菜单栏的宽度，0 为不需要菜单栏

@@ -6,6 +6,7 @@ import UserList from './components/UserList.vue'
 
 <template>
   <ElementLayout>
+    <!--  自定义用户下拉菜单插槽内容  -->
     <template #user>
       <!--  明/暗主题切换按钮  -->
       <EBtnTheme/>
