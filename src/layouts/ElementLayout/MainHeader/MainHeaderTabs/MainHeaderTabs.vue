@@ -43,7 +43,7 @@ onMounted(() => {
           const {left: activeLeft, width: activeWidth, right: activeRight} = useElementBounding(el)
           const {left: wrapperLeft, width: wrapperWidth, right: wrapperRight} = useElementBounding(refTabWrapper)
           // const wrapperLeft = refTabWrapper.value?.getBoundingClientRect().left
-          
+          // TODO：解决用户名切换引起的 bug
           watch([activeLeft, wrapperLeft, wrapperRight], () => {
             console.log('activeLeft', activeLeft.value)
             console.log('activeRight', activeRight.value)

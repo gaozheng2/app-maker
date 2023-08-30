@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /*  引入字体和图标文件  */
 @import '../fonts/roboto-font-latin-ext.css'; // roboto 字体
 @import '../fonts/material-icons.css'; // 图标字体
@@ -12,6 +13,7 @@
 @import '../fonts/material-icons-round.css'; // 图标（圆角）字体
 
 
+/*  自定义样式  */
 @layer base {
   /*  全局样式  */
   html {
@@ -52,5 +54,13 @@
 
   h6 {
     @apply text-title text-sm font-bold;
+  }
+}
+
+
+@layer components {
+  /*  flex 居中  */
+  .flex-c {
+    @apply flex items-center justify-center;
   }
 }

@@ -43,12 +43,12 @@ module.exports = {
         'line': 'var(--color-line)',
 
         // 辅助颜色
-        'accent': 'var(--accent-color)',
-        'secondary': 'var(--secondary-color)',
-        'positive': 'var(--positive-color)',
-        'negative': 'var(--negative-color)',
-        'info': 'var(--info-color)',
-        'warning': 'var(--warning-color)',
+        'accent': 'var(--color-accent)',
+        'secondary': 'var(--color-secondary)',
+        'success': 'var(--color-success)',
+        'warning': 'var(--color-warning)',
+        'danger': 'var(--color-danger)',
+        'info': 'var(--color-info)',
       },
     },
   },

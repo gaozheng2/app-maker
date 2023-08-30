@@ -3,6 +3,7 @@ import type {RouteRecordRaw} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
 import logoUrl from './assets/logo.svg'  // 需要手动引入 Logo 图片
 import {appList, buildList} from './appList'
+import {setElementTheme} from '@/utils/style/setElementTheme'
 
 // 基本配置
 const baseConfig: ProjectBaseConfigType = {
@@ -24,7 +25,7 @@ const styleConfig: ProjectStyleConfigType = {
   menuWidth: 220,             // 项目菜单栏的宽度，0 为不需要菜单栏
   appMinWidth: 1080,          // 项目中 App 的最小宽度
 
-  primaryColor: '#1976D2',    // 项目主色，用于主题色、按钮等
+  primaryColor: '#009EFF',    // 项目主色，用于主题色、按钮等
   headerTextColor: '#FFFFFF', // 项目标题栏的文字颜色，默认为 #FFFFFF
   headerBgColor: '#1976D2',   // 项目标题栏的背景色，默认为 #1976D2
   headerBgColor2: '#14B8A6',  // 项目标题栏的背景色2，用于显示渐变省略则不显示渐变
@@ -34,17 +35,14 @@ const styleConfig: ProjectStyleConfigType = {
 // 环境配置
 const envConfig: EnvConfigType = {
   development: {  // 开发环境
-    isShowLayout: true,  // 是否显示项目标题栏、菜单栏等布局组件
     apiBaseUrl: 'http://localhost:8001',  // 当前环境的Api地址
     apiMockUrl: '/mock/',   // 当前环境的模拟数据地址
   },
   production: {  // 生产环境（开发的应用构建后在线运行）
-    isShowLayout: true,
     apiBaseUrl: '/',
     apiMockUrl: '/qdemo/qdemo/mock/',
   },
   preview: {  // 应用预览环境（在开发平台中预览应用）
-    isShowLayout: true,
     apiBaseUrl: '/',
     apiMockUrl: '/qdemo/qdemo/mock/',
   }

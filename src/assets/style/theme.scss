@@ -4,7 +4,6 @@
 :root {
   /*  主色  */
   --color-primary: #009EFF; /* 主色：color="primary" | text-primary | bg-primary */
-  --el-color-primary: var(--color-primary) !important; /* 更改 Element 主色 */
   // Element 主题色 #409EFF，Quasar 主题色 #1976D2，轩宇主题色 #009EFF
 
   /*  文字颜色  */
@@ -38,13 +37,12 @@
   --color-line: #DCDFE6; /* 线条颜色：border-line */
 
   /*  辅助颜色  */
-  --q-accent: theme('colors.yellow.400'); /* 强调色：color="accent" | text-accent | bg-accent */
-  --accent-color: theme('colors.yellow.400'); /* 强调色：color="accent" | text-accent | bg-accent */
-  --q-secondary: theme('colors.neutral.500'); /* 次要色：color="secondary" | text-secondary | bg-secondary */
-  --q-positive: theme('colors.emerald.500'); /* 成功色：color="success" | text-success | bg-success */
-  --q-negative: theme('colors.red.500'); /* 错误色：color="error" | text-error | bg-error */
-  --q-info: theme('colors.cyan.500'); /* 信息色：color="info" | text-info | bg-info */
-  --q-warning: theme('colors.amber.500'); /* 警告色：color="warning" | text-warning | bg-warning */
+  --color-accent: theme('colors.yellow.400'); /* 强调色：color="accent" | text-accent | bg-accent */
+  --color-secondary: theme('colors.neutral.500'); /* 次要色：color="secondary" | text-secondary | bg-secondary */
+  --color-success: theme('colors.emerald.500'); /* 成功色：color="success" | text-success | bg-success */
+  --color-warning: theme('colors.amber.500'); /* 警告色：color="warning" | text-warning | bg-warning */
+  --color-danger: theme('colors.red.500'); /* 错误色：color="error" | text-error | bg-error */
+  --color-info: theme('colors.cyan.500'); /* 信息色：color="info" | text-info | bg-info */
 }
 
 

@@ -18,7 +18,9 @@ export default defineConfig({
     visualizer(),  // rollup 打包分析插件，在根目录的 stats.html 中生成分析图
     Components({  // 自动注册 Element、Quasar 组件
       dirs: ['src/components', 'src/layouts'],
-      resolvers: [ElementPlusResolver(), QuasarResolver()],
+      resolvers: [ElementPlusResolver({
+        importStyle: 'sass',
+      }), QuasarResolver()],
       dts: 'src/types/components.d.ts',  // 类型文件的路径
     }),
     quasar(),  // Quasar 插件，用于按需加载 Quasar 组件
@@ -31,7 +33,14 @@ export default defineConfig({
         tailwindcss('./src/config/tailwind.config.js'),  // 配置文件的路径
         autoprefixer,
       ]
-    }
+    },
+
+    // 配置 Element 主题颜色
+    // preprocessorOptions: {
+    //   scss: {
+    //     additionalData: `@use "./src/assets/style/elementTheme.scss" as *;`,
+    //   },
+    // },
   },
 
   // 配置路径别名

@@ -5,14 +5,22 @@ import {ElConfigProvider} from 'element-plus'
 import MainHeader from '@/layouts/ElementLayout/MainHeader/MainHeader.vue'
 import {computed} from 'vue'
 import {mainConfig} from '@/config/main.config'
-import 'element-plus/theme-chalk/dark/css-vars.css'  // 引入 Element 暗黑主题样式
+import 'element-plus/theme-chalk/dark/css-vars.css'
+import {setElementTheme} from '@/utils/style/setElementTheme'  // 引入 Element 暗黑主题样式
+import '@/assets/style/elementStyle.css'  // 引入 Element 组件自定义样式
 
 // 获取当前项目配置
 const {currentProject} = mainConfig
 
+
+// 设置 Element 主题颜色
+setElementTheme()
+
+
 // 根据构建模式判断是否显示标题栏和菜单栏，project 模式显示，app 模式不显示
 const isShowLayout = computed(() =>
   mainConfig.env !== 'production' && mainConfig.buildMode === 'project')
+
 
 // 动态计算 App 页面高度
 const appHeight = computed(() => {
@@ -52,6 +60,16 @@ const appHeight = computed(() => {
         
         <!--  页面内容路由  -->
         <el-main class="!p-0">
+          <div class="m-4 flex gap-2">
+            <el-button type="primary" link>Primary</el-button>
+            <el-button type="primary">Primary</el-button>
+            <el-button type="success">Success</el-button>
+            <el-button type="warning">Warning</el-button>
+            <el-button type="danger">Danger</el-button>
+            <el-button type="info">Info</el-button>
+          </div>
+          
+          
           <el-scrollbar>
             <RouterPage/>
           </el-scrollbar>
