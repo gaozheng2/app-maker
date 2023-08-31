@@ -1,4 +1,4 @@
-//【TS 类型文件】/【配置类型】
+//【TS 类型文件】/【平台和项目配置类型】
 import type {RouteRecordRaw} from 'vue-router'
 import type {ThemeType} from '@/utils/style/useTheme'
 
@@ -55,10 +55,9 @@ declare global {
 
   // 模块/应用列表项类型
   interface AppListItemType {
-    name?: string,      // 模块/应用名称（英文），group 没有名称
+    name: string,       // 模块/应用名称（英文），唯一标识，不可重复
     title: string,      // 模块/应用标题（中文）
     icon?: string,      // 模块/应用图标，group 没有图标
-    to?: string,        // 模块/应用路由路径
     type: 'module' | 'app' | 'group',  // 类型：module 模块 | app 应用 | group 应用组
 
     iconSize?: string,  // 图标大小，默认 20px

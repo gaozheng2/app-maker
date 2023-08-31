@@ -2,7 +2,7 @@
  * 项目、模块、应用搜索注册程序
  * @description 从 apps 目录中读取所有 project.js、module.ts、app.ts，并注册到平台中
  * @author gaoz
- * @date 2023/8/23
+ * @date 2023/8/31
  */
 import type {RouteRecordRaw} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
@@ -71,7 +71,7 @@ currentProject?.appList?.forEach((app: AppListItemType) => {
   // 2.1.加载当前项目的模块
   if (app.type === 'module') {
     route?.children?.push({
-      path: app.name!,
+      path: app.name,
       name: app.name,
       meta: {title: app.title},
       component: () => import('@/components/page/EmptyPage.vue'),
@@ -86,7 +86,24 @@ currentProject?.appList?.forEach((app: AppListItemType) => {
 })
 // endregion
 
-// 3.扫描 apps 目录下的所有 module.ts 文件，获取模块配置集合 modules
+// region 3.加载 apps 目录下所有的应用 apps
+// 3.1 扫描 apps 目录下的所有 app.ts 文件，获取应用集合 apps
+const appFiles = import.meta.glob(`/src/apps/**/app.ts`,
+  {eager: true, import: 'default'})
+const apps: AppType[] = []
+
+for (let path in appFiles) {
+  const app = appFiles[path] as AppType
+  apps.push(app)
+// 3.2 将 App 注册到对应的 Module 中，生成路由和一级菜单
+  route?.children?.push(app.route)
+}
+
+console.log(apps)
+const appRoutes: RouteRecordRaw[] = []
+
+
+// endregion
 
 export {
   projects,
