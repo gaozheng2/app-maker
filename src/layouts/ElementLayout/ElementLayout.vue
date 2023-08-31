@@ -19,7 +19,7 @@ setElementTheme()
 
 // 根据构建模式判断是否显示标题栏和菜单栏，project 模式显示，app 模式不显示
 const isShowLayout = computed(() =>
-  mainConfig.env !== 'production' && mainConfig.buildMode === 'project')
+  !(mainConfig.env === 'production' && mainConfig.buildMode === 'app'))
 
 
 // 动态计算 App 页面高度
@@ -61,17 +61,17 @@ const appHeight = computed(() => {
         <!--  页面内容路由  -->
         <el-main class="!p-0">
           <el-scrollbar>
-            <div class="m-4 flex gap-2" v-for="i in 40">
-              <el-button type="primary" link>Primary</el-button>
-              <el-button plain>Primary</el-button>
-              <EBtn type="primary" icon="add">
-                新增会议
-              </EBtn>
-              <EBtn type="success" tooltip="成功">Success</EBtn>
-              <EBtn type="warning" tooltip="警告" tooltip-placement="bottom">Warning</EBtn>
-              <EBtn type="danger">Danger</EBtn>
-              <EBtn type="info">Info</EBtn>
-            </div>
+            <!--            <div class="m-4 flex gap-2" v-for="i in 40">-->
+            <!--              <el-button type="primary" link>Primary</el-button>-->
+            <!--              <el-button plain>Primary</el-button>-->
+            <!--              <EBtn type="primary" icon="add">-->
+            <!--                新增会议-->
+            <!--              </EBtn>-->
+            <!--              <EBtn type="success" tooltip="成功">Success</EBtn>-->
+            <!--              <EBtn type="warning" tooltip="警告" tooltip-placement="bottom">Warning</EBtn>-->
+            <!--              <EBtn type="danger">Danger</EBtn>-->
+            <!--              <EBtn type="info">Info</EBtn>-->
+            <!--            </div>-->
             
             
             <RouterPage/>

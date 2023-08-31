@@ -1,9 +1,9 @@
 <!--  【Element 主页面布局】/【平台标题栏】  -->
 <script setup lang="ts">
 import MainHeaderTabs from '@/layouts/ElementLayout/MainHeader/MainHeaderTabs/MainHeaderTabs.vue'
+import MainHeaderDivider from '@/layouts/ElementLayout/MainHeader/MainHeaderUser/MainHeaderDivider.vue'
 import {mainConfig} from '@/config/main.config'
 import {useTheme} from '@/utils/style/useTheme'
-import MainHeaderDivider from '@/layouts/ElementLayout/MainHeader/MainHeaderUser/MainHeaderDivider.vue'
 
 // 获取当前项目配置
 const {currentProject} = mainConfig
