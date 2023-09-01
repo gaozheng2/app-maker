@@ -14,7 +14,7 @@ const config: AppType = {
 const route: RouteRecordRaw = {
   path: config.name,
   name: config.name,
-  meta: {title: config.title},
+  meta: {type: 'app', title: config.title},
   component: () => import('./pages/Desktop.vue'),
 }
 

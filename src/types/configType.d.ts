@@ -96,26 +96,12 @@ declare global {
   }
 
 
-  // interface AppListItemType {
-  //   name: string,       // 模块/应用名称（英文），唯一标识，不可重复
-  //   title: string,      // 模块/应用标题（中文）
-  //   icon?: string,      // 模块/应用图标，group 没有图标
-  //   type: 'module' | 'app' | 'group',  // 类型：module 模块 | app 应用 | group 应用组
-  //
-  //   iconSize?: string,  // 图标大小，默认 20px
-  //   onlyIcon?: true,    // 在标题栏是否只显示图标（只适用于一级菜单）
-  //   align?: 'left' | 'center' | 'right',  // 在标题行显示的位置
-  //
-  //   entry?: boolean,    // 是否为项目/模块的入口应用，每个模块只能有一个入口应用，项目只能有一个入口应用/模块
-  //   ref?: string,       // 复用的引用路径，可以引用应用库和其他项目中的成熟应用
-  //   children?: AppListItemType[],  // 子应用列表，只适用于模块
-  // }
-
   // 构建应用列表类型
   interface BuildListType {
     include?: string[],  // 需要构建的应用列表，为空则构建全部应用
     exclude?: string[],  // 不需要构建的应用列表，为空则构建全部应用
   }
+
 
   // 项目配置类型，继承项目基础配置、环境配置类型
   interface ProjectConfigType extends ProjectBaseConfigType, EnvConfigItemType {

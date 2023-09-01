@@ -5,20 +5,20 @@
 // 第三层为应用入口，显示在左侧菜单栏二级菜单的折叠菜单下
 
 const appList: AppListItemType[] = [
-    {name: 'desktop', type: 'app', title: '工作台', icon: 'home', onlyIcon: true, iconSize: '22px',},  // 可自定义图标大小，默认 22px
-    {name: 'widgets', type: 'app', title: '组件库', icon: 'extension',},
-    {name: 'app-repo', type: 'app', title: '应用库', icon: 'widgets',},
-    {name: 'app-dev', type: 'app', title: '应用开发', icon: 'api',},
+  {type: 'app', name: 'desktop', title: '工作台', icon: 'home', onlyIcon: true, iconSize: '22px',},  // 可自定义图标大小，默认 22px
+  {type: 'module', name: 'widgets', title: '组件库', icon: 'extension',},
+  {type: 'module', name: 'app-repo', title: '应用库', icon: 'widgets',},
+  {type: 'module', name: 'app-dev', title: '应用开发', icon: 'api',},
 ]
 
 
 // 构建应用列表，默认构建全部应用，可通过 include 和 exclude 进行过滤
 const buildList: BuildListType = {
-    // 需要构建的应用列表，为空时构建全部应用
-    include: ['工作台', 'widgets'],
+  // 需要构建的应用列表，为空时构建全部应用
+  include: ['工作台', 'widgets'],
 
-    // 不需要构建的应用列表，优先级高于 include
-    // exclude: ['widgets'],
+  // 不需要构建的应用列表，优先级高于 include
+  // exclude: ['widgets'],
 }
 
 

@@ -112,7 +112,7 @@ currentProject?.appList?.forEach((item: AppListItemType) => {
       route?.children?.push({
         path: item.name,
         name: item.name,
-        meta: {title: item.title},
+        meta: {type: 'module', title: item.title},
         component: () => import('@/components/page/EmptyPage.vue'),
       })
       // 如果模块下有子应用，则将模块设置为路由页面，并添加子应用路由
@@ -120,7 +120,7 @@ currentProject?.appList?.forEach((item: AppListItemType) => {
       const moduleRoute: RouteRecordRaw = {
         path: item.name,
         name: item.name,
-        meta: {title: item.title},
+        meta: {type: 'module', title: item.title},
         component: () => import('@/components/page/RouterPage.vue'),
         // 设置第一个子应用为模块的默认路由，如果第一个是应用组，则
         redirect: {name: item.children?.[0]?.name || item.children?.[1]?.name},
@@ -138,7 +138,7 @@ currentProject?.appList?.forEach((item: AppListItemType) => {
           moduleRoute.children?.push({
             path: child.name,
             name: child.name,
-            meta: {title: child.title},
+            meta: {type: 'app', title: child.title},
             component: () => import('@/components/page/EmptyPage.vue'),
           })
         }
@@ -150,15 +150,19 @@ currentProject?.appList?.forEach((item: AppListItemType) => {
 
     //（2）注册一级应用
   } else if (item.type === 'app') {
-    const firstApp = apps.find((app: AppType) => app.name === item.name)
-    if (firstApp && firstApp.route) {
-      route?.children?.push(firstApp.route)
+    const topApp = apps.find((app: AppType) => app.name === item.name)
+    if (topApp && topApp.route) {
+      topApp.route.meta = {
+        ...topApp.route.meta,
+        noMenu: true,  // 标识为一级应用，无菜单栏
+      }
+      route?.children?.push(topApp.route)
     } else {
       // 如果 appList 中配置了，但是 apps 中没有找到，则添加空白页路由
       route?.children?.push({
         path: item.name,
         name: item.name,
-        meta: {title: item.title},
+        meta: {type: 'app', title: item.title, noMenu: false},  // 标识为一级应用，无菜单栏
         component: () => import('@/components/page/EmptyPage.vue'),
       })
     }
@@ -166,6 +170,7 @@ currentProject?.appList?.forEach((item: AppListItemType) => {
 })
 // endregion
 
+console.log('route', route)
 
 export {
   projects,
