@@ -1,5 +1,6 @@
 <!--  【布局】/【Element-plus 布局】/【主页面布局】  -->
 <script setup lang="ts">
+// @ts-ignore
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'  // 引入 Element 中文语言包
 import {ElConfigProvider} from 'element-plus'   // 引入 Element 全局配置组件
 import 'element-plus/theme-chalk/dark/css-vars.css'  // 引入 Element 暗黑主题样式
@@ -20,14 +21,14 @@ setElementTheme()
 
 // 根据构建模式判断是否显示标题栏和菜单栏，project 模式显示，app 模式不显示
 const isShowLayout = computed(() =>
-  !(mainConfig.env === 'production' && mainConfig.buildMode === 'app'))
+    !(mainConfig.env === 'production' && mainConfig.buildMode === 'app'))
 
 
 // 动态计算是否显示菜单栏
 const $route = useRoute()
 const isShowMenu = computed(() => {
   if (!isShowLayout.value) return false
-  
+
   const {noMenu} = $route.meta
   return !noMenu
 })
@@ -45,7 +46,7 @@ const appHeight = computed(() => {
   <el-config-provider :locale="zhCn">
     <!--  页面布局  -->
     <el-container direction="vertical">
-      
+
       <!--  平台标题栏，向上暴露插槽，主要自定义 user 插槽内容  -->
       <MainHeader v-if="isShowLayout">
         <template #logo>
@@ -58,37 +59,20 @@ const appHeight = computed(() => {
           <slot name="user"/>
         </template>
       </MainHeader>
-      
+
       <!--  页面主体，根据标题栏高度自适应页面主体高度  -->
       <el-container :style="`height: ${appHeight}`">
-        
+
         <!--  平台菜单栏  -->
-        <el-aside v-if="isShowMenu"
-                  :width="`${currentProject?.style.menuWidth}px` ?? '300px'"
-                  class="bg-menu-bg border-r border-line">
-          Aside {{ $route.meta }}
-        </el-aside>
-        
+        <MainMenu v-if="isShowMenu"/>
+
         <!--  页面内容路由  -->
         <el-main class="!p-0">
           <el-scrollbar>
-            <!--            <div class="m-4 flex gap-2" v-for="i in 40">-->
-            <!--              <el-button type="primary" link>Primary</el-button>-->
-            <!--              <el-button plain>Primary</el-button>-->
-            <!--              <EBtn type="primary" icon="add">-->
-            <!--                新增会议-->
-            <!--              </EBtn>-->
-            <!--              <EBtn type="success" tooltip="成功">Success</EBtn>-->
-            <!--              <EBtn type="warning" tooltip="警告" tooltip-placement="bottom">Warning</EBtn>-->
-            <!--              <EBtn type="danger">Danger</EBtn>-->
-            <!--              <EBtn type="info">Info</EBtn>-->
-            <!--            </div>-->
-            
-            
             <RouterPage/>
           </el-scrollbar>
         </el-main>
-      
+
       </el-container>
     </el-container>
   </el-config-provider>

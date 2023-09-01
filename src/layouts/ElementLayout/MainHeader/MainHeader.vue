@@ -17,7 +17,7 @@ const {isDark} = useTheme()
              class="flex items-center justify-between
              bg-gradient-to-r from-header-bg to-header-bg2 text-header duration-300"
              :class="{ 'border-b border-line' : isDark }">
-    
+
     <!--  【插槽】左侧：Logo和平台名称  -->
     <slot name="logo">
       <div class="mr-6 flex items-center cursor-pointer" @click="$router.push('/')">
@@ -26,20 +26,20 @@ const {isDark} = useTheme()
         <h3 class="text-header whitespace-nowrap">{{ currentProject?.title }}</h3>
       </div>
     </slot>
-    
-    
+
+
     <!--  【插槽】中间：一级菜单 Tabs  -->
     <slot name="tabs">
       <MainHeaderTabs/>
     </slot>
-    
-    
+
+
     <!--  【插槽】右侧：用户信息  -->
     <div class="h-full flex items-center">
       <slot name="user">
         <!--  分割线  -->
         <MainHeaderDivider/>
-        
+
         <!--  用户头像和下拉菜单  -->
         <MainHeaderUser/>
       </slot>

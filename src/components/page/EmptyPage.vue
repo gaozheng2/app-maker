@@ -14,12 +14,12 @@ let appName = computed(() => {
 
 <template>
   <div class="h-full flex-col flex-c">
-    <h1 class="mt-32 mb-5 text-second">{{ $route.meta.title ?? '应用' }} 建设中 ...</h1>
-    
-    <h2 class="text-third mb-12">
+    <h1 class="mt-32 mb-5 text-second whitespace-nowrap">{{ $route.meta.title ?? '应用' }} 建设中 ...</h1>
+
+    <h2 class="text-third mb-12 whitespace-nowrap">
       {{ appName ?? 'App' }} is under construction ...
     </h2>
-    
+
     <el-image :src="imageUrl" class="w-[40vw]" alt=""/>
   </div>
 </template>

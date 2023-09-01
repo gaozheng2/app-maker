@@ -9,11 +9,11 @@ import UserList from './components/UserList.vue'
     <!--  自定义用户下拉菜单插槽内容  -->
     <template #user>
       <!--  明/暗主题切换按钮  -->
-      <EBtnTheme/>
-      
+      <EBtnTheme class="ml-2"/>
+
       <!--  分割线  -->
       <MainHeaderDivider/>
-      
+
       <!--  用户头像和下拉菜单  -->
       <UserList/>
     </template>

@@ -21,7 +21,7 @@ const styleConfig: ProjectStyleConfigType = {
   theme: 'light',             // 项目默认明/暗主题，dark | light | system
 
   headerHeight: 48,           // 项目标题栏的高度
-  menuWidth: 200,             // 项目菜单栏的宽度，0 为不需要菜单栏
+  menuWidth: 240,             // 项目菜单栏的宽度，0 为不需要菜单栏
   appMinWidth: 1080,          // 项目中 App 的最小宽度
 
   primaryColor: '#009EFF',    // 项目主色，用于主题色、按钮等

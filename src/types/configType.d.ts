@@ -54,8 +54,8 @@ declare global {
   }
 
 
-  // 应用列表项类型，包括应用、模块 2 种
-  type AppListItemType = AppType | ModuleType
+  // 应用列表项类型，包括应用、模块、应用组 3 种
+  type AppListItemType = AppType | ModuleType | GroupType
 
   // 应用项类型
   interface AppType {
@@ -75,6 +75,7 @@ declare global {
   // 应用组类型
   interface GroupType {
     type: 'group'       // 类型：group 应用组
+    name: string,       // 名称（英文）, 唯一标识，不可重复
     title: string,      // 标题（中文）
   }
 
@@ -92,7 +93,7 @@ declare global {
     noMenu?: boolean,   // 是否不显示菜单栏
     miniMenu?: boolean, // 是否菜单栏始终处于折叠状态
 
-    children?: (AppType | GroupType)[],  // 子应用列表，包括应用和应用组
+    children?: AppListItemType[],  // 子应用列表，包括应用和应用组
   }
 
 

@@ -117,13 +117,21 @@ currentProject?.appList?.forEach((item: AppListItemType) => {
       })
       // 如果模块下有子应用，则将模块设置为路由页面，并添加子应用路由
     } else {
+      // 设置第一个子应用为模块的默认路由，如果第一个是应用组，则设置后面的第一个应用为默认路由
+      let redirectName
+      for (let i = 0; i < item.children.length; i++) {
+        if (item.children[i].type === 'app') {
+          redirectName = item.children[i].name
+          break
+        }
+      }
+
       const moduleRoute: RouteRecordRaw = {
         path: item.name,
         name: item.name,
         meta: {type: 'module', title: item.title},
         component: () => import('@/components/page/RouterPage.vue'),
-        // 设置第一个子应用为模块的默认路由，如果第一个是应用组，则
-        redirect: {name: item.children?.[0]?.name || item.children?.[1]?.name},
+        redirect: {name: redirectName},
         children: [],
       }
 
@@ -162,7 +170,7 @@ currentProject?.appList?.forEach((item: AppListItemType) => {
       route?.children?.push({
         path: item.name,
         name: item.name,
-        meta: {type: 'app', title: item.title, noMenu: false},  // 标识为一级应用，无菜单栏
+        meta: {type: 'app', title: item.title, noMenu: true},  // 标识为一级应用，无菜单栏
         component: () => import('@/components/page/EmptyPage.vue'),
       })
     }

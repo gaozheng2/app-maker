@@ -23,9 +23,8 @@
 
   /*  菜单栏颜色  */
   --color-menu-bg: var(--color-panel-bg); /* 菜单栏背景色：bg-menu-bg */
-  --menu-active: #009EFF; /* 菜单栏选中文字颜色：text-menu-active */
-  --menu-active-bg-color: #e6f6ff; /* 菜单栏选中背景色：bg-menu-active-bg */
-  --menu-active-border-color: #409EFF; /* 菜单栏选中边框色：border-menu-active-border */
+  --color-menu-active-text: var(--color-primary); /* 菜单栏选中文字颜色：text-menu-active */
+  --color-menu-active-bg: #CCECFF; /* 菜单栏选中背景色：bg-menu-active-bg */
 
   /*  表格颜色  */
   --table-title-color: #4E5969; /* 表格标题行文字颜色：text-title */
@@ -64,8 +63,7 @@
 
   /*  菜单栏颜色  */
   --menu-active-color: #FFFFFF; /* 菜单栏选中文字颜色：text-menu-active */
-  --menu-active-bg-color: #3485D6; /* 菜单栏选中背景色：bg-menu-active-bg */
-  /*--menu-active-border-color: #007CC9; !* 菜单栏选中边框色：border-menu-active-border *!*/
+  --color-menu-active-bg: #1D3043; /* 菜单栏选中背景色：bg-menu-active-bg */
 
   /*  表格颜色  */
   --table-title-color: theme('colors.neutral.200'); /* 表格标题行文字颜色：text-title */
