@@ -5,32 +5,36 @@
 // 第三层为应用入口，显示在左侧菜单栏二级菜单的折叠菜单下
 
 const appList: AppListItemType[] = [
-  {name: 'desktop', type: 'module', title: '工作台', icon: 'home', iconSize: '22px', onlyIcon: true,},  // 可自定义图标大小，默认 20px
-  {name: 'business', type: 'module', title: '组织业务', icon: 'cases',},
-  {name: 'project', type: 'module', title: '项目管理', icon: 'rocket',},
-  {name: 'product', type: 'module', title: '产品管理', icon: 'lan',},
-  {name: 'knowledge', type: 'module', title: '知识中心', icon: 'auto_stories',},
+  {type: 'app', name: 'desktop', title: '工作台', icon: 'home', iconSize: '22px', onlyIcon: true,},  // 可自定义图标大小，默认 20px
+  {type: 'module', name: 'business', title: '组织业务', icon: 'cases',},
+  {type: 'module', name: 'project', title: '项目管理', icon: 'rocket',},
+  {type: 'module', name: 'product', title: '产品管理', icon: 'lan',},
+  {type: 'module', name: 'knowledge', title: '知识中心', icon: 'auto_stories',},
   {
-    name: 'system', type: 'module', title: '系统设置', onlyIcon: true, icon: 'settings', align: 'right', children: [
+    type: 'module', name: 'system', title: '系统设置', icon: 'settings', onlyIcon: true, align: 'right', children: [
       {type: 'group', title: '角色权限',},
-      {name: 'user', type: 'app', title: '用户管理', icon: 'people',},
-      {name: 'role', type: 'app', title: '角色管理', icon: 'groups',},
-      {name: 'menu', type: 'app', title: '菜单管理', icon: 'menu',},
+      {type: 'app', name: 'user', title: '用户管理', icon: 'people',},
+      {type: 'app', name: 'role', title: '角色管理', icon: 'groups',},
+      {type: 'app', name: 'menu', title: '菜单管理', icon: 'menu',},
       {type: 'group', title: '系统配置',},
-      {name: 'dict', type: 'app', title: '字典管理', icon: 'list',},
-      {name: 'log', type: 'app', title: '日志管理', icon: 'event',},
-      {name: 'file', type: 'app', title: '文件管理', icon: 'folder',},
-      {name: 'notice', type: 'app', title: '通知管理', icon: 'notifications',},
-      {name: 'msg', type: 'app', title: '消息管理', icon: 'message',},
-      {name: 'task', type: 'app', title: '任务管理', icon: 'task',},
-      {name: 'monitor', type: 'app', title: '监控管理', icon: 'monitor',},
+      {type: 'app', name: 'dict', title: '字典管理', icon: 'list',},
+      {type: 'app', name: 'log', title: '日志管理', icon: 'event',},
+      {type: 'app', name: 'file', title: '文件管理', icon: 'folder',},
+      {type: 'app', name: 'notice', title: '通知管理', icon: 'notifications',},
+      {type: 'app', name: 'msg', title: '消息管理', icon: 'message',},
+      {type: 'app', name: 'task', title: '任务管理', icon: 'task',},
+      {type: 'app', name: 'monitor', title: '监控管理', icon: 'monitor',},
     ]
   },]
 
 
 // 构建应用列表，默认构建全部应用，可通过 include 和 exclude 进行过滤
+// include 和 exclude 中的名称为应用或模块的 name 或 title
+// 如果 include 为空，则构建全部应用
+// 如果 exclude 为空，则不排除任何应用，exclude 优先级高于 include
 const buildList: BuildListType = {
-  include: ['desktop', 'widgets', 'app-repo', 'app-dev', 'setting'],
+  include: ['工作台', 'business', 'task'],
+  exclude: ['系统设置'],
 }
 
 

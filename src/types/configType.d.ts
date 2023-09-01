@@ -53,21 +53,63 @@ declare global {
     [key: string]: EnvConfigItemType
   }
 
-  // 模块/应用列表项类型
-  interface AppListItemType {
-    name: string,       // 模块/应用名称（英文），唯一标识，不可重复
-    title: string,      // 模块/应用标题（中文）
-    icon?: string,      // 模块/应用图标，group 没有图标
-    type: 'module' | 'app' | 'group',  // 类型：module 模块 | app 应用 | group 应用组
 
+  // 应用列表项类型，包括应用、模块 2 种
+  type AppListItemType = AppType | ModuleType
+
+  // 应用项类型
+  interface AppType {
+    type: 'app'         // 类型：module 模块 | app 应用 | group 应用组
+    name: string,       // 名称（英文），唯一标识，不可重复
+    title: string,      // 标题（中文）
+    version?: string,   // 版本
+
+    icon?: string,      // 图标
     iconSize?: string,  // 图标大小，默认 20px
     onlyIcon?: true,    // 在标题栏是否只显示图标（只适用于一级菜单）
     align?: 'left' | 'center' | 'right',  // 在标题行显示的位置
 
-    entry?: boolean,    // 是否为项目/模块的入口应用，每个模块只能有一个入口应用，项目只能有一个入口应用/模块
     ref?: string,       // 复用的引用路径，可以引用应用库和其他项目中的成熟应用
-    apps?: AppListItemType[],  // 子应用列表，只适用于模块
   }
+
+  // 应用组类型
+  interface GroupType {
+    type: 'group'       // 类型：group 应用组
+    title: string,      // 标题（中文）
+  }
+
+  // 模块项类型
+  interface ModuleType {
+    type: 'module',
+    name: string,       // 名称（英文），唯一标识，不可重复
+    title: string,      // 标题（中文）
+
+    icon: string,       // 图标
+    iconSize?: string,  // 图标大小，默认 20px
+    onlyIcon?: true,    // 在标题栏是否只显示图标（只适用于一级菜单）
+    align?: 'left' | 'center' | 'right',  // 在标题行显示的位置
+
+    noMenu?: boolean,   // 是否不显示菜单栏
+    miniMenu?: boolean, // 是否菜单栏始终处于折叠状态
+
+    children?: (AppType | GroupType)[],  // 子应用列表，包括应用和应用组
+  }
+
+
+  // interface AppListItemType {
+  //   name: string,       // 模块/应用名称（英文），唯一标识，不可重复
+  //   title: string,      // 模块/应用标题（中文）
+  //   icon?: string,      // 模块/应用图标，group 没有图标
+  //   type: 'module' | 'app' | 'group',  // 类型：module 模块 | app 应用 | group 应用组
+  //
+  //   iconSize?: string,  // 图标大小，默认 20px
+  //   onlyIcon?: true,    // 在标题栏是否只显示图标（只适用于一级菜单）
+  //   align?: 'left' | 'center' | 'right',  // 在标题行显示的位置
+  //
+  //   entry?: boolean,    // 是否为项目/模块的入口应用，每个模块只能有一个入口应用，项目只能有一个入口应用/模块
+  //   ref?: string,       // 复用的引用路径，可以引用应用库和其他项目中的成熟应用
+  //   children?: AppListItemType[],  // 子应用列表，只适用于模块
+  // }
 
   // 构建应用列表类型
   interface BuildListType {
