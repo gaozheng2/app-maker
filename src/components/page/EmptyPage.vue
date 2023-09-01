@@ -20,6 +20,6 @@ let appName = computed(() => {
       {{ appName ?? 'App' }} is under construction ...
     </h2>
     
-    <el-image :src="imageUrl" class="w-[720px]" alt=""/>
+    <el-image :src="imageUrl" class="w-[40vw]" alt=""/>
   </div>
 </template>

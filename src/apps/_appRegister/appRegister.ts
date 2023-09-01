@@ -6,6 +6,7 @@
  */
 import type {RouteRecordRaw} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
+import {flatAppList} from '@/apps/_appRegister/utils/flatAppList'
 
 
 // region 1.加载当前项目 currentProject
@@ -65,7 +66,7 @@ if (headerBgColor2) {
 
 
 // region 2.加载当前项目的模块 modules
-route.redirect = {name: currentProject?.appList?.[0].name}  // 设置第一个模块为默认模块
+
 
 currentProject?.appList?.forEach((app: AppListItemType) => {
   // 2.1.加载当前项目的模块
@@ -87,20 +88,46 @@ currentProject?.appList?.forEach((app: AppListItemType) => {
 // endregion
 
 // region 3.加载 apps 目录下所有的应用 apps
-// 3.1 扫描 apps 目录下的所有 app.ts 文件，获取应用集合 apps
+// 3.1 扫描 apps 目录下的所有 app.ts 文件，获取应用文件集合 appFiles
 const appFiles = import.meta.glob(`/src/apps/**/app.ts`,
   {eager: true, import: 'default'})
+console.log(appFiles)
+
+
+// 3.2 筛选当前项目的 App，生成应用集合 apps
 const apps: AppType[] = []
 
 for (let path in appFiles) {
   const app = appFiles[path] as AppType
+  const project = path.split('/')[3].toLowerCase()  // 从路径中获取项目名称
+  if (project !== currentProjectName.toLowerCase()) continue  // 如果项目名称不是当前项目，则跳过
+  app.project = project  // 设置项目名称
   apps.push(app)
-// 3.2 将 App 注册到对应的 Module 中，生成路由和一级菜单
-  route?.children?.push(app.route)
+}
+console.log(apps)
+
+
+// 3.3 将 App 注册到路由中
+const appList = flatAppList(currentProject?.appList || [], currentProject?.buildList || {})  // 扁平化应用列表
+route.redirect = appList[0].name  // 设置第一个应用为默认路由
+
+// 只加载 AppList 中配置的应用，并按配置中的顺序加载
+for (let appItem of appList) {
+  const app = apps.find((item: AppType) => item.name === appItem.name)
+  if (app) {
+    route?.children?.push(app.route)
+  } else {
+    // 如果 appList 中配置了，但是 apps 中没有找到，则添加一个空白页
+    route?.children?.push({
+      path: appItem.name,
+      name: appItem.name,
+      meta: {title: appItem.title},
+      component: () => import('@/components/page/EmptyPage.vue'),
+    })
+  }
 }
 
-console.log(apps)
-const appRoutes: RouteRecordRaw[] = []
+console.log(route)
 
 
 // endregion

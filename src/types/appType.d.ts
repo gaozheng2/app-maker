@@ -7,6 +7,7 @@ declare global {
 
   // App 基本配置类型
   interface AppConfigType {
+    project?: string    // 所属项目
     name: string        // App 名称（英文），唯一标识，不可重复
     title: string       // App 标题（中文）
     // shortTitle?: string // App 短标题（用于标题栏显示）
