@@ -1,7 +1,7 @@
 // 设置 Element 主题颜色
 import {colors} from 'quasar'
 
-// 根据 theme.css 设置的基础颜色，生成对应的辅助颜色
+// 根据 theme.scss 设置的基础颜色，生成对应的辅助颜色
 const setElementTheme = () => {
   const typeArray = ['primary', 'success', 'warning', 'danger', 'info']
 

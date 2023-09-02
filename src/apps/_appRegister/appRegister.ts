@@ -41,25 +41,6 @@ const currentProject = projects
 
 // 将当前项目的配置保存到平台配置中
 mainConfig.currentProject = currentProject
-
-
-// 1.3 设置当前项目的样式
-const {primaryColor, headerTextColor, headerBgColor, headerBgColor2} = currentProject!.style!
-
-if (primaryColor) {
-  document.documentElement.style.setProperty('--color-primary', primaryColor)
-}
-if (headerTextColor) {
-  document.documentElement.style.setProperty('--color-header-text', headerTextColor)
-}
-if (headerBgColor) {
-  document.documentElement.style.setProperty('--color-header-bg', headerBgColor)
-}
-if (headerBgColor2) {
-  document.documentElement.style.setProperty('--color-header-bg2', headerBgColor2)
-} else {  // 如果没有设置第二个背景色，则全部使用第一个背景色
-  document.documentElement.style.setProperty('--color-header-bg2', headerBgColor)
-}
 // endregion
 
 

@@ -35,11 +35,6 @@ declare global {
     headerHeight: number,     // 项目标题栏的高度
     menuWidth: number,        // 项目菜单栏的宽度
     appMinWidth: number,      // 项目中 App 的最小宽度
-
-    primaryColor: string,     // 项目主色，用于主题色、按钮等
-    headerTextColor?: string, // 项目标题栏的文字颜色
-    headerBgColor: string,    // 项目标题栏的背景色，不可省略
-    headerBgColor2?: string,  // 项目标题栏的背景色2，用于显示渐变，省略则不显示渐变
   }
 
   // 环境配置项类型

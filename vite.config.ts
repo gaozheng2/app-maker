@@ -34,13 +34,6 @@ export default defineConfig({
         autoprefixer,
       ]
     },
-
-    // 配置 Element 主题颜色
-    // preprocessorOptions: {
-    //   scss: {
-    //     additionalData: `@use "./src/assets/style/elementTheme.scss" as *;`,
-    //   },
-    // },
   },
 
   // 配置路径别名

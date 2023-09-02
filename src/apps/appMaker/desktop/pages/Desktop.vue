@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <h1>工作台</h1>
+  <h1 class="text-primary/50">工作台</h1>
   <div class="m-4 flex gap-2" v-for="i in 40">
     <el-button type="primary" link>Primary</el-button>
     <el-button plain>Primary</el-button>

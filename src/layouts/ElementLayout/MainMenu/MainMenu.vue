@@ -59,11 +59,12 @@ const menuHeight = computed(() => {
 
 <template>
   <el-aside :width="`${currentProject?.style.menuWidth}px` ?? '300px'"
-            class="bg-menu-bg select-none">
+            class="select-none">
     
     <el-menu
-      :collapse="isCollapsed"
       unique-opened
+      :collapse="isCollapsed"
+      class="!bg-menu-bg "
     >
       
       <!--  菜单栏标题  -->

@@ -3,8 +3,9 @@
 /*  亮色主题样式  */
 :root {
   /*  主色  */
-  --color-primary: #009EFF; /* 主色：color="primary" | text-primary | bg-primary */
-  // Element 主题色 #409EFF，Quasar 主题色 #1976D2，轩宇主题色 #009EFF
+  --color-primary: #1976D2; /* 主色：color="primary" | text-primary | bg-primary */
+  --color-primary-rgb: 25 118 210; /* 主色 rgb 格式，用于 Tailwindcss 生成主色不透明度 */
+  // Element 主题色 #409EFF 64 158 255，Quasar 主题色 #1976D2，轩宇主题色 #009EFF 00 158 255
 
   /*  文字颜色  */
   --color-text: theme('colors.neutral.700'); /* 默认文字颜色：text-default */
@@ -18,13 +19,13 @@
 
   /*  标题栏颜色  */
   --color-header-text: #FFFFFF; /* 标题栏文字颜色：text-header */
-  --color-header-bg: #1976D2; /* 标题栏背景色：from-header-bg */
-  --color-header-bg2: theme('colors.teal.500'); /* 标题栏背景色2（渐变）：to-header-bg2 */
+  --color-header-bg: var(--color-primary); /* 标题栏背景色：from-header-bg */
+  --color-header-bg2: var(--color-primary); /* 标题栏背景色2（渐变）：to-header-bg2 */
 
   /*  菜单栏颜色  */
-  --color-menu-bg: var(--color-panel-bg); /* 菜单栏背景色：bg-menu-bg */
+  --color-menu-bg: var(--color-body-bg); /* 菜单栏背景色：bg-menu-bg */
   --color-menu-active-text: var(--color-primary); /* 菜单栏选中文字颜色：text-menu-active */
-  --color-menu-active-bg: #CCECFF; /* 菜单栏选中背景色：bg-menu-active-bg */
+  --color-menu-active-bg: color-mix(in srgb, var(--color-primary) 20%, #FFF); /* 菜单栏选中背景色：bg-menu-active-bg*/
 
   /*  表格颜色  */
   --table-title-color: #4E5969; /* 表格标题行文字颜色：text-title */
@@ -55,15 +56,15 @@
 
   /*  背景颜色  */
   --color-body-bg: theme('colors.neutral.900'); /* 页面背景色：bg-body-bg */
-  --color-panel-bg: theme('colors.neutral.800'); /* 菜单栏背景色：bg-panel-bg */
+  --color-panel-bg: theme('colors.neutral.800'); /* 面板背景色：bg-panel-bg */
 
   /*  标题栏颜色：与页面背景色相同，不可自定义  */
   --color-header-bg: var(--body-bg-color) !important; /* 标题栏背景色：from-header-bg */
   --color-header-bg2: var(--body-bg-color) !important; /* 标题栏背景色2（渐变）：to-header-bg2 */
 
   /*  菜单栏颜色  */
-  --menu-active-color: #FFFFFF; /* 菜单栏选中文字颜色：text-menu-active */
-  --color-menu-active-bg: #1D3043; /* 菜单栏选中背景色：bg-menu-active-bg */
+  --color-menu-active-text: var(--color-text); /* 菜单栏选中文字颜色：text-menu-active */
+  --color-menu-active-bg: color-mix(in srgb, var(--color-primary) 80%, #000); /* 菜单栏选中背景色：bg-menu-active-bg */
 
   /*  表格颜色  */
   --table-title-color: theme('colors.neutral.200'); /* 表格标题行文字颜色：text-title */
@@ -73,8 +74,4 @@
 
   /*  线条颜色  */
   --color-line: #4C4D4F; /* 线条颜色：border-line */
-
-  /*  辅助颜色  */
-  --q-accent: theme('colors.yellow.500'); /* 强调色：color="accent" | text-accent | bg-accent */
-  --accent-color: theme('colors.yellow.500'); /* 强调色：color="accent" | text-accent | bg-accent */
 }
