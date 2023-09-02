@@ -1,10 +1,11 @@
 <!--【Element 通用组件】/【图标】-->
 <script setup lang="ts">
-import {ref, watch} from 'vue'
+import {computed, ref, watch} from 'vue'
 
 const props = withDefaults(defineProps<{
-  name: string,   // 图标名称
-  size?: string,  // 图标大小，默认为 16px
+  name: string,     // 图标名称
+  size?: string,    // 图标大小，默认为 16px
+  button?: boolean, // 是否为图标按钮
 }>(), {
   size: '16px',
 })
@@ -28,10 +29,21 @@ watch(() => props.name, (val) => {
     iconType.value = '-sharp'
   }
 }, {immediate: true})
+
+
+// 动态样式
+const classObj = computed(() => {
+  return {
+    [`material-icons${iconType.value}`]: true,
+    'cursor-pointer text-second hover:text-primary': props.button,
+  }
+})
 </script>
 
 <template>
-  <i :class="`material-icons${iconType}`" :style="`font-size: ${size}`">
+  <i class="select-none"
+     :class="classObj"
+     :style="`font-size: ${size}`">
     {{ iconName }}
   </i>
 </template>

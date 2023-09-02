@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <el-dropdown-item :divided="divided">
+  <el-dropdown-item :divided="divided" class="!select-none">
     <EIcon :name="icon" :size="iconSize" class="!mr-4"/>
     {{ label }}
   </el-dropdown-item>

@@ -8,6 +8,7 @@ import type {RouteRecordRaw} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
 import {flatAppList} from './utils/flatAppList'
 import {filterAppList} from './utils/filterApplist'
+import {setRoute} from './utils/setRoute'
 
 
 // region 1.加载当前项目 currentProject
@@ -106,49 +107,26 @@ route.redirect = {name: appList[0]?.name}
 // 3.3 注册模块和应用
 currentProject?.appList?.forEach((item: AppListItemType) => {
   //（1）注册当前项目的模块路由
-  // 如果模块下没有子应用，则将模块设置为空白页面
   if (item.type === 'module') {
+    // 如果模块下没有子应用，则将模块设置为空白页面
     if (!item.children || item.children?.length === 0) {
-      route?.children?.push({
-        path: item.name,
-        name: item.name,
-        meta: {type: 'module', title: item.title},
-        component: () => import('@/components/page/EmptyPage.vue'),
-      })
-      // 如果模块下有子应用，则将模块设置为路由页面，并添加子应用路由
-    } else {
-      // 设置第一个子应用为模块的默认路由，如果第一个是应用组，则设置后面的第一个应用为默认路由
-      let redirectName
-      for (let i = 0; i < item.children.length; i++) {
-        if (item.children[i].type === 'app') {
-          redirectName = item.children[i].name
-          break
-        }
-      }
+      route?.children?.push(setRoute(item, true))
+    }
 
-      const moduleRoute: RouteRecordRaw = {
-        path: item.name,
-        name: item.name,
-        meta: {type: 'module', title: item.title},
-        component: () => import('@/components/page/RouterPage.vue'),
-        redirect: {name: redirectName},
-        children: [],
-      }
+    // 如果模块下有子应用，则将模块设置为路由页面，并添加子应用路由
+    else {
+      const moduleRoute: RouteRecordRaw = setRoute(item, false)
 
       // 注册模块下的子应用
       item?.children?.forEach((child: AppListItemType) => {
         if (child.type !== 'app') return
+
         const childApp = apps.find((app: AppType) => app.name === child.name)
         if (childApp && childApp.route) {
-          moduleRoute.children.push(childApp.route)
+          moduleRoute.children?.push(childApp.route)
         } else {
           // 如果 appList 中配置了，但是 apps 中没有找到，则将应用设置为空白页面
-          moduleRoute.children?.push({
-            path: child.name,
-            name: child.name,
-            meta: {type: 'app', title: child.title},
-            component: () => import('@/components/page/EmptyPage.vue'),
-          })
+          moduleRoute.children?.push(setRoute(child, true))
         }
       })
 
@@ -167,12 +145,7 @@ currentProject?.appList?.forEach((item: AppListItemType) => {
       route?.children?.push(topApp.route)
     } else {
       // 如果 appList 中配置了，但是 apps 中没有找到，则添加空白页路由
-      route?.children?.push({
-        path: item.name,
-        name: item.name,
-        meta: {type: 'app', title: item.title, noMenu: true},  // 标识为一级应用，无菜单栏
-        component: () => import('@/components/page/EmptyPage.vue'),
-      })
+      route?.children?.push(setRoute(item, true, true))
     }
   }
 })

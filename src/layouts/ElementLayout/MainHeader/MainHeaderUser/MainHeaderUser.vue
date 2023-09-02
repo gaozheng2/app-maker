@@ -4,7 +4,7 @@ import type {DropdownInstance} from 'element-plus'
 import {ref} from 'vue'
 import {storeToRefs} from 'pinia'
 import {useUserStore} from '@/stores/userStore'
-import EDropdownItem from '@/components/menu/EDropdownItem.vue'
+import EDropdownItem from '@/components/common/EDropdownItem.vue'
 
 // 获取用户名称
 let {userName} = storeToRefs(useUserStore())

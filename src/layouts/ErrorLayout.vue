@@ -12,7 +12,8 @@ onDeactivated(() => {
 </script>
 
 <template>
-  <div class="center flex flex-col justify-center items-center text-primary bg-body-bg dark:!text-title">
+  <div class="center flex flex-col justify-center items-center text-primary bg-body-bg select-none
+              dark:!text-title">
     
     <div class="-mt-10 font-bold text-[15vw] tracking-widest text-primary">
       404

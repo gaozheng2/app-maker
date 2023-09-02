@@ -10,7 +10,7 @@ const router = createRouter({
     {
       path: '/:catchAll(.*)*',
       name: '404',
-      meta: {title: '404', isWhiteList: true},
+      meta: {title: '404', whiteList: true},
       component: () => import('@/layouts/ErrorLayout.vue')
     },
   ]
@@ -21,11 +21,11 @@ const router = createRouter({
 // 规则为：项目英文名称 + 当前路由的 meta.title（应用中文名称）
 router.afterEach((to) => {
   const {currentProject} = mainConfig
-  document.title = currentProject?.name ?? ''
+  document.title = currentProject?.title ?? ''
 
   for (let i = to.matched.length - 1; i >= 0; i--) {
     if (to.matched[i].meta.title) {
-      document.title = currentProject?.name + ' - ' + to.matched[i].meta.title
+      document.title = currentProject?.title + ' - ' + to.matched[i].meta.title
       break
     }
   }

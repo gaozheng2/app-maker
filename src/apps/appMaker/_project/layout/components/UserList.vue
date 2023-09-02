@@ -1,6 +1,6 @@
 <!--  【自定义布局】/【用户下拉列表】  -->
 <script setup lang="ts">
-import EDropdownItem from '@/components/menu/EDropdownItem.vue'
+import EDropdownItem from '@/components/common/EDropdownItem.vue'
 import {useUserStore} from '@/stores/userStore'
 
 

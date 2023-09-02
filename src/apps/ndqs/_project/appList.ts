@@ -5,27 +5,27 @@
 // - 第三层为应用入口，显示在左侧菜单栏二级菜单的折叠菜单下
 
 const appList: AppListItemType[] = [
-    {type: 'app', name: 'desktop', title: '工作台', icon: 'home', iconSize: '22px', onlyIcon: true,},  // 可自定义图标大小，默认 20px
-    {type: 'module', name: 'business', title: '组织业务', icon: 'cases',},
-    {type: 'module', name: 'project', title: '项目管理', icon: 'rocket',},
-    {type: 'module', name: 'product', title: '产品管理', icon: 'lan',},
-    {type: 'module', name: 'knowledge', title: '知识中心', icon: 'auto_stories',},
-    {
-        type: 'module', name: 'system', title: '系统设置', icon: 'settings', onlyIcon: true, align: 'right', children: [
-            {type: 'group', name: 'group1', title: '角色权限',},
-            {type: 'app', name: 'user', title: '用户管理', icon: 'o_people',},
-            {type: 'app', name: 'role', title: '角色管理', icon: 'o_groups',},
-            {type: 'app', name: 'menu', title: '菜单管理', icon: 'list',},
-            {type: 'group', name: 'group1', title: '系统配置',},
-            {type: 'app', name: 'dict', title: '字典管理', icon: 'o_bookmark_border',},
-            {type: 'app', name: 'log', title: '日志管理', icon: 'event',},
-            {type: 'app', name: 'file', title: '文件管理', icon: 'o_description',},
-            {type: 'app', name: 'notice', title: '通知管理', icon: 'o_notifications',},
-            {type: 'app', name: 'msg', title: '消息管理', icon: 'o_message',},
-            {type: 'app', name: 'task', title: '任务管理', icon: 'o_task',},
-            {type: 'app', name: 'monitor', title: '监控管理', icon: 'monitor',},
-        ]
-    },
+  {type: 'module', name: 'desktop', title: '工作台', icon: 'home', iconSize: '22px', onlyIcon: true, miniMenu: true},  // 可自定义图标大小，默认 20px
+  {type: 'module', name: 'business', title: '组织业务', icon: 'cases',},
+  {type: 'module', name: 'project', title: '项目管理', icon: 'rocket',},
+  {type: 'module', name: 'product', title: '产品管理', icon: 'lan',},
+  {type: 'module', name: 'knowledge', title: '知识中心', icon: 'auto_stories',},
+  {
+    type: 'module', name: 'system', title: '系统设置', icon: 'settings', onlyIcon: true, align: 'right', children: [
+      {type: 'group', name: 'group1', title: '角色权限',},
+      {type: 'app', name: 'user', title: '用户管理', icon: 'o_manage_accounts',},
+      {type: 'app', name: 'role', title: '角色管理', icon: 'o_groups',},
+      {type: 'app', name: 'menu', title: '菜单管理', icon: 'list',},
+      {type: 'group', name: 'group1', title: '系统配置',},
+      {type: 'app', name: 'dict', title: '字典管理', icon: 'o_bookmark_border',},
+      {type: 'app', name: 'log', title: '日志管理', icon: 'event',},
+      {type: 'app', name: 'file', title: '文件管理', icon: 'o_description',},
+      {type: 'app', name: 'notice', title: '通知管理', icon: 'o_notifications',},
+      {type: 'app', name: 'msg', title: '消息管理', icon: 'o_message',},
+      {type: 'app', name: 'task', title: '任务管理', icon: 'o_task',},
+      {type: 'app', name: 'monitor', title: '监控管理', icon: 'monitor',},
+    ]
+  },
 ]
 
 
@@ -34,8 +34,8 @@ const appList: AppListItemType[] = [
 // - 如果 include 为空，则构建全部应用
 // - 如果 exclude 为空，则不排除任何应用，exclude 优先级高于 include
 const buildList: BuildListType = {
-    // include: ['工作台', 'business', 'task'],
-    // exclude: ['系统设置'],
+  // include: ['工作台', 'business', 'task'],
+  // exclude: ['系统设置'],
 }
 
 
