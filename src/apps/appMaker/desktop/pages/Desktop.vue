@@ -1,11 +1,9 @@
 <!--【应用开发平台】/【工作台 App】-->
 <script setup lang="ts">
-import {loadProjects} from '@/apps/_appRegister/utils/loadProjects'
 import AppPage from '@/components/page/AppPage.vue'
 
-
 // 读取 apps 目录下的所有项目
-const projects = loadProjects()
+import {projects} from '@/apps/_appRegister/utils/loadProjects'
 </script>
 
 <template>
@@ -22,6 +20,8 @@ const projects = loadProjects()
       <template v-for="i in 20">
         <div v-for="project in projects" :key="project.name"
              class="">
+          <el-image :src="project.logo" alt="logo"
+                    class="w-10 h-10 mr-4 cursor-pointer hover:brightness-110 drop-shadow"/>
           <div class="min-w-max h-32 p-4 rounded border border-line cursor-pointer
                       dark:hover:bg-panel-bg hover:shadow-lg">
             <div class="text-xl">{{ project.title }}</div>

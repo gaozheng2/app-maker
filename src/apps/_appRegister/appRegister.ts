@@ -6,7 +6,7 @@
  */
 import type {RouteRecordRaw} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
-import {loadProjects} from './utils/loadProjects'
+import {loadProject} from './utils/loadProjects'
 import {flatAppList} from './utils/flatAppList'
 import {filterAppList} from './utils/filterApplist'
 import {setRoute} from './utils/setRoute'
@@ -22,8 +22,7 @@ if (mainConfig.env === 'production') {
 }
 
 // 根据当前项目名称，获取当前项目的配置
-const projects = loadProjects(currentProjectName)
-const currentProject = projects[0]
+const currentProject = loadProject(currentProjectName)
 
 // 将当前项目的配置保存到平台配置中
 mainConfig.currentProject = currentProject
@@ -126,7 +125,6 @@ currentProject?.appList?.forEach((item: AppListItemType) => {
 console.log('route', route)
 
 export {
-  projects,
   apps,
   route,
 }
