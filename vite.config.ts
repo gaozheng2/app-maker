@@ -34,6 +34,7 @@ export default defineConfig({
         autoprefixer,
       ]
     },
+
   },
 
   // 配置路径别名
@@ -41,5 +42,5 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
 })

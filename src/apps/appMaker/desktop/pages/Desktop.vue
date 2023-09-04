@@ -5,7 +5,7 @@ import AppPage from '@/components/page/AppPage.vue'
 
 
 // 读取 apps 目录下的所有项目
-const projects: ProjectConfigType[] = await loadProjects()
+const projects = loadProjects()
 </script>
 
 <template>

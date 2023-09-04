@@ -1,13 +1,6 @@
 // 【应用注册程序】/【工具】/【读取项目】
 
-const loadProjects = async (projectName?: string): Promise<ProjectConfigType[]> => {
-  // 读取特定项目
-  if (projectName) {
-    const project = await import(`/src/apps/${projectName.toLowerCase()}/_project/project.ts`)
-
-    return [project?.default]
-  }
-
+const loadProjects = (projectName?: string): ProjectConfigType[] => {
   // 读取全部项目
   const projectFiles = import.meta.glob(
     '/src/apps/**/project.ts',
@@ -18,6 +11,12 @@ const loadProjects = async (projectName?: string): Promise<ProjectConfigType[]> 
   for (let path in projectFiles) {
     const project = projectFiles[path] as ProjectConfigType
     projects.push(project)
+  }
+
+  // 读取特定项目
+  if (projectName) {
+    const project = projects.find(item => item.name.toLowerCase() === projectName.toLowerCase())
+    return project ? [project] : []
   }
 
   return projects

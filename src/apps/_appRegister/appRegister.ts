@@ -6,10 +6,10 @@
  */
 import type {RouteRecordRaw} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
+import {loadProjects} from './utils/loadProjects'
 import {flatAppList} from './utils/flatAppList'
 import {filterAppList} from './utils/filterApplist'
 import {setRoute} from './utils/setRoute'
-import {loadProjects} from '@/apps/_appRegister/utils/loadProjects'
 
 
 // region 1.加载当前项目 currentProject
@@ -22,11 +22,16 @@ if (mainConfig.env === 'production') {
 }
 
 // 根据当前项目名称，获取当前项目的配置
-const projects = await loadProjects(currentProjectName)
+const projects = loadProjects(currentProjectName)
 const currentProject = projects[0]
 
 // 将当前项目的配置保存到平台配置中
 mainConfig.currentProject = currentProject
+
+// 更换网页图标
+if (currentProject?.logo) {
+  document.querySelector('link[rel="icon"]')?.setAttribute('href', currentProject.logo)
+}
 // endregion
 
 
