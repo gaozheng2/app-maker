@@ -22,7 +22,7 @@ const styleConfig: ProjectStyleConfigType = {
 
   headerHeight: 50,           // 项目标题栏的高度
   menuWidth: 220,             // 项目菜单栏的宽度，0 为不需要菜单栏
-  appMinWidth: 1080,          // 项目中 App 的最小宽度
+  appMinWidth: 1200,          // 项目中 App 的最小宽度
 }
 
 

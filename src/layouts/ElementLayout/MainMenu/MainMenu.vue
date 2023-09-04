@@ -28,7 +28,7 @@ watch(() => $route.fullPath, () => {
   menuTitle.value = module?.meta?.title as string  // 计算菜单栏标题
   
   // 计算当前模块下的应用列表
-  const moduleData = currentProject?.appList?.find((item: AppListItemType) => item.name === module.name)
+  const moduleData = currentProject?.appList?.find((item: AppListItemType) => item?.name === module?.name)
   appList.value = moduleData?.children || []
 }, {immediate: true})
 

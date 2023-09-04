@@ -21,14 +21,14 @@ setElementTheme()
 
 // 根据构建模式判断是否显示标题栏和菜单栏，project 模式显示，app 模式不显示
 const isShowLayout = computed(() =>
-    !(mainConfig.env === 'production' && mainConfig.buildMode === 'app'))
+  !(mainConfig.env === 'production' && mainConfig.buildMode === 'app'))
 
 
 // 动态计算是否显示菜单栏
 const $route = useRoute()
 const isShowMenu = computed(() => {
   if (!isShowLayout.value) return false
-
+  
   const {noMenu} = $route.meta
   return !noMenu
 })
@@ -46,7 +46,7 @@ const appHeight = computed(() => {
   <el-config-provider :locale="zhCn">
     <!--  页面布局  -->
     <el-container direction="vertical">
-
+      
       <!--  平台标题栏，向上暴露插槽，主要自定义 user 插槽内容  -->
       <MainHeader v-if="isShowLayout">
         <template #logo>
@@ -59,20 +59,20 @@ const appHeight = computed(() => {
           <slot name="user"/>
         </template>
       </MainHeader>
-
+      
       <!--  页面主体，根据标题栏高度自适应页面主体高度  -->
       <el-container :style="`height: ${appHeight}`">
-
+        
         <!--  平台菜单栏  -->
         <MainMenu v-if="isShowMenu"/>
-
+        
         <!--  页面内容路由  -->
-        <el-main class="!p-0">
-          <el-scrollbar>
+        <el-scrollbar class="w-full">
+          <el-main class="!p-0" :style="`min-width: ${currentProject?.style.appMinWidth}px`">
             <RouterPage/>
-          </el-scrollbar>
-        </el-main>
-
+          </el-main>
+        </el-scrollbar>
+      
       </el-container>
     </el-container>
   </el-config-provider>

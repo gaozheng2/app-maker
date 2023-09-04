@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AppPage: typeof import('./../components/page/AppPage.vue')['default']
     EBtn: typeof import('./../components/button/EBtn.vue')['default']
     EBtnTheme: typeof import('./../components/button/EBtnTheme.vue')['default']
     EDropdownItem: typeof import('./../components/common/EDropdownItem.vue')['default']

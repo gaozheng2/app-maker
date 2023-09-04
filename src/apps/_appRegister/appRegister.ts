@@ -9,26 +9,12 @@ import {mainConfig} from '@/config/main.config'
 import {flatAppList} from './utils/flatAppList'
 import {filterAppList} from './utils/filterApplist'
 import {setRoute} from './utils/setRoute'
+import {loadProjects} from '@/apps/_appRegister/utils/loadProjects'
 
 
 // region 1.加载当前项目 currentProject
-// 1.1 扫描 apps 目录下的所有 project.ts 文件，获取项目配置集合 projects
-// *** 此时会将所有项目的配置都加载到内存中，因此应尽量减少在 project.ts 中静态引入图片或组件等资源
-const projectFiles = import.meta.glob(
-  '/src/apps/**/project.ts',
-  {eager: true, import: 'default'}  // eager: true 表示立即加载，import: 'default' 表示只加载 default 导出
-)
-
-const projects: ProjectConfigType[] = []  // 项目配置集合
-for (let path in projectFiles) {
-  const project = projectFiles[path] as ProjectConfigType
-  projects.push(project)
-}
-
-
-// 1.2 根据 main.config 配置，加载对应的项目配置，并保存到平台配置中
 // 根据当前环境加载当前项目名称
-let currentProjectName = ''
+let currentProjectName
 if (mainConfig.env === 'production') {
   currentProjectName = mainConfig.buildProjectName
 } else {
@@ -36,8 +22,8 @@ if (mainConfig.env === 'production') {
 }
 
 // 根据当前项目名称，获取当前项目的配置
-const currentProject = projects
-  .find((item: ProjectConfigType) => item.name === currentProjectName)
+const projects = await loadProjects(currentProjectName)
+const currentProject = projects[0]
 
 // 将当前项目的配置保存到平台配置中
 mainConfig.currentProject = currentProject
@@ -64,10 +50,10 @@ for (let path in appFiles) {
 
 // region 3 将当前项目的 App 注册到路由中
 // 3.1 生成当前项目的路由，提供给 router，没有设置则使用默认路由
-const route: RouteRecordRaw = currentProject!.route || {
+const route: RouteRecordRaw = currentProject.route || {
   path: '/',
-  name: currentProject!.name,
-  meta: {title: currentProject!.title},
+  name: currentProject.name,
+  meta: {title: currentProject.title},
   component: () => import('@/layouts/MainLayout.vue'),
 }
 
