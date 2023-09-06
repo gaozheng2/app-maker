@@ -69,13 +69,16 @@ const menuHeight = computed(() => {
       
       <!--  菜单栏标题  -->
       <div v-if="!isAlwaysMini" class="h-12 px-4 flex justify-between items-center border-b border-line">
-        <h4 v-if="!isCollapsed" class="whitespace-nowrap">{{ menuTitle }}</h4>
+        <div v-if="!isCollapsed" class="flex items-center">
+          <!--          <EIcon name="settings" size="20px" class="mr-2 text-primary"/>-->
+          <h4 class="whitespace-nowrap">{{ menuTitle }}</h4>
+        </div>
         <!--  折叠菜单按钮  -->
-        <el-tooltip placement="right" :content="(isCollapsed ? '展开' : '折叠') + ' (Alt+W)'">
-          <EIcon button name="menu_open" size="22px" class="ml-1"
-                 :class="{ 'rotate-180': isCollapsed}"
-                 @click="isCollapsed = !isCollapsed"/>
-        </el-tooltip>
+        <EIcon button name="menu_open" size="22px" class="ml-1"
+               :class="{ 'rotate-180': isCollapsed}"
+               :tooltip="(isCollapsed ? '展开' : '折叠') + ' (Alt+W)'"
+               tooltip-placement="right"
+               @click="isCollapsed = !isCollapsed"/>
       </div>
       
       <el-scrollbar class="pl-1 pr-3" :style="`height: ${menuHeight}`">
@@ -95,9 +98,8 @@ const menuHeight = computed(() => {
                         @click="onClickMenuItem(item)"
           >
             <!--  应用图标  -->
-            <el-tooltip placement="right" :content="item.title" :disabled="!isCollapsed">
-              <EIcon :name="item.icon!" :size="item.iconSize ?? '20px'" class="mr-4 -ml-2.5"/>
-            </el-tooltip>
+            <EIcon :name="item.icon!" :size="item.iconSize ?? '20px'" class="mr-4 -ml-2.5"
+                   :tooltip="item.title" tooltip-placement="right"/>
             
             <!--  应用标题  -->
             <span class="whitespace-nowrap">{{ item.title }}</span>

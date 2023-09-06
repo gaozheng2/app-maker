@@ -37,9 +37,13 @@ declare module 'vue' {
     MainHeaderUserAvatar: typeof import('./../layouts/ElementLayout/MainHeader/MainHeaderUser/MainHeaderUserAvatar.vue')['default']
     MainLayout: typeof import('./../layouts/MainLayout.vue')['default']
     MainMenu: typeof import('./../layouts/ElementLayout/MainMenu/MainMenu.vue')['default']
+    PreviewLayout: typeof import('./../layouts/PreviewLayout.vue')['default']
     QuasarLayout: typeof import('./../layouts/QuasarLayout/QuasarLayout.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterPage: typeof import('./../components/page/RouterPage.vue')['default']
     RouterView: typeof import('vue-router')['RouterView']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

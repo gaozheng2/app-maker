@@ -6,11 +6,12 @@ export {}
 declare global {
   // 平台配置类型
   interface MainConfigType {
-    env: string,  // 当前环境：development 开发环境 / production 生产环境 / app 应用预览环境
-    currentProjectName: string,  // 开发环境运行的当前项目名称
-    currentProject?: ProjectConfigType,  // 当前项目的配置，无需指定，系统运行时自动读取
-    buildProjectName: string,  // 构建的项目名称，使用 npm 的 build-app 指令构建应用项目时使用
-    buildMode: 'project' | 'app',  // 构建模式：project 项目模式 / app 应用模式
+    // 当前环境：development 开发环境 / production 生产环境 / app 应用预览环境
+    env: 'development' | 'production',
+    currentProjectName: string,         // 开发环境运行的当前项目名称
+    currentProject?: ProjectConfigType, // 当前项目的配置，无需指定，系统运行时自动读取
+    buildProjectName: string,           // 构建的项目名称，使用 npm 的 build-app 指令构建应用项目时使用
+    buildMode: 'project' | 'app',       // 构建模式：project 项目模式 / app 应用模式
   }
 
 

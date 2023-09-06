@@ -7,6 +7,7 @@ export const useMainStore = defineStore('main', {
     isFullscreen: false,  // 是否全屏
 
     // currentModule: <ModuleType | null>null,  // 当前模块信息
+    apps: <AppDataType[]>[],  // 全部应用列表
   }),
   getters: {},
 

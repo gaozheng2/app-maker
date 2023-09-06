@@ -8,7 +8,7 @@ import type {RouteRecordRaw} from 'vue-router'
  * @param isTopApp 是否为一级应用
  * @returns route 路由对象
  */
-const setRoute = (item: ModuleType | AppType, isEmpty: boolean, isTopApp = false): RouteRecordRaw => {
+const getRoute = (item: ModuleType | AppType, isEmpty: boolean, isTopApp = false): RouteRecordRaw => {
   const route: RouteRecordRaw = {
     path: item.name,
     name: item.name,
@@ -46,4 +46,4 @@ const setRoute = (item: ModuleType | AppType, isEmpty: boolean, isTopApp = false
 }
 
 
-export {setRoute}
+export {getRoute}

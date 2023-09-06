@@ -1,12 +1,23 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
-import {route} from '@/apps/_appRegister/appRegister'
+import {appRegister} from '@/apps/_appRegister/appRegister'
+
+
+// 读取当前项目的路由，并注册到平台路由中
+const {route} = appRegister()
+
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   scrollBehavior: () => ({left: 0, top: 0}),
   routes: [
-    route,
+    route,  // 当前项目路由
+    {
+      path: '/preview',
+      name: 'preview',
+      meta: {title: '项目预览'},
+      component: () => import('@/layouts/PreviewLayout.vue'),
+    },
     {
       path: '/:catchAll(.*)*',
       name: '404',
@@ -15,6 +26,12 @@ const router = createRouter({
     },
   ]
 })
+
+
+// 如果处于非 AppMaker 的生产环境，删除项目预览路由
+if (mainConfig.env === 'production' && mainConfig.currentProjectName !== 'appMaker') {
+  router.removeRoute('preview')
+}
 
 
 // 后置路由守卫：设置网页标题

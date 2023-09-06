@@ -7,19 +7,11 @@ import {projects} from '@/apps/_appRegister/utils/loadProjects'
 import {useRouter} from 'vue-router'
 
 
-// 点击预览按钮
+// 点击预览按钮，在新窗口打开预览页面
 const $router = useRouter()
 const onClickPreview = (project: ProjectConfigType) => {
-  // 读取并设置项目路由
-  $router.addRoute({
-    path: '/appMaker/preview',
-    name: 'appMaker-preview',
-    component: () => import('@/apps/appMaker/_project/layout/PreviewLayout.vue'),
-  })
-  
-  // 在新窗口打开预览页面
   let routeData = $router.resolve({
-    name: 'appMaker-preview',
+    name: 'preview',
     query: {name: project.name},
   })
   window.open(routeData.href, '_blank')
