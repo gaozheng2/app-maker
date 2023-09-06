@@ -3,6 +3,7 @@ import type {RouteRecordRaw} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
 import logoUrl from './assets/logo.svg'  // 需要手动引入 Logo 图片
 import {appList, buildList} from './appList'
+import {preview} from 'vite'
 
 
 // 基本配置
@@ -49,7 +50,14 @@ const route: RouteRecordRaw = {
   path: '/',
   meta: {title: baseConfig.title},
   component: () => import('./layout/AppMakerLayout.vue'),  // 项目布局组件，可自由定义项目入口组件
-  children: [],  // 各 modules 和 app 的路由，由 _appRegister.ts 自动生成
+  // children: [
+  //   {
+  //     path: 'preview',
+  //     name: 'preview',
+  //     meta: {title: '应用预览'},
+  //     component: () => import('./layout/PreviewLayout.vue'),
+  //   },
+  // ],  // 各 modules 和 app 的路由，由 _appRegister.ts 自动生成
 }
 
 

@@ -6,8 +6,11 @@ const props = withDefaults(defineProps<{
   name: string,     // 图标名称
   size?: string,    // 图标大小，默认为 16px
   button?: boolean, // 是否为图标按钮
+  tooltip?: string, // 鼠标悬停提示
+  tooltipPlacement?: 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end', // 鼠标悬停提示位置
 }>(), {
   size: '16px',
+  tooltipPlacement: 'top',
 })
 
 // 根据图标名称，判断图标类型
@@ -41,9 +44,13 @@ const classObj = computed(() => {
 </script>
 
 <template>
-  <i class="select-none"
-     :class="classObj"
-     :style="`font-size: ${size}`">
-    {{ iconName }}
-  </i>
+  <el-tooltip :content="tooltip" :placement="tooltipPlacement" :disabled="!tooltip">
+    <i class="select-none"
+       :class="classObj"
+       :style="`font-size: ${size}`"
+       v-bind="$attrs"
+    >
+      {{ iconName }}
+    </i>
+  </el-tooltip>
 </template>

@@ -1,4 +1,4 @@
-<!--  【应用开发平台 项目自定义布局】  -->
+<!--  【应用开发平台】/【项目自定义布局】  -->
 <script setup lang="ts">
 import '../assets/theme.scss'  // 引入项目自定义主题样式
 import MainHeaderDivider from '@/layouts/ElementLayout/MainHeader/MainHeaderUser/MainHeaderDivider.vue'

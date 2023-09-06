@@ -5,6 +5,8 @@
 
 <template>
   <main class="p-5 flex flex-col">
+    
+    <!--  页面标题  -->
     <h2 class="my-4 flex items-center">
       <slot name="title">
         页面标题
