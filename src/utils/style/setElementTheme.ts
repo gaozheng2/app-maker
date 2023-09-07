@@ -1,4 +1,4 @@
-// 设置 Element 主题颜色
+// 【工具函数】/【样式】/【设置 Element 主题颜色】
 import {colors} from 'quasar'
 
 // 根据 theme.scss 设置的基础颜色，生成对应的辅助颜色

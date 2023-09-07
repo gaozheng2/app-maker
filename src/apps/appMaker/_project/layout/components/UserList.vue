@@ -33,6 +33,8 @@ const onClickUser = (item: UserListItem) => {
   const style = document.documentElement.style
   style.setProperty('--color-header-bg2', item.color
     || style.getPropertyValue('--color-header-bg'))
+  
+  // TODO：更换暗黑模式下用户名称颜色
 }
 
 

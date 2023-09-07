@@ -6,9 +6,9 @@
 
 const appList: AppListItemType[] = [
   {type: 'app', name: 'desktop', title: '工作台', icon: 'home', onlyIcon: true, iconSize: '22px',},  // 可自定义图标大小，默认 22px
+  {type: 'module', name: 'app-dev', title: '应用开发', icon: 'api', miniMenu: true,},
   {type: 'app', name: 'widgets', title: '组件库', icon: 'extension',},
   {type: 'module', name: 'app-repo', title: '应用库', icon: 'widgets', noMenu: true,},
-  {type: 'module', name: 'app-dev', title: '应用开发', icon: 'api', miniMenu: true,},
   {
     type: 'module', name: 'system', title: '系统设置', icon: 'settings', onlyIcon: true, align: 'right', children: [
       {type: 'group', name: 'group1', title: '角色权限',},

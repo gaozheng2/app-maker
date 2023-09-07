@@ -18,7 +18,7 @@ const baseConfig: ProjectBaseConfigType = {
 
 // 样式配置
 const styleConfig: ProjectStyleConfigType = {
-  ui: 'element',              // 项目 UI 库，element | quasar
+  ui: 'quasar',               // 项目 UI 库，element | quasar
   theme: 'system',            // 项目默认明/暗主题，dark | light | system
 
   headerHeight: 48,           // 项目标题栏的高度

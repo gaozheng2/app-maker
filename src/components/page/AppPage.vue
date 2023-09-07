@@ -7,7 +7,7 @@
   <main class="p-5 flex flex-col">
     
     <!--  页面标题  -->
-    <h2 class="my-4 flex items-center">
+    <h2 class="my-4 flex items-center select-none">
       <slot name="title">
         页面标题
       </slot>

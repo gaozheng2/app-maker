@@ -3,12 +3,14 @@
 import {useRoute} from 'vue-router'
 import {computed} from 'vue'
 import imageUrl from '@/assets/images/empty/empty_page.svg'
+import {firstUpperCase} from '@/utils/data/firstUpperCase'
+
 
 // 英文名默认为路由的 name 属性，首字母大写
 const $route = useRoute()
 let appName = computed(() => {
   const appName = $route.name?.toString()
-  return appName?.replace(appName?.[0], appName?.[0].toUpperCase())
+  return firstUpperCase(appName ?? 'App')
 })
 </script>
 

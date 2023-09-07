@@ -1,4 +1,4 @@
-//【工具函数】/【系统相关】/【设置主题】
+//【工具函数】/【样式】/【动态设置明/暗主题】
 import type {Ref} from 'vue'
 import {ref, watch} from 'vue'
 import {Dark} from 'quasar'  // 切换 Quasar 框架的暗色主题
