@@ -13,6 +13,33 @@ for (let path in projectFiles) {
 }
 
 
+// 将一级应用折叠进模块 home 中，生成 project.moduleList，用于按模块展示应用
+projects.forEach(project => {
+  const moduleList: ModuleType[] = []
+  const firstAppList: AppType[] = []
+
+  for (let item of project.appList!) {
+    if (item.type === 'app') {
+      firstAppList.push(item)
+    } else if (item.type === 'module') {
+      moduleList.push(item)
+    }
+  }
+
+  if (firstAppList.length > 0) {
+    moduleList.unshift({
+      type: 'module',
+      name: 'home',
+      title: '系统应用',
+      icon: 'apps',
+      children: firstAppList
+    })
+  }
+
+  project.moduleList = moduleList
+})
+
+
 // 读取单个项目
 const loadProject = (projectName: string): ProjectConfigType => {
   const project = projects.find(item => item.name.toLowerCase() === projectName.toLowerCase())

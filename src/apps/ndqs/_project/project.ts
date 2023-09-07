@@ -46,6 +46,7 @@ const envConfig: EnvConfigType = {
 // 路由配置，只需配置一级项目路由，二级模块路由、三级应用路由均由 _appRegister.ts 自动生成
 const route: RouteRecordRaw = {
   path: '/',
+  name: 'home',
   meta: {title: baseConfig.title},
   component: () => import('./layout/NdqsLayout.vue'),  // 项目布局组件，可自由定义
   children: [],  // 各 modules 和 app 的路由，由 _appRegister.ts 自动生成

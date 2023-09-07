@@ -5,9 +5,10 @@ import {useRoute, useRouter} from 'vue-router'
 import {mainConfig} from '@/config/main.config'
 import {appRegister} from '@/apps/_appRegister/appRegister'
 
-// 读取并设置预览项目的名称
+// 读取并设置预览项目和应用的名称
 const route = useRoute()
-mainConfig.currentProjectName = route.query.name
+mainConfig.currentProjectName = route.query.project as string
+const appName = route.query.app as string
 
 
 // 初始化项目，添加预览项目的路由
@@ -17,11 +18,20 @@ const {route: projectRoute} = appRegister()
 $router.addRoute(projectRoute)
 
 
-// 路由加载完成后，跳转至根路径
+// 路由加载完成后，跳转至根路径 | 对应的应用
 const isLoading = ref(true)
-$router.replace('/').then(() => {
-  isLoading.value = false
-})
+
+if (appName) {
+  $router.replace({name: appName})
+    .then(() => {
+      isLoading.value = false
+    })
+} else {
+  $router.replace('/')
+    .then(() => {
+      isLoading.value = false
+    })
+}
 </script>
 
 <template>

@@ -2,51 +2,58 @@
 <script setup lang="ts">
 import AppPage from '@/components/page/AppPage.vue'
 import ProjectCard from './components/ProjectCard.vue'
-import {ref} from 'vue'
+import ModuleCard from '@/apps/appMaker/desktop/pages/components/ModuleCard.vue'
+import PanelTitle from '@/components/panel/PanelTitle.vue'
+import {computed, provide, ref} from 'vue'
+
+// 读取 apps 目录下的所有项目
 import {projects} from '@/apps/_appRegister/utils/loadProjects'
-import {onClickOutside} from '@vueuse/core'  // 读取 apps 目录下的所有项目
 
 
 // 点击项目卡片，设置为激活项目
 const activeProject = ref('')
-
 const onClickProject = (project: ProjectConfigType) => {
   activeProject.value = project.name
 }
 
 
-// 点击页面空白处，取消激活项目
-const projectCardPanel = ref<HTMLElement | null>(null)
-onClickOutside(projectCardPanel, () => {
-  activeProject.value = ''
+// 向下传递激活项目的名称
+provide('projectName', activeProject)
+
+
+// 读取激活项目的配置信息
+const activeProjectData = computed(() => {
+  return projects.find(project => project.name === activeProject.value)
 })
+
 </script>
 
 <template>
   <AppPage class="max-w-7xl mx-auto">
     
-    <!--  页面标题  -->
-    <template #title>
-      <EIcon name="apps" size="24px" class="mr-2 text-primary"/>
-      开发项目列表
-    </template>
+    <!--  开发项目列表  -->
+    <PanelTitle title="开发项目" icon="apps"/>
     
-    <!--  应用卡片  -->
-    <el-scrollbar height="188">
-      <div ref="projectCardPanel" class="flex flex-nowrap gap-8" @click.self="activeProject = ''">
+    <el-scrollbar height="184">
+      <div class="flex flex-nowrap gap-8">
+        <!--        <template v-for="i in 10">-->
         <template v-for="project in projects" :key="project.name">
           <ProjectCard :project="project" :is-active="activeProject === project.name"
                        @click="onClickProject(project)"/>
         </template>
+        <!--        </template>-->
       </div>
     </el-scrollbar>
+    
+    
+    <!--  模块和应用列表  -->
+    <div v-show="activeProject" class="pt-4 border-t border-line">
+      <div class="flex flex-nowrap">
+        <template v-for="module in activeProjectData?.moduleList" :key="module.name">
+          <ModuleCard :module="module"/>
+        </template>
+      </div>
+    </div>
   
   </AppPage>
 </template>
-
-<style scoped lang="scss">
-.active-project {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px var(--primary);
-}
-</style>

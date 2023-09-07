@@ -22,7 +22,7 @@ const $router = useRouter()
 const onClickPreview = (project: ProjectConfigType) => {
   let routeData = $router.resolve({
     name: 'preview',
-    query: {name: project.name},
+    query: {project: project.name},
   })
   window.open(routeData.href, '_blank')
 }
@@ -42,12 +42,13 @@ const onClickPreview = (project: ProjectConfigType) => {
     </div>
     
     <!--  Logo和系统名称  -->
-    <div class="mx-4 flex-1 flex items-center border-b border-line">
+    <div class="mx-4 flex-1 flex items-center border-b border-line"
+         :class="{ 'border-b-0 dark:border-b': isActive }">
       <el-image :src="project.logo" alt="logo"
                 class="w-10 h-10 mr-4 cursor-pointer group-hover:brightness-110 drop-shadow"/>
       <div>
         <div class="w-48 whitespace-nowrap overflow-hidden overflow-ellipsis
-                            text-lg text-second group-hover:text-title"
+                    text-lg text-second group-hover:text-title"
              :class="{ 'text-title font-bold': isActive }">
           {{ project.title }}
         </div>

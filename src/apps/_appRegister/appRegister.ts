@@ -44,7 +44,7 @@ const appRegister = () => {
 // 3.1 生成当前项目的路由，提供给 router，没有设置则使用默认路由
   const route: RouteRecordRaw = currentProject.route || {
     path: '/',
-    name: currentProject.name,
+    name: 'home',
     meta: {title: currentProject.title},
     component: () => import('@/layouts/MainLayout.vue'),
   }

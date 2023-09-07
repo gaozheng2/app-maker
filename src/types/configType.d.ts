@@ -106,7 +106,8 @@ declare global {
     style: ProjectStyleConfigType,  // 项目样式配置
     previewEnv: EnvConfigItemType,  // 预览环境的配置
     route: RouteRecordRaw,  // 路由配置
-    appList?: (ModuleListItemType | AppListItemType)[],  // 模块和应用列表
+    appList?: (ModuleType | AppType)[],  // 模块和应用列表
+    moduleList?: ModuleType[],  // 模块列表（将一级应用折叠进模块 home 中）
     buildList?: BuildListType,  // 构建应用列表
   }
 }
