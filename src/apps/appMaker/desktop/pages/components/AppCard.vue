@@ -1,6 +1,7 @@
 <!--【应用开发平台】/【工作台 App】/【应用卡片】-->
 <script setup lang="ts">
-import {inject, Ref} from 'vue'
+import type {Ref} from 'vue'
+import {inject} from 'vue'
 import {useRouter} from 'vue-router'
 
 const props = defineProps<{
@@ -17,9 +18,10 @@ const $router = useRouter()
 const onClickPreview = () => {
   let routeData = $router.resolve({
     name: 'preview',
-    query: {project: projectName.value, app: props.app.name},
+    query: {project: projectName?.value, app: props.app.name},
   })
-  window.open(routeData.href, '_blank')
+  console.log('routeData', routeData)
+  window.open(routeData.href, `preview_${projectName?.value}`)
 }
 </script>
 
@@ -31,7 +33,7 @@ const onClickPreview = () => {
     
     <!--  应用图标和名称  -->
     <div class="flex items-center opacity-100 duration-300 group-hover/app:opacity-0">
-      <EIcon :name="app.icon" size="18px" class="mr-2"/>
+      <EIcon :name="app.icon ?? 'crop_square'" size="18px" class="mr-2"/>
       {{ app.title }}
     </div>
     <!--  编辑和预览图标  -->

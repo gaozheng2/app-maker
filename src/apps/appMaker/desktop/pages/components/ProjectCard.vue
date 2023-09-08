@@ -24,7 +24,7 @@ const onClickPreview = (project: ProjectConfigType) => {
     name: 'preview',
     query: {project: project.name},
   })
-  window.open(routeData.href, '_blank')
+  window.open(routeData.href, `preview_${project.name}`)
 }
 </script>
 
