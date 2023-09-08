@@ -20,27 +20,45 @@ const onClickPreview = () => {
     name: 'preview',
     query: {project: projectName?.value, app: props.app.name},
   })
-  console.log('routeData', routeData)
   window.open(routeData.href, `preview_${projectName?.value}`)
+}
+
+
+// 点击开发按钮，跳转到开发页面
+const onClickDev = () => {
+  $router.push({
+    name: 'app-dev',
+    query: {project: projectName?.value, app: props.app.name},
+  })
 }
 </script>
 
 <template>
-  <div class="group/app relative w-32 h-12 flex-c border border-line text-second rounded
-              cursor-pointer duration-300
-              hover:shadow-md hover:text-default dark:hover:bg-panel-bg"
+  <div class="group/app w-20 h-16 flex-c flex-col cursor-pointer overflow-visible"
        @click="onClickPreview">
     
-    <!--  应用图标和名称  -->
-    <div class="flex items-center opacity-100 duration-300 group-hover/app:opacity-0">
-      <EIcon :name="app.icon ?? 'crop_square'" size="18px" class="mr-2"/>
-      {{ app.title }}
+    <!--  应用图标  -->
+    <div class="relative w-10 h-10 mb-2 flex-c text-second border border-third rounded
+                group-hover/app:border-0 group-hover/app:bg-primary group-hover/app:text-white
+                group-hover/app:shadow-md
+                dark:group-hover/app:bg-panel-bg dark:group-hover/app:border">
+      <EIcon :name="app.icon ?? 'crop_square'" size="24px" class=""/>
+      
+      <!--  右上角预览图标  -->
+      <div class="group/icon absolute -right-2 -top-2 w-4 h-4 flex-c border border-line rounded-full
+                bg-white opacity-0 duration-300
+                group-hover/app:opacity-100 "
+           @click.stop="onClickDev">
+        <EIcon button name="edit" size="12px" tooltip="开发"
+               class="text-second group-hover/icon:text-primary"/>
+      </div>
     </div>
-    <!--  编辑和预览图标  -->
-    <div class="absolute inset-0 w-full h-full opacity-0 rounded duration-300
-                group-hover/app:opacity-100 ">
-      编辑
-    </div>
+    
+    <!--  应用名称  -->
+    <span class="w-full text-xs text-second text-center whitespace-nowrap overflow-hidden overflow-ellipsis
+                 group-hover/app:text-primary group-hover/app:font-bold dark:group-hover/app:text-title">
+        {{ app.title }}
+    </span>
   
   </div>
 </template>

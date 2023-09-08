@@ -47,8 +47,8 @@ const activeProjectData = computed(() => {
     
     
     <!--  模块和应用列表  -->
-    <div v-show="activeProject" class="pt-4 border-t border-line">
-      <div class="flex flex-nowrap">
+    <div v-show="activeProject" class="pt-2 border-t border-line">
+      <div class="flex flex-col items-start">
         <template v-for="module in activeProjectData?.moduleList" :key="module.name">
           <ModuleCard :module="module"/>
         </template>

@@ -89,7 +89,7 @@ declare global {
     noMenu?: boolean,   // 是否不显示菜单栏
     miniMenu?: boolean, // 是否菜单栏始终处于折叠状态
 
-    children?: AppListItemType[],  // 子应用列表，包括应用和应用组
+    children?: (AppType | GroupType)[],  // 子应用列表，包括应用和应用组
   }
 
 
