@@ -3,7 +3,7 @@
 import AppPage from '@/components/page/AppPage.vue'
 import ProjectCard from './components/ProjectCard.vue'
 import ModuleCard from '@/apps/appMaker/desktop/pages/components/ModuleCard.vue'
-import PanelTitle from '@/components/panel/PanelTitle.vue'
+import EPanelTitle from '@/components/panel/EPanelTitle.vue'
 import {computed, provide, ref} from 'vue'
 
 // 读取 apps 目录下的所有项目
@@ -32,7 +32,7 @@ const activeProjectData = computed(() => {
   <AppPage class="max-w-7xl mx-auto">
     
     <!--  开发项目列表  -->
-    <PanelTitle title="开发项目" icon="apps"/>
+    <EPanelTitle title="开发项目" icon="apps"/>
     
     <el-scrollbar height="184">
       <div class="flex flex-nowrap gap-8">

@@ -39,18 +39,18 @@ const onClickDev = () => {
     
     <!--  应用图标  -->
     <div class="relative w-10 h-10 mb-2 flex-c text-second border border-third rounded
-                group-hover/app:border-0 group-hover/app:bg-primary group-hover/app:text-white
+                group-hover/app:border-0 group-hover/app:bg-primary group-hover/app:text-header
                 group-hover/app:shadow-md
                 dark:group-hover/app:bg-panel-bg dark:group-hover/app:border">
       <EIcon :name="app.icon ?? 'crop_square'" size="24px" class=""/>
       
       <!--  右上角预览图标  -->
       <div class="group/icon absolute -right-2 -top-2 w-4 h-4 flex-c border border-line rounded-full
-                bg-white opacity-0 duration-300
-                group-hover/app:opacity-100 "
+                  bg-body-bg opacity-0 duration-300
+                  group-hover/app:opacity-100 "
            @click.stop="onClickDev">
-        <EIcon button name="edit" size="12px" tooltip="开发"
-               class="text-second group-hover/icon:text-primary"/>
+        <EBtnIcon name="edit" size="12px" tooltip="开发"
+                  class="text-second group-hover/icon:text-primary"/>
       </div>
     </div>
     

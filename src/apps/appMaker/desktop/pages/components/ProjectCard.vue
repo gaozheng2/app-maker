@@ -62,18 +62,18 @@ const onClickPreview = (project: ProjectConfigType) => {
     <div class="h-9 px-4 flex justify-between items-center rounded-b duration-300"
          :class="{ 'bg-gradient-to-r from-header-bg to-header-bg2': isActive }">
               <span class="text-sm text-third"
-                    :class="{ 'text-white dark:text-third': isActive }">
+                    :class="{ '!text-header dark:!text-third': isActive }">
                 v{{ project.version }}
               </span>
       
       <div class="flex items-center">
-        <EIcon button name="o_remove_red_eye" size="18px" tooltip="预览"
-               class="mr-2 text-third"
-               :class="{ 'text-white hover:text-white dark:text-third dark:hover:text-primary': isActive }"
-               @click="onClickPreview(project)"/>
-        <EIcon button name="o_settings" tooltip="设置"
-               class="text-third"
-               :class="{ 'text-white hover:text-white dark:text-third dark:hover:text-primary': isActive }"/>
+        <EBtnIcon name="o_remove_red_eye" size="18px" tooltip="预览"
+                  class="mr-2 text-third dark:hover:!text-title"
+                  :class="{ '!text-header hover:text-header dark:!text-third': isActive }"
+                  @click="onClickPreview(project)"/>
+        <EBtnIcon name="o_settings" tooltip="设置"
+                  class="text-third dark:hover:!text-title"
+                  :class="{ '!text-header hover:text-header dark:!text-third': isActive }"/>
       </div>
     </div>
   

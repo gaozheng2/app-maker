@@ -8,14 +8,12 @@ const appList: AppListItemType[] = [
   {type: 'app', name: 'desktop', title: '工作台', icon: 'home', onlyIcon: true, iconSize: '22px',},  // 可自定义图标大小，默认 22px
   {type: 'module', name: 'app-dev', title: '应用开发', icon: 'api', miniMenu: true,},
   {type: 'module', name: 'widgets', title: '组件库', icon: 'extension',},
-  {type: 'module', name: 'app-repo', title: '应用库', icon: 'widgets', noMenu: true,},
   {
-    type: 'module', name: 'system', title: '系统设置', icon: 'settings', onlyIcon: true, align: 'right', children: [
-      {type: 'group', name: 'group1', title: '角色权限',},
+    type: 'module', name: 'app-repo', title: '应用库', icon: 'widgets', children: [
+      {type: 'group', name: 'group1', title: '系统管理',},
       {type: 'app', name: 'user', title: '用户管理', icon: 'o_people',},
       {type: 'app', name: 'role', title: '角色管理', icon: 'o_manage_accounts',},
       {type: 'app', name: 'menu', title: '菜单管理', icon: 'list',},
-      {type: 'group', name: 'group1', title: '系统配置',},
       {type: 'app', name: 'dict', title: '字典管理', icon: 'o_bookmark_border',},
       {type: 'app', name: 'log', title: '日志管理', icon: 'event',},
       {type: 'app', name: 'file', title: '文件管理', icon: 'o_description',},

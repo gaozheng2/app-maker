@@ -74,11 +74,11 @@ const menuHeight = computed(() => {
           <h4 class="whitespace-nowrap">{{ menuTitle }}</h4>
         </div>
         <!--  折叠菜单按钮  -->
-        <EIcon button name="menu_open" size="22px" class="ml-1"
-               :class="{ 'rotate-180': isCollapsed}"
-               :tooltip="(isCollapsed ? '展开' : '折叠') + ' (Alt+W)'"
-               tooltip-placement="right"
-               @click="isCollapsed = !isCollapsed"/>
+        <EBtnIcon name="menu_open" size="22px" class="ml-1"
+                  :class="{ 'rotate-180': isCollapsed}"
+                  :tooltip="(isCollapsed ? '展开' : '折叠') + ' (Alt+W)'"
+                  tooltip-placement="right"
+                  @click="isCollapsed = !isCollapsed"/>
       </div>
       
       <el-scrollbar class="pl-1 pr-3" :style="`height: ${menuHeight}`">

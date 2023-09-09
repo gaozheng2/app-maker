@@ -6,5 +6,10 @@
 <template>
   <main class="p-5 flex flex-col">
     <slot/>
+    
+    <!--  右上角操作按钮  -->
+    <div>
+      <EBtnIcon name="apps"/>
+    </div>
   </main>
 </template>

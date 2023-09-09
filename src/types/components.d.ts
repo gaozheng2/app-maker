@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppPage: typeof import('./../components/page/AppPage.vue')['default']
     EBtn: typeof import('./../components/button/EBtn.vue')['default']
+    EBtnIcon: typeof import('./../components/button/EBtnIcon.vue')['default']
     EBtnTheme: typeof import('./../components/button/EBtnTheme.vue')['default']
     EDropdownItem: typeof import('./../components/common/EDropdownItem.vue')['default']
     EIcon: typeof import('./../components/common/EIcon.vue')['default']
@@ -28,6 +29,7 @@ declare module 'vue' {
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     EmptyPage: typeof import('./../components/page/EmptyPage.vue')['default']
+    EPanelTitle: typeof import('./../components/panel/EPanelTitle.vue')['default']
     ErrorLayout: typeof import('./../layouts/ErrorLayout.vue')['default']
     MainHeader: typeof import('./../layouts/ElementLayout/MainHeader/MainHeader.vue')['default']
     MainHeaderDivider: typeof import('./../layouts/ElementLayout/MainHeader/MainHeaderUser/MainHeaderDivider.vue')['default']
