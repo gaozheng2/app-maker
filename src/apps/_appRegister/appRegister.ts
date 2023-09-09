@@ -20,7 +20,12 @@ const appRegister = () => {
   if (mainConfig.env === 'production') {
     currentProjectName = mainConfig.buildProjectName
   } else {
-    currentProjectName = mainConfig.currentProjectName
+    // 首先从 session 中获取当前项目名称，用于预览
+    if (sessionStorage.getItem('currentProjectName')) {
+      currentProjectName = sessionStorage.getItem('currentProjectName') as string
+    } else {
+      currentProjectName = mainConfig.currentProjectName
+    }
   }
 
 // 根据当前项目名称，获取当前项目的配置

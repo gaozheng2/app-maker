@@ -33,7 +33,7 @@ const onClickPreview = (project: ProjectConfigType) => {
   <div class="group min-w-[280px] h-40 pt-3 flex flex-col rounded border border-line
               cursor-pointer duration-300 select-none
               dark:hover:bg-panel-bg hover:shadow-lg"
-       :class="{ 'dark:bg-panel-bg': isActive }">
+       :class="{ 'dark:bg-panel-bg shadow-lg': isActive }">
     
     <!--  UI 框架图标和更新时间  -->
     <div class="px-3 flex justify-between text-xs text-third">
@@ -47,12 +47,11 @@ const onClickPreview = (project: ProjectConfigType) => {
       <el-image :src="project.logo" alt="logo"
                 class="w-10 h-10 mr-4 cursor-pointer group-hover:brightness-110 drop-shadow"/>
       <div>
-        <div class="w-48 whitespace-nowrap overflow-hidden overflow-ellipsis
-                    text-lg text-second group-hover:text-title"
+        <div class="w-48 ellipsis text-lg text-second group-hover:text-title"
              :class="{ 'text-title font-bold': isActive }">
           {{ project.title }}
         </div>
-        <div class="w-44 whitespace-nowrap overflow-hidden overflow-ellipsis text-sm text-third">
+        <div class="w-44 text-sm text-third">
           {{ project.name }}
         </div>
       </div>

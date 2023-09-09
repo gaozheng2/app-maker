@@ -31,7 +31,7 @@ projects.forEach(project => {
       type: 'module',
       name: 'home',
       title: '系统应用',
-      icon: 'apps',
+      icon: 'r_grid_view',
       children: firstAppList
     })
   }

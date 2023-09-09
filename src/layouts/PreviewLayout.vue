@@ -9,13 +9,14 @@ import {appRegister} from '@/apps/_appRegister/appRegister'
 // 读取并设置预览项目名称
 const $route = useRoute()
 mainConfig.currentProjectName = $route.query.project as string
+sessionStorage.setItem('currentProjectName', mainConfig.currentProjectName)
 
 
 // 初始化项目，添加预览项目的路由
 const $router = useRouter()
 $router.removeRoute('home')
-const {route: projectRoute} = appRegister()
-$router.addRoute(projectRoute)
+const {route} = appRegister()
+$router.addRoute(route)
 
 
 // 每次激活时，跳转至根路径 | 对应的应用

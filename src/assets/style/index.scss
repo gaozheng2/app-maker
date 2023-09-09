@@ -58,9 +58,15 @@
 }
 
 
+/* 自定义快捷样式 */
 @layer components {
   /*  flex 居中  */
   .flex-c {
     @apply flex items-center justify-center;
+  }
+
+  /* 文本超出范围显示省略号  */
+  .ellipsis {
+    @apply whitespace-nowrap overflow-hidden overflow-ellipsis;
   }
 }

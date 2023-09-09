@@ -26,10 +26,22 @@ const activeProjectData = computed(() => {
   return projects.find(project => project.name === activeProject.value)
 })
 
+
+// 点击帮助按钮
+const onClickHelp = () => {
+  alert('点击帮助按钮')
+}
+
+
+// 点击设置按钮
+const onClickSetting = () => {
+  alert('点击设置按钮')
+}
 </script>
 
 <template>
-  <AppPage class="max-w-7xl mx-auto">
+  <AppPage class="max-w-7xl mx-auto"
+           @click-help="onClickHelp" @click-setting="onClickSetting">
     
     <!--  开发项目列表  -->
     <EPanelTitle title="开发项目" icon="apps"/>
@@ -47,7 +59,7 @@ const activeProjectData = computed(() => {
     
     
     <!--  模块和应用列表  -->
-    <div v-show="activeProject" class="pt-2 border-t border-line">
+    <div v-show="activeProject" class="border-t border-line">
       <div class="flex flex-col items-start">
         <template v-for="module in activeProjectData?.moduleList" :key="module.name">
           <ModuleCard :module="module"/>

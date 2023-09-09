@@ -5,7 +5,7 @@
 // - 第三层为应用入口，显示在左侧菜单栏二级菜单的折叠菜单下
 
 const appList: AppListItemType[] = [
-  {type: 'app', name: 'desktop', title: '工作台', icon: 'home', onlyIcon: true, iconSize: '22px',},  // 可自定义图标大小，默认 22px
+  {type: 'app', name: 'desktop', title: '工作台', icon: 'r_dashboard', onlyIcon: true, iconSize: '22px',},  // 可自定义图标大小，默认 22px
   {type: 'module', name: 'app-dev', title: '应用开发', icon: 'api', miniMenu: true,},
   {type: 'module', name: 'widgets', title: '组件库', icon: 'extension',},
   {

@@ -1,4 +1,4 @@
-<!--【Element 通用组件】/【明/暗主题切换按钮】-->
+<!--【Element 通用组件】/【主题按钮】-->
 <script setup lang="ts">
 import {useTheme} from '@/utils/style/useTheme'
 import {mainConfig} from '@/config/main.config'

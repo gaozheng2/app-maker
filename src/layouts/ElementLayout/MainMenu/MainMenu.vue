@@ -55,26 +55,27 @@ whenever(keys.alt_w, () => {
 const menuHeight = computed(() => {
   return `calc(100vh - ${(currentProject?.style.headerHeight ?? 0) + 48}px)`
 })
+
+
+// 菜单栏宽度
+const menuWidth = (currentProject?.style.menuWidth ?? 240) + 'px'
 </script>
 
 <template>
-  <el-aside :width="`${currentProject?.style.menuWidth}px` ?? '300px'"
-            class="select-none">
-    
+  <div>
     <el-menu
       unique-opened
       :collapse="isCollapsed"
-      class="!bg-menu-bg "
+      class="!bg-menu-bg select-none"
     >
       
       <!--  菜单栏标题  -->
       <div v-if="!isAlwaysMini" class="h-12 px-4 flex justify-between items-center border-b border-line">
         <div v-if="!isCollapsed" class="flex items-center">
-          <!--          <EIcon name="settings" size="20px" class="mr-2 text-primary"/>-->
           <h4 class="whitespace-nowrap">{{ menuTitle }}</h4>
         </div>
         <!--  折叠菜单按钮  -->
-        <EBtnIcon name="menu_open" size="22px" class="ml-1"
+        <EBtnIcon name="menu_open" size="22px" class="ml-1 !text-second hover:!text-primary"
                   :class="{ 'rotate-180': isCollapsed}"
                   :tooltip="(isCollapsed ? '展开' : '折叠') + ' (Alt+W)'"
                   tooltip-placement="right"
@@ -85,20 +86,23 @@ const menuHeight = computed(() => {
         <template v-for="item in appList" :key="item.name">
           
           <!--  应用组标题  -->
-          <div v-if="item.type === 'group' && !isCollapsed" class="mt-4 pl-4 text-second text-sm font-bold">
+          <div v-if="item.type === 'group' && !isCollapsed"
+               class="mt-4 pl-4 text-second text-sm font-bold">
             <span class="whitespace-nowrap">{{ item.title }}</span>
           </div>
           
           <!--  应用项  -->
           <el-menu-item v-else-if="item.type === 'app'"
                         :index="item.name" :route="{ name: item.name }"
-                        class="!h-10 my-2 ml-2 rounded duration-300
+                        class="group !h-10 my-2 ml-2 rounded duration-300
                                hover:!bg-transparent hover:text-primary"
                         :class="{ 'active': activeIndex === item.name }"
                         @click="onClickMenuItem(item)"
           >
             <!--  应用图标  -->
-            <EIcon :name="item.icon!" :size="item.iconSize ?? '20px'" class="mr-4 -ml-2.5"
+            <EIcon :name="item.icon!" :size="item.iconSize ?? '20px'"
+                   class="mr-4 -ml-2.5 !text-second group-hover:!text-primary"
+                   :class="{ '!text-primary dark:!text-title dark:group-hover:!text-title': activeIndex === item.name }"
                    :tooltip="item.title" tooltip-placement="right"/>
             
             <!--  应用标题  -->
@@ -108,7 +112,7 @@ const menuHeight = computed(() => {
       
       </el-scrollbar>
     </el-menu>
-  </el-aside>
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -121,6 +125,11 @@ const menuHeight = computed(() => {
   // 避免 Element UI 的样式覆盖
   .el-menu-item.is-active {
     @apply text-default;
+  }
+  
+  // 菜单栏宽度
+  &:not(.el-menu--collapse) {
+    width: v-bind(menuWidth);
   }
 }
 </style>

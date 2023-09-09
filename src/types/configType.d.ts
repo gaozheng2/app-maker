@@ -89,7 +89,7 @@ declare global {
     noMenu?: boolean,   // 是否不显示菜单栏
     miniMenu?: boolean, // 是否菜单栏始终处于折叠状态
 
-    children?: (AppType | GroupType)[],  // 子应用列表，包括应用和应用组
+    children?: AppListItemType[],  // 子应用列表，包括应用和应用组
   }
 
 
@@ -102,12 +102,12 @@ declare global {
 
   // 项目配置类型，继承项目基础配置、环境配置类型
   interface ProjectConfigType extends ProjectBaseConfigType, EnvConfigItemType {
-    env: string,            // 当前环境：development 开发环境 | production 生产环境 | preview 应用预览环境
+    env: string,                    // 当前环境：development 开发环境 | production 生产环境 | preview 应用预览环境
     style: ProjectStyleConfigType,  // 项目样式配置
     previewEnv: EnvConfigItemType,  // 预览环境的配置
-    route: RouteRecordRaw,  // 路由配置
-    appList?: (ModuleType | AppType)[],  // 模块和应用列表
-    moduleList?: ModuleType[],  // 模块列表（将一级应用折叠进模块 home 中）
-    buildList?: BuildListType,  // 构建应用列表
+    route: RouteRecordRaw,          // 路由配置
+    appList?: AppListItemType[],    // 模块和应用列表
+    moduleList?: ModuleType[],      // 模块列表（将一级应用折叠进模块 home 中）
+    buildList?: BuildListType,      // 构建应用列表
   }
 }

@@ -1,4 +1,4 @@
-<!--【Element 通用组件】/【通用按钮】-->
+<!--【Element 通用组件】/【按钮】-->
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
   icon?: string,      // 按钮图标

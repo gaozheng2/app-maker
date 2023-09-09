@@ -30,7 +30,8 @@ onDeactivated(() => {
         
         <!--  火箭图标  -->
         <EIcon name="rocket" size="48px"
-               class="peer mb-3 text-primary hover:brightness-110 hover:-translate-y-1 group-hover:-translate-y-1 duration-300"
+               class="peer mb-3 text-primary group-hover:brightness-110
+                      group-hover:-translate-y-1 duration-300"
                :class="{ '-translate-y-1': isHover }"
         />
         
@@ -45,7 +46,8 @@ onDeactivated(() => {
       </div>
       
       <el-button type="primary"
-                 class="relative -top-6 !font-bold"
+                 class="-mt-6 !bg-primary !font-bold !border-0
+                        hover:!bg-primary/80"
                  @click="$router.push('/')"
                  @mouseenter="isHover = true"
                  @mouseleave="isHover = false"

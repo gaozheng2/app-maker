@@ -41,7 +41,7 @@ const classObj = computed(() => {
 </script>
 
 <template>
-  <i class="select-none"
+  <i class="text-center select-none"
      :class="classObj"
      :style="`font-size: ${size}`"
   >

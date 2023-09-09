@@ -38,11 +38,11 @@ const onClickDev = () => {
        @click="onClickPreview">
     
     <!--  应用图标  -->
-    <div class="relative w-10 h-10 mb-2 flex-c text-second border border-third rounded
+    <div class="relative w-10 h-10 mb-2 flex-c text-second text-center border border-third rounded
                 group-hover/app:border-0 group-hover/app:bg-primary group-hover/app:text-header
                 group-hover/app:shadow-md
                 dark:group-hover/app:bg-panel-bg dark:group-hover/app:border">
-      <EIcon :name="app.icon ?? 'crop_square'" size="24px" class=""/>
+      <EIcon :name="app.icon ?? 'crop_square'" size="24px" class="ml-0.5"/>
       
       <!--  右上角预览图标  -->
       <div class="group/icon absolute -right-2 -top-2 w-4 h-4 flex-c border border-line rounded-full
@@ -55,7 +55,7 @@ const onClickDev = () => {
     </div>
     
     <!--  应用名称  -->
-    <span class="w-full text-xs text-second text-center whitespace-nowrap overflow-hidden overflow-ellipsis
+    <span class="w-full text-xs text-second text-center ellipsis
                  group-hover/app:text-primary group-hover/app:font-bold dark:group-hover/app:text-title">
         {{ app.title }}
     </span>

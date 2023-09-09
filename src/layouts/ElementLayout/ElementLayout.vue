@@ -8,6 +8,8 @@ import '@/assets/style/elementStyle.css'  // 引入 Element 组件自定义样�
 import MainHeader from '@/layouts/ElementLayout/MainHeader/MainHeader.vue'
 import {computed} from 'vue'
 import {useRoute} from 'vue-router'
+import {storeToRefs} from 'pinia'
+import {useMainStore} from '@/stores/mainStore'
 import {setElementTheme} from '@/utils/style/setElementTheme'
 import {mainConfig} from '@/config/main.config'
 
@@ -20,8 +22,11 @@ setElementTheme()
 
 
 // 根据构建模式判断是否显示标题栏和菜单栏，project 模式显示，app 模式不显示
-const isShowLayout = computed(() =>
-  !(mainConfig.env === 'production' && mainConfig.buildMode === 'app'))
+const {isFullscreen} = storeToRefs(useMainStore())
+const isShowLayout = computed(() => {
+  if (isFullscreen.value) return false  // 如果全屏，则不显示标题栏和菜单栏
+  return !(mainConfig.env === 'production' && mainConfig.buildMode === 'app')
+})
 
 
 // 动态计算是否显示菜单栏
@@ -36,7 +41,7 @@ const isShowMenu = computed(() => {
 
 // 动态计算 App 页面高度
 const appHeight = computed(() => {
-  // TODO: 根据门户是否全屏，设置 App 页面高度
+  if (isFullscreen.value) return '100vh'
   return `calc(100vh - ${currentProject?.style.headerHeight}px)`
 })
 </script>
