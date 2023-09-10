@@ -1,4 +1,4 @@
-<!--  【面板组件】/【面板标题】  -->
+<!--  【应用页面组件】/【栏目标题】  -->
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
   title?: string,     // 标题

@@ -3,7 +3,7 @@
 import AppPage from '@/components/page/AppPage.vue'
 import ProjectCard from './components/ProjectCard.vue'
 import ModuleCard from '@/apps/appMaker/desktop/pages/components/ModuleCard.vue'
-import EPanelTitle from '@/components/panel/EPanelTitle.vue'
+import EPanelTitle from '@/components/page/AppPage/EPanelTitle.vue'
 import {computed, provide, ref} from 'vue'
 
 // 读取 apps 目录下的所有项目

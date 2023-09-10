@@ -3,6 +3,8 @@
 const props = defineProps<{
   title?: string,     // 页面标题
   icon?: string,      // 页面图标
+  
+  noBread?: boolean,  // 是否隐藏面包屑
   noHelp?: boolean    // 是否隐藏帮助按钮
   noSetting?: boolean // 是否隐藏设置按钮
 }>()
@@ -16,17 +18,26 @@ const emits = defineEmits<{
 <template>
   <main class="p-5 flex flex-col">
     
+    <!--  上方面包屑和操作按钮  -->
+    <div class="absolute w-full left-0 top-2 px-3 flex justify-between items-center">
+      
+      <!--  面包屑，顶层 div 为占位用  -->
+      <div>
+        <EBreadcrumb v-if="!noBread"/>
+      </div>
+      
+      <!--  插槽：右上角操作按钮  -->
+      <div class="flex items-center gap-2">
+        <slot name="buttons">
+          <EBtnIcon v-if="!noHelp" name="help_outline" tooltip="帮助" @click="$emit('clickHelp')"/>
+          <EBtnIcon v-if="!noSetting" name="o_settings" tooltip="设置" @click="$emit('clickSetting')"/>
+          <EBtnFullscreen/>
+        </slot>
+      </div>
+    </div>
+    
     <!--  插槽：主体内容  -->
     <slot/>
-    
-    <!--  插槽：右上角操作按钮  -->
-    <div class="absolute right-3 top-2 flex items-center gap-2">
-      <slot name="buttons">
-        <EBtnIcon v-if="!noHelp" name="help_outline" tooltip="帮助" @click="$emit('clickHelp')"/>
-        <EBtnIcon v-if="!noSetting" name="o_settings" tooltip="设置" @click="$emit('clickSetting')"/>
-        <EBtnFullscreen/>
-      </slot>
-    </div>
   
   </main>
 </template>

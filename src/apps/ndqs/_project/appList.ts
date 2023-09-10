@@ -34,8 +34,8 @@ const appList: AppListItemType[] = [
 // - 如果 include 为空，则构建全部应用
 // - 如果 exclude 为空，则不排除任何应用，exclude 优先级高于 include
 const buildList: BuildListType = {
-  // include: ['工作台', 'business', 'task'],
-  // exclude: ['系统设置'],
+  include: ['工作台', 'business', 'system'],
+  exclude: ['监控管理'],
 }
 
 

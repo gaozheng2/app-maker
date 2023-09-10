@@ -63,8 +63,8 @@ declare global {
 
     icon?: string,      // 图标
     iconSize?: string,  // 图标大小，默认 20px
-    onlyIcon?: true,    // 在标题栏是否只显示图标（只适用于一级菜单）
-    align?: 'left' | 'center' | 'right',  // 在标题行显示的位置
+    onlyIcon?: true,    // 在标题栏是否只显示图标（只适用于一级应用）
+    align?: 'left' | 'center' | 'right',  // 在标题行显示的位置（只适用于一级应用）
 
     ref?: string,       // 复用的引用路径，可以引用应用库和其他项目中的成熟应用
     route?: RouteRecordRaw  // 应用路由
