@@ -1,4 +1,4 @@
-<!--  【通用页面】/【纯路由页面】  -->
+<!--【Element 通用组件】/【通用页面】/【纯路由页面】-->
 <template>
   <router-view v-slot="{ Component }">
     <keep-alive :max="10">

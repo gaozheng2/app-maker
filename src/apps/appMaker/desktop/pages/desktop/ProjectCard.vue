@@ -9,6 +9,16 @@ const props = defineProps<{
   isActive: boolean,          // 是否激活
 }>()
 
+const emits = defineEmits<{
+  'click-setting': [ProjectConfigType], // 点击设置按钮
+}>()
+
+
+// 点击设置按钮，向上传递事件
+const onClickSetting = (project: ProjectConfigType) => {
+  emits('click-setting', project)
+}
+
 
 // 根据是否处于暗色主题下，生成 UI 框架图标的路径
 const {isDark} = useTheme()
@@ -70,9 +80,11 @@ const onClickPreview = (project: ProjectConfigType) => {
                   class="mr-2 text-third dark:hover:!text-title"
                   :class="{ '!text-header hover:text-header dark:!text-third': isActive }"
                   @click="onClickPreview(project)"/>
+        
         <EBtnIcon name="o_settings" tooltip="配置"
                   class="text-third dark:hover:!text-title"
-                  :class="{ '!text-header hover:text-header dark:!text-third': isActive }"/>
+                  :class="{ '!text-header hover:text-header dark:!text-third': isActive }"
+                  @click="onClickSetting(project)"/>
       </div>
     </div>
   

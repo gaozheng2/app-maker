@@ -1,13 +1,14 @@
 <!--【应用开发平台】/【工作台 App】-->
 <script setup lang="ts">
 import AppPage from '@/components/page/AppPage.vue'
-import ProjectCard from './components/ProjectCard.vue'
-import ModuleCard from '@/apps/appMaker/desktop/pages/components/ModuleCard.vue'
+import ProjectCard from '@/apps/appMaker/desktop/pages/desktop/ProjectCard.vue'
+import ModuleCard from '@/apps/appMaker/desktop/pages/desktop/ModuleCard.vue'
 import EPanelTitle from '@/components/page/AppPage/EPanelTitle.vue'
 import {computed, provide, ref} from 'vue'
 
 // 读取 apps 目录下的所有项目
 import {projects} from '@/apps/_appRegister/utils/loadProjects'
+import ProjectSettingDialog from '@/apps/appMaker/desktop/pages/projectSetting/ProjectSettingDialog.vue'
 
 
 // 点击项目卡片，设置为激活项目
@@ -37,6 +38,16 @@ const onClickHelp = () => {
 const onClickSetting = () => {
   alert('点击设置按钮')
 }
+
+
+// 点击项目卡片的配置按钮
+const isShowProjectSettingDialog = ref(false)
+const settingProject = ref<ProjectConfigType>()  // 当前配置的项目
+
+const onClickProjectSetting = (project: ProjectConfigType) => {
+  isShowProjectSettingDialog.value = true
+  settingProject.value = project
+}
 </script>
 
 <template>
@@ -51,7 +62,8 @@ const onClickSetting = () => {
         <!--        <template v-for="i in 10">-->
         <template v-for="project in projects" :key="project.name">
           <ProjectCard :project="project" :is-active="activeProject === project.name"
-                       @click="onClickProject(project)"/>
+                       @click="onClickProject(project)"
+                       @click-setting="onClickProjectSetting"/>
         </template>
         <!--        </template>-->
       </div>
@@ -68,4 +80,8 @@ const onClickSetting = () => {
     </div>
   
   </AppPage>
+  
+  
+  <!--  项目配置对话框  -->
+  <ProjectSettingDialog v-model="isShowProjectSettingDialog" :project="settingProject"/>
 </template>

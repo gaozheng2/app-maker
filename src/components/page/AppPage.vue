@@ -1,4 +1,4 @@
-<!--  【通用页面】/【应用页面框架】  -->
+<!--【Element 通用组件】/【通用页面】/【应用页面】-->
 <script setup lang="ts">
 const props = defineProps<{
   title?: string,     // 页面标题

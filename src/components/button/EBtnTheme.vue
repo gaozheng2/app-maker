@@ -1,4 +1,4 @@
-<!--【Element 通用组件】/【主题按钮】-->
+<!--【Element 通用组件】/【图标按钮】/【主题按钮】-->
 <script setup lang="ts">
 import {useTheme} from '@/utils/style/useTheme'
 import {mainConfig} from '@/config/main.config'

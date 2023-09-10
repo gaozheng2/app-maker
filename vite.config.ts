@@ -13,11 +13,15 @@ export default defineConfig({
 
   plugins: [
     vue({
-      template: {transformAssetUrls}
+      template: {transformAssetUrls},  // 处理 Element、Quasar 组件中的图片路径
+      script: {
+        defineModel: true,  // 开启 defineModel 语法糖
+        propsDestructure: true // 解构 props
+      }
     }),
     visualizer(),  // rollup 打包分析插件，在根目录的 stats.html 中生成分析图
     Components({  // 自动注册 Element、Quasar 组件
-      dirs: ['src/components', 'src/layouts'],
+      dirs: ['src/components', 'src/components-q', 'src/layouts'],
       resolvers: [ElementPlusResolver({
         importStyle: 'sass',
       }), QuasarResolver()],

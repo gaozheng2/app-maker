@@ -15,6 +15,7 @@ const props = withDefaults(defineProps<{
   <el-tooltip :content="tooltip" :placement="tooltipPlacement" :disabled="!tooltip">
     <EIcon :name="name" :size="size"
            class="cursor-pointer text-third hover:text-primary"
+           :class="$attrs.class"
            v-bind="$attrs"/>
   </el-tooltip>
 </template>

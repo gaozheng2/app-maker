@@ -1,4 +1,4 @@
-<!--【Element 通用组件】/【全屏按钮】-->
+<!--【Element 通用组件】/【图标按钮】/【全屏按钮】-->
 <script setup lang="ts">
 import {onActivated, onDeactivated, watch} from 'vue'
 import {useFullscreen, useMagicKeys, whenever} from '@vueuse/core'
