@@ -3,16 +3,6 @@
 import '../assets/theme.scss'  // 引入项目自定义主题样式
 import MainHeaderDivider from '@/layouts/ElementLayout/MainHeader/MainHeaderUser/MainHeaderDivider.vue'
 import UserList from './components/UserList.vue'
-import {useMainStore} from '@/stores/mainStore'
-import {loadApps} from '@/apps/_appRegister/utils/loadApps'
-
-
-// 读取全部应用，并保存到平台数据仓库中
-const apps = loadApps()
-const mainStore = useMainStore()
-mainStore.$patch((state) => {
-  state.apps = apps
-})
 </script>
 
 <template>

@@ -55,7 +55,8 @@ declare global {
 
   // 应用项类型
   interface AppType {
-    type: 'app'         // 类型：module 模块 | app 应用 | group 应用组
+    type: 'app'         // 类型：app 应用
+    project?: string,   // 所属项目名称
     name: string,       // 名称（英文），唯一标识，不可重复
     title: string,      // 标题（中文）
     version?: string,   // 版本
@@ -66,6 +67,7 @@ declare global {
     align?: 'left' | 'center' | 'right',  // 在标题行显示的位置
 
     ref?: string,       // 复用的引用路径，可以引用应用库和其他项目中的成熟应用
+    route?: RouteRecordRaw  // 应用路由
   }
 
   // 应用组类型
@@ -106,7 +108,7 @@ declare global {
     style: ProjectStyleConfigType,  // 项目样式配置
     route: RouteRecordRaw,          // 路由配置
 
-    appList?: AppListItemType[],    // 模块和应用列表
+    appList: AppListItemType[],     // 模块和应用列表
     moduleList?: ModuleType[],      // 模块列表（将一级应用折叠进模块 home 中）
     buildList?: BuildListType,      // 构建应用列表
   }

@@ -6,9 +6,9 @@ export {}
 declare global {
 
   // App 数据类型，包含基本配置和路由配置，用于 appRegister 读取后自动注册
-  interface AppDataType extends AppType {
-    route: RouteRecordRaw  // App 路由
-  }
+  // interface AppDataType extends AppType {
+  //   route: RouteRecordRaw  // App 路由
+  // }
 
 
   // Common App 数据类型，用于构建通用 App
