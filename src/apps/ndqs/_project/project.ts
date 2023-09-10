@@ -36,10 +36,6 @@ const envConfig: EnvConfigType = {
     apiBaseUrl: '/',
     apiMockUrl: '/qdemo/qdemo/mock/22',
   },
-  preview: {  // 应用预览环境（在开发平台中预览应用）
-    apiBaseUrl: '/',
-    apiMockUrl: '/qdemo/qdemo/mock/22',
-  }
 }
 
 
@@ -60,7 +56,6 @@ const project: ProjectConfigType = {
 
   env: mainConfig.env,           // 当前环境
   ...envConfig[mainConfig.env],  // 当前环境的配置
-  previewEnv: envConfig.preview, // 预览环境的配置（用于在开发平台中预览应用）
 
   route,                         // 路由配置
   appList,                       // 模块和应用列表

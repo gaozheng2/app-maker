@@ -104,8 +104,8 @@ declare global {
   interface ProjectConfigType extends ProjectBaseConfigType, EnvConfigItemType {
     env: string,                    // 当前环境：development 开发环境 | production 生产环境 | preview 应用预览环境
     style: ProjectStyleConfigType,  // 项目样式配置
-    previewEnv: EnvConfigItemType,  // 预览环境的配置
     route: RouteRecordRaw,          // 路由配置
+
     appList?: AppListItemType[],    // 模块和应用列表
     moduleList?: ModuleType[],      // 模块列表（将一级应用折叠进模块 home 中）
     buildList?: BuildListType,      // 构建应用列表

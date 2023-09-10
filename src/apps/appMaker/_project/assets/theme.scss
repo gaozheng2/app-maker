@@ -3,6 +3,7 @@
 /*  亮色主题样式  */
 :root {
   /*  标题栏颜色  */
+  --color-header-bg: #1976D2; /* 标题栏背景色：from-header-bg */
   --color-header-bg2: theme('colors.teal.500'); /* 标题栏背景色2（渐变）：to-header-bg2 */
 }
 

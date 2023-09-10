@@ -3,9 +3,9 @@
 /*  亮色主题样式  */
 :root {
   /*  主色  */
-  --color-primary: #1976D2; /* 主色：color="primary" | text-primary | bg-primary */
-  --color-primary-rgb: 25 118 210; /* 主色 rgb 格式，用于 Tailwindcss 生成主色不透明度 */
-  // Element 主题色 #409EFF 64 158 255，Quasar 主题色 #1976D2，轩宇主题色 #009EFF 00 158 255
+  --color-primary: #2383E2; /* 主色：color="primary" | text-primary | bg-primary */
+  --color-primary-rgb: 35 131 226; /* 主色 rgb 格式，用于 Tailwindcss 生成主色不透明度 */
+  // Element #409EFF 64 158 255，Quasar #1976D2，轩宇 #009EFF 00 158 255，Notion #2383E2 35 131 226
 
   /*  文字颜色  */
   --color-text: theme('colors.neutral.700'); /* 默认文字颜色：text-default */

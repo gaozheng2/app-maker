@@ -70,7 +70,7 @@ const onClickPreview = (project: ProjectConfigType) => {
                   class="mr-2 text-third dark:hover:!text-title"
                   :class="{ '!text-header hover:text-header dark:!text-third': isActive }"
                   @click="onClickPreview(project)"/>
-        <EBtnIcon name="o_settings" tooltip="设置"
+        <EBtnIcon name="o_settings" tooltip="配置"
                   class="text-third dark:hover:!text-title"
                   :class="{ '!text-header hover:text-header dark:!text-third': isActive }"/>
       </div>
