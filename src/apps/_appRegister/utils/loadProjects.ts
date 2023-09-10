@@ -1,5 +1,6 @@
 // 【应用注册程序】/【工具】/【读取项目配置】
 import {allApps} from './loadApps'
+import logoUrl from '/logo.svg'
 
 // 1.读取全部项目配置 projects
 const projectFiles = import.meta.glob(
@@ -10,6 +11,12 @@ const projectFiles = import.meta.glob(
 const projects: ProjectConfigType[] = []  // 项目配置集合
 for (let path in projectFiles) {
   const project = projectFiles[path] as ProjectConfigType
+
+  // 如果项目没有 logo，则设置默认 lgo
+  if (!project.logo) {
+    project.logo = logoUrl
+  }
+
   projects.push(project)
 }
 

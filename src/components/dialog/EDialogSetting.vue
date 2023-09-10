@@ -1,6 +1,5 @@
 <!--【Element 通用组件】/【对话框】/【设置对话框】-->
 <script setup lang="ts">
-import type {Component} from 'vue'
 import {ref, watch} from 'vue'
 
 // 菜单项数据类型
@@ -8,7 +7,7 @@ interface menuType {
   name: string,       // 菜单项名称
   title: string,      // 菜单项标题
   icon: string,       // 菜单项图标
-  component?: Component,  // 菜单项组件
+  component?: any,    // 菜单项组件
 }
 
 const props = withDefaults(defineProps<{
@@ -28,7 +27,7 @@ const dialogTitle = ref('')
 
 
 // 点击菜单项，切换对话框图标和标题
-const myComponent = ref<Component>(null)
+const myComponent = ref<any>(null)
 
 const activeMenu = ref(props.menuData[0])
 
@@ -55,7 +54,9 @@ console.log('props.menuData', props.menuData)
     
     <!--  左侧菜单栏  -->
     <template #sidebar>
-      <div class="w-full h-full flex flex-col flex-nowrap bg-header-bg dark:bg-panel-bg select-none">
+      <div
+        class="relative w-full h-full flex flex-col flex-nowrap bg-header-bg select-none overflow-hidden
+               dark:bg-panel-bg ">
         
         <!--  副标题  -->
         <div class="p-4 mb-4">
@@ -85,7 +86,12 @@ console.log('props.menuData', props.menuData)
             </div>
           </template>
         </el-scrollbar>
+        
+        <!--  圆形图案  -->
+        <div class="absolute -bottom-20 -left-28 w-64 h-64 bg-white/10 rounded-full dark:hidden"/>
+        <div class="absolute -bottom-44 -right-16 w-72 h-72 bg-white/10 rounded-full dark:hidden"/>
       </div>
+    
     </template>
     
     <!--  激活菜单项对应的组件，渲染在对话框的 default 插槽中  -->

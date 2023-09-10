@@ -10,12 +10,13 @@ const props = withDefaults(defineProps<{
 // 菜单栏数据
 const menuData = [
   {
-    name: 'role', title: '角色管理', icon: 'people',
+    name: 'base', title: '基本配置', icon: 'tune',
     component: markRaw(defineAsyncComponent(() => import('./Role.vue')))
   },
-  {name: 'user', title: '用户管理', icon: 'people'},
-  {name: 'menu', title: '菜单管理', icon: 'menu'},
-  {name: 'dict', title: '字典管理', icon: 'o_book'},
+  {name: 'style', title: '主题样式', icon: 'o_palette'},
+  {name: 'env', title: '环境地址', icon: 'alternate_email'},
+  {name: 'route', title: '项目路由', icon: 'o_account_tree'},
+  {name: 'apps', title: '应用列表', icon: 'apps'},
 ]
 </script>
 
