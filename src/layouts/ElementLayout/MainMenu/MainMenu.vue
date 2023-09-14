@@ -101,7 +101,7 @@ const menuWidth = (currentProject?.style.menuWidth ?? 240) + 'px'
           >
             <!--  应用图标  -->
             <EIcon :name="item.icon!" :size="item.iconSize ?? '20px'"
-                   class="mr-4 -ml-2.5 !text-second group-hover:!text-primary"
+                   class="mr-4 -ml-2.5 text-second group-hover:!text-primary"
                    :class="{ '!text-primary dark:!text-title dark:group-hover:!text-title': activeIndex === item.name }"
                    :tooltip="item.title" tooltip-placement="right"/>
             
@@ -125,6 +125,11 @@ const menuWidth = (currentProject?.style.menuWidth ?? 240) + 'px'
   // 避免 Element UI 的样式覆盖
   .el-menu-item.is-active {
     @apply text-default;
+  }
+  
+  // 图标默认颜色
+  .el-menu-item i {
+    @apply text-second;
   }
   
   // 菜单栏宽度

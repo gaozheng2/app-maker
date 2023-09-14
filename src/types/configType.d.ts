@@ -25,7 +25,8 @@ declare global {
     title: string,            // 项目英文名称
     description: string,      // 项目描述
     version: string,          // 项目版本号
-    logo: string,             // 项目 Logo 的路径
+    logoUrl: string,          // 项目 Logo 的路径
+    logo?: string,            // 项目 Logo 的完整路径
   }
 
   // 项目样式配置类型

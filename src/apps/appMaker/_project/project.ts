@@ -1,18 +1,18 @@
 //【项目注册文件】
 import {mainConfig} from '@/config/main.config'
 import {getProjectRoute} from '@/apps/_appRegister/utils/getRoute'
-import logoUrl from './assets/logo.svg'  // 需要手动引入 Logo 图片
 import {appList, buildList} from './appList'
 
 
 // 基本配置
 const baseConfig: ProjectBaseConfigType = {
   configVersion: '1.0',       // 项目配置版本号，用于判断配置是否需要更新
+
   name: 'AppMaker',           // 项目英文名称
   title: '应用开发平台',        // 项目中文名称
   description: '用于快速开发微应用的脚手架，基于 Vue3 + Vite4 + Ts + Tailwindcss + Element-plus 构建',
   version: '0.0.1',           // 项目版本号
-  logo: logoUrl,              // 项目 Logo 的路径
+  logoUrl: './assets/logo.svg',  // 项目 Logo 的路径
 }
 
 
@@ -45,6 +45,8 @@ const route = getProjectRoute(baseConfig, () => import('./layout/AppMakerLayout.
 
 
 // 合成项目配置（不用更改）
+baseConfig.logo = new URL(baseConfig.logoUrl, import.meta.url).href  // 生成 Logo 路径
+
 const project: ProjectConfigType = {
   ...baseConfig,                 // 基本配置
   style: styleConfig,            // 样式配置

@@ -60,13 +60,13 @@ console.log('props.menuData', props.menuData)
         
         <!--  副标题  -->
         <div class="p-4 mb-4">
-          <div class="flex items-center flex-nowrap mb-2 opacity-80">
+          <div class="flex items-center flex-nowrap mb-2 opacity-80 whitespace-nowrap">
             <EIcon v-if="subtitleIcon" :name="subtitleIcon" size="16px" class="text-header mr-2"/>
             <h6 class="text-header">{{ subtitle }}</h6>
           </div>
           
           <!--  插槽：主标题  -->
-          <div class="flex items-center">
+          <div class="flex items-center whitespace-nowrap">
             <slot name="title">
               <h4 class="text-header">{{ title }}</h4>
             </slot>
@@ -76,7 +76,7 @@ console.log('props.menuData', props.menuData)
         <!--  菜单项  -->
         <el-scrollbar>
           <template v-for="menu in menuData" :key="menu.name">
-            <div class="w-full h-12 pl-8 flex items-center cursor-pointer hover:bg-white/10"
+            <div class="w-full h-12 pl-8 flex items-center cursor-pointer hover:bg-white/10 whitespace-nowrap"
                  :class="{ 'bg-white/10': activeMenu.name === menu.name }"
                  @click="onClickMenu(menu)">
               

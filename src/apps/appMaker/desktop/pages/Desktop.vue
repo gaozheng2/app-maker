@@ -18,14 +18,15 @@ const onClickProject = (project: ProjectConfigType) => {
 }
 
 
-// 向下传递激活项目的名称
-provide('projectName', activeProject)
-
-
 // 读取激活项目的配置信息
 const activeProjectData = computed(() => {
   return projects.find(project => project.name === activeProject.value)
 })
+
+
+// 向下传递激活项目的名称和配置信息
+provide('projectName', activeProject)
+provide('projectData', activeProjectData)
 
 
 // 点击帮助按钮

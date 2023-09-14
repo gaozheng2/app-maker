@@ -62,11 +62,11 @@ const height = computed(() => {
         </div>
         
         <!--  对话框主体  -->
-        <div class="flex-1 p-4 pl-6 flex flex-col">
+        <div class="flex-1 px-6 py-4 flex flex-col">
           
           <!--  插槽：对话框标题行  -->
           <slot name="header">
-            <div class="flex justify-between items-center mb-4">
+            <div class="h-8 flex justify-between items-center mb-6">
               <div class="flex items-center">
                 <EIcon v-if="icon" :name="icon" class="mr-2"/>
                 <h4 class="text-default">{{ title }}</h4>
@@ -78,7 +78,17 @@ const height = computed(() => {
           </slot>
           
           <!--  插槽：对话框内容  -->
-          <slot/>
+          <div class="flex-1">
+            <slot/>
+          </div>
+          
+          <!--  插槽：操作按钮  -->
+          <div class="h-10 flex justify-end items-center gap-2 mt-4">
+            <slot name="footer">
+              <EBtn type="default" @click="modelValue = false">取消</EBtn>
+              <EBtn type="primary" @click="modelValue = false">确定</EBtn>
+            </slot>
+          </div>
         </div>
       
       </div>
