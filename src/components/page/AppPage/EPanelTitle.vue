@@ -7,15 +7,15 @@ const props = withDefaults(defineProps<{
 }>(), {
   title: '栏目标题',
   icon: 'apps',
-  iconSize: '20px',
+  iconSize: '24px',
 })
 </script>
 
 <template>
-  <h3 class="my-4 flex items-center select-none">
+  <h2 class="my-4 flex items-center select-none">
     <EIcon :name="icon" :size="iconSize" class="mr-2 text-primary"/>
     <span>
       {{ title }}
     </span>
-  </h3>
+  </h2>
 </template>

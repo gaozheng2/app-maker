@@ -1,4 +1,4 @@
-<!--【Element 通用组件】/【代码框】-->
+<!--【Element 通用组件】/【代码面板】-->
 <script setup lang="ts">
 import {onMounted, ref} from 'vue'
 import Prism from 'prismjs'

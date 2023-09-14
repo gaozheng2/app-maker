@@ -18,7 +18,7 @@ const emits = defineEmits<{
 </script>
 
 <template>
-  <main class="p-5 flex flex-col">
+  <main class="p-8 flex flex-col">
     
     <!--  上方面包屑和操作按钮  -->
     <div class="absolute w-full left-0 top-2 px-3 flex justify-between items-center">

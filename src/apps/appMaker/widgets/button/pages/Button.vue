@@ -1,68 +1,94 @@
 <script setup lang="ts">
+const code1 = `<template>
+  <EBtn icon="add">新增</EBtn>
+  <EBtn type="default">取消</EBtn>
+  <EBtn type="success">成功</EBtn>
+  <EBtn type="warning">警告</EBtn>
+  <EBtn type="danger">错误</EBtn>
+</template>`
 
-import {ref} from 'vue'
 
-const code1 = `<EBtn icon="add">新增</EBtn>
-<EBtn type="default">取消</EBtn>
-<EBtn type="success">成功</EBtn>
-<EBtn type="warning">警告</EBtn>
-<EBtn type="danger">错误</EBtn>`
+const code2 = `<template>
+  <EBtn plain icon="add">新增</EBtn>
+  <EBtn plain type="default">取消</EBtn>
+  <EBtn plain type="success">成功</EBtn>
+  <EBtn plain type="warning">警告</EBtn>
+  <EBtn plain type="danger">错误</EBtn>
+</template>`
 
 
-const code2 = `<EBtn plain icon="add">新增</EBtn>
-<EBtn plain type="default">取消</EBtn>
-<EBtn plain type="success">成功</EBtn>
-<EBtn plain type="warning">警告</EBtn>
-<EBtn plain type="danger">错误</EBtn>`
+const tableData = [
+  {
+    name: 'icon',
+    desc: '按钮图标',
+    type: 'string',
+    options: '',
+    default: '',
+  },
+  {
+    name: 'iconSize',
+    desc: '按钮图标大小',
+    type: 'string',
+    options: '',
+    default: '18px',
+  },
+  {
+    name: 'tooltip',
+    desc: '鼠标悬浮提示文字',
+    type: 'string',
+    options: '',
+    default: '',
+  },
+  {
+    name: 'tooltipPlacement',
+    desc: '提示文字显示位置',
+    type: 'string',
+    options: 'top | left | right | bottom',
+    default: 'top',
+  },
+]
 
-// 点击查看源代码
-const isShowCode = ref(false)
-const isShowCode2 = ref(false)
+// icon?: string,      // 按钮图标
+//   iconSize?: string,  // 按钮图标大小
+//   tooltip?: string,   // 按钮提示文字
+//   tooltipPlacement?: 'top' | 'left' | 'right' | 'bottom'
 </script>
 
 <template>
   <AppPage title="按钮组件" icon="smart_button">
-    <div class="w-[600px] border border-line rounded mb-8">
-      
-      <div class="px-4 py-2 flex justify-between items-center border-b border-line">
-        <h6>基本样式</h6>
-        <EBtnIcon name="code" tooltip="源代码" @click="isShowCode = !isShowCode"/>
-      </div>
-      
-      <div v-show="isShowCode" class="border-b border-line">
-        <CodePanel :code="code1" lang="html" class="w-full rounded-none"/>
-      </div>
-      
-      <div class="p-5 flex gap-4">
-        <EBtn icon="add">新增</EBtn>
-        <EBtn type="default">取消</EBtn>
-        <EBtn type="success">成功</EBtn>
-        <EBtn type="warning">警告</EBtn>
-        <EBtn type="danger">错误</EBtn>
-      </div>
     
+    <h3 class="my-4">API</h3>
+    <div class="w-[800px] mb-6">
+      <el-table :data="tableData">
+        <el-table-column prop="name" label="属性名" width="180"/>
+        <el-table-column prop="desc" label="说明" width="280"/>
+        <el-table-column prop="type" label="类型"/>
+        <el-table-column prop="options" label="可选值"/>
+        <el-table-column prop="default" label="默认值"/>
+      </el-table>
     </div>
     
-    
-    <div class="w-[600px] border border-line rounded">
+    <h3 class="my-4">应用示例</h3>
+    <div class="gap-y-8">
+      <ExamplePanel title="基本样式" :code="code1" lang="html">
+        <div class="flex gap-4">
+          <EBtn icon="add">新增</EBtn>
+          <EBtn type="default">取消</EBtn>
+          <EBtn type="success">成功</EBtn>
+          <EBtn type="warning">警告</EBtn>
+          <EBtn type="danger">错误</EBtn>
+        </div>
+      </ExamplePanel>
       
-      <div class="px-4 py-2 flex justify-between items-center border-b border-line">
-        <h6>Plain 样式</h6>
-        <EBtnIcon name="code" tooltip="源代码" @click="isShowCode2 = !isShowCode2"/>
-      </div>
-      
-      <div v-show="isShowCode2" class="border-b border-line">
-        <CodePanel :code="code2" lang="html" class="w-full rounded-none"/>
-      </div>
-      
-      <div class="p-5 flex gap-4">
-        <EBtn plain icon="add">新增</EBtn>
-        <EBtn plain type="default">取消</EBtn>
-        <EBtn plain type="success">成功</EBtn>
-        <EBtn plain type="warning">警告</EBtn>
-        <EBtn plain type="danger">错误</EBtn>
-      </div>
-    
+      <ExamplePanel title="Plain 样式" :code="code2" lang="html">
+        <div class="flex gap-4">
+          <EBtn plain icon="add">新增</EBtn>
+          <EBtn plain type="default">取消</EBtn>
+          <EBtn plain type="success">成功</EBtn>
+          <EBtn plain type="warning">警告</EBtn>
+          <EBtn plain type="danger">错误</EBtn>
+        </div>
+      </ExamplePanel>
     </div>
   </AppPage>
 </template>
