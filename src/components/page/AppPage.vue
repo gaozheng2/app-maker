@@ -1,5 +1,7 @@
 <!--【Element 通用组件】/【通用页面】/【应用页面】-->
 <script setup lang="ts">
+import EPanelTitle from '@/components/page/AppPage/EPanelTitle.vue'
+
 const props = defineProps<{
   title?: string,     // 页面标题
   icon?: string,      // 页面图标
@@ -35,6 +37,9 @@ const emits = defineEmits<{
         </slot>
       </div>
     </div>
+    
+    <!--  页面标题  -->
+    <EPanelTitle :title="title" :icon="icon"/>
     
     <!--  插槽：主体内容  -->
     <slot/>

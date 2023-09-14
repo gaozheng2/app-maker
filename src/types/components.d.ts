@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppPage: typeof import('./../components/page/AppPage.vue')['default']
+    CodePanel: typeof import('./../components/panel/CodePanel.vue')['default']
     EBreadcrumb: typeof import('./../components/page/AppPage/EBreadcrumb.vue')['default']
     EBtn: typeof import('./../components/button/EBtn.vue')['default']
     EBtnFullscreen: typeof import('./../components/button/EBtnFullscreen.vue')['default']

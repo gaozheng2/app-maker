@@ -52,12 +52,10 @@ const onClickProjectSetting = (project: ProjectConfigType) => {
 </script>
 
 <template>
-  <AppPage class="max-w-7xl mx-auto"
+  <AppPage title="开发项目" icon="apps" class="max-w-7xl mx-auto"
            @click-help="onClickHelp" @click-setting="onClickSetting">
     
     <!--  开发项目列表  -->
-    <EPanelTitle title="开发项目" icon="apps"/>
-    
     <el-scrollbar height="184">
       <div class="flex flex-nowrap gap-8">
         <!--        <template v-for="i in 10">-->

@@ -7,10 +7,16 @@
 const appList: AppListItemType[] = [
   {type: 'app', name: 'desktop', title: '工作台', icon: 'r_dashboard', onlyIcon: true, iconSize: '22px',},  // 可自定义图标大小，默认 22px
   {type: 'module', name: 'app-dev', title: '应用开发', icon: 'api', miniMenu: true,},
-  {type: 'module', name: 'widgets', title: '组件库', icon: 'extension',},
+  {
+    type: 'module', name: 'widgets', title: '组件库', icon: 'extension', children: [
+      {type: 'group', name: 'group3-1', title: '基本组件',},
+      {type: 'app', name: 'button', title: '按钮组件',},
+      {type: 'app', name: 'icon', title: '图标组件', icon: 'keyboard_command_key',},
+    ]
+  },
   {
     type: 'module', name: 'app-repo', title: '应用库', icon: 'widgets', children: [
-      {type: 'group', name: 'group1', title: '系统管理',},
+      {type: 'group', name: 'group4-1', title: '系统管理',},
       {type: 'app', name: 'user', title: '用户管理', icon: 'o_people',},
       {type: 'app', name: 'role', title: '角色管理', icon: 'o_manage_accounts',},
       {type: 'app', name: 'menu', title: '菜单管理', icon: 'list',},

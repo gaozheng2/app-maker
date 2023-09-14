@@ -1,23 +1,15 @@
 <script setup lang="ts">
 import type {Ref} from 'vue'
-import {inject, onMounted, ref} from 'vue'
-import Prism from 'prismjs'
-import 'prismjs/themes/prism-tomorrow.min.css'  //高亮主题
-import 'prismjs/plugins/line-numbers/prism-line-numbers.min.js'  //行号插件
-import 'prismjs/plugins/line-numbers/prism-line-numbers.min.css'
-import {useClipboard} from '@vueuse/core'  //行号插件的样式
+import {inject, ref} from 'vue'
+import CodePanel from '@/components/panel/CodePanel.vue'
 
 
 const projectData = inject<Ref<ProjectConfigType>>('projectData')
 
 const formData = projectData?.value
 
-onMounted(() => {
-  Prism.highlightAll()
-})
 
-
-const input = ref('const baseConfig: ProjectBaseConfigType = {\n' +
+const code = ref('const baseConfig: ProjectBaseConfigType = {\n' +
   '  configVersion: \'1.0\',\n' +
   '  name: \'AppMaker\',\n' +
   '  title: \'应用开发平台\',\n' +
@@ -25,19 +17,6 @@ const input = ref('const baseConfig: ProjectBaseConfigType = {\n' +
   '  version: \'0.0.1\',\n' +
   '  logoUrl: \'./assets/logo.svg\',\n' +
   '}')
-
-
-// 点击复制按钮
-const {copy} = useClipboard()
-const isCopied = ref(false)
-
-const onClickCopy = () => {
-  copy(input.value)
-  isCopied.value = true
-  setTimeout(() => {
-    isCopied.value = false
-  }, 1500)
-}
 </script>
 
 <template>
@@ -62,33 +41,6 @@ const onClickCopy = () => {
       </el-form>
     </div>
     
-    <div class="relative w-96 bg-neutral-800 rounded">
-      <el-scrollbar class="h-[400px]">
-      <pre>
-          <code class="language-js">
-{{ input }}
-          </code>
-      </pre>
-      </el-scrollbar>
-      
-      <!--  拷贝按钮  -->
-      <div class="absolute right-2 bottom-1 flex items-center gap-2">
-        <span class="text-third opacity-0 duration-500"
-              :class="{ 'opacity-100': isCopied }">
-          已复制
-        </span>
-        <EBtnIcon name="content_copy" class="text-third" @click="onClickCopy"/>
-      </div>
-    </div>
-  
+    <CodePanel :code="code"/>
   </div>
 </template>
-
-<style scoped lang="scss">
-// 设置代码块高度和背景色
-pre {
-  @apply h-full bg-transparent;
-  white-space: pre-wrap;
-  overflow: hidden;
-}
-</style>
