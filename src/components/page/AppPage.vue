@@ -39,7 +39,7 @@ const emits = defineEmits<{
     </div>
     
     <!--  页面标题  -->
-    <EPanelTitle :title="title" :icon="icon"/>
+    <EPanelTitle v-if="title" :title="title" :icon="icon"/>
     
     <!--  插槽：主体内容  -->
     <slot/>
